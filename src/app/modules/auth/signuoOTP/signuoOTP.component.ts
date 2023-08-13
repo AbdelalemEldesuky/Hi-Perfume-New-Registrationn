@@ -410,7 +410,7 @@ export class signuoOTPComponent
       this.toaster.error(message2);
       localStorage.setItem('userIsVerfied','false')
       localStorage.removeItem("isLoginNovirfy")
-      window.location.reload();
+      location.href = '/'
     }
   }
     this.unsubscribeSignal.next();
