@@ -109,6 +109,8 @@ export class SelectionComponentComponent implements OnInit {
       // Handle the popup notification click event
       // console.log('Popup notification clicked:', data);
       this.refreshAPICart()
+      console.log('this.catId-----',this.catId);
+      
       this.getProductsByCategory(this.catId)
       // Perform any desired actions with the data
     });

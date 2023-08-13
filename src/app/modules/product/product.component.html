@@ -127,7 +127,7 @@
       <div>
       </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
       <div class="comments_component">
         <div class="container">
           <div class="d-flex justify-content-left row">
@@ -136,11 +136,9 @@
                <div class="comments_div col-6 col-md-6 col-sm-12">
                 <div *ngFor="let comment of product.comments" class="bg-white p-2 ">
                   <div class="d-flex flex-row user-info">
-                    <!-- <img *ngIf="comment.user.avatar" class="rounded-circle" [src]="comment.user.avatar" width="40"> -->
                     <img  class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
                     <div class="d-flex flex-column justify-content-start ml-2"><span
                         class="d-block font-weight-bold name">{{comment.user.first_name}}  {{comment.user.last_name}} </span>
-                        <!-- <span class="date text-black-50">Shared publicly - Jan 2020</span> -->
                       </div>
                   </div>
                 
@@ -152,20 +150,11 @@
                   </div>
                 </div>
                </div>
-                <!-- <div class="bg-white">
-                  <div class="d-flex flex-row fs-12">
-                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
-                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span>
-                    </div>
-                    <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
-                  </div>
-                </div> -->
                 <div class="bg-light p-2 col-6 col-md-6 col-sm-12">
                   <div class="d-flex flex-row align-items-start">
                     <img class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
                     <div class="d-flex flex-column justify-content-start ml-2"><span
                       class="d-block font-weight-bold name">User Name </span>
-                      <!-- <span class="date text-black-50">Shared publicly - Jan 2020</span> -->
                     </div>
                   </div>
                     <form [formGroup]="addCommentForm">
@@ -178,8 +167,6 @@
                         
                         <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addComment()">Post
                             comment</button>
-                            <!-- <button class="btn btn-outline-primary btn-sm ml-1 shadow-none"
-                            type="button">Cancel</button> -->
                           </div>
                       </form>
                     
@@ -189,7 +176,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
   </section>
