@@ -1,0 +1,93 @@
+<section>
+  <!-- <app-header></app-header> -->
+  <div class="container">
+    <div class="selection_container_img">
+      <img src="../../../assets/hi_perfume_images/cart_title_img.png" alt="">
+      <div class="selection_container_img_text">
+        shopping cart
+      </div>
+    </div>
+    <div *ngIf="cartDetails" class=" row">
+
+      <section class="checkout-container">
+
+        <body>
+
+
+          <main>
+
+
+            <section class="checkout-details">
+              <div class="checkout-details-inner">
+                <div class="checkout-lists">
+                  <div class="items_div">
+                    <div *ngFor="let cart of cartDetails.items" class="card_">
+                      <div class="card_-image"><img [src]="cart.image" alt=""></div>
+                      <div class="card_-details" style="width: 50%;">
+                        <div class="card_-name" style="font-size: 14px;font-weight: 700;">{{cart.name}}</div>
+                        <div class="card_-name">{{cart.sub_name}}</div>
+                        <!-- <div class="star_rate_container">
+                                     <ul *ngFor="let star of stars" class="list-inline rating-list"
+                                         style="display: inline-block;">
+                                         <li [ngClass]="{'selected': star <= (cart.item_rate)}">
+                                             <i class="fa fa-star" aria-hidden="true"></i>
+                                         </li>
+                                     </ul>
+                                 </div> -->
+                        <div class="card_-price" style="font-size: 13px;">${{cart.total_price}}
+                          <!-- <span>$94.99</span> -->
+                        </div>
+                        <!-- <div class="card_-wheel">
+                                     <button [disabled]="cart.quantity == 1" (click)="updateCart(cart.cart_id,cart.quantity)" >-</button>
+                                     <span>{{cart.quantity}}</span>
+                                     <button (click)="addToCart(cart.item_id)">+</button>
+                                   </div> -->
+                      </div>
+                      <!-- <div >
+                                   <div (click)="deleteCart(cart.item_id)" class="delete_cart">
+                                     <img  src="../../../assets/hi_perfume_images/delete_icon.png" alt="">
+                                 </div>
+                                 </div> -->
+                    </div>
+                  </div>
+
+                </div>
+                <div class="checkout-shipping">
+                  <div class="total_txt">Initial Price</div>
+                  <p>${{cartDetails.net_total_price}}</p>
+                </div>
+                <div class="checkout-shipping">
+                  <div class="total_txt">Shipping</div>
+                  <p>{{cartDetails.shipping.price}}</p>
+                </div>
+                <div class="checkout-total">
+                  <div class="total_txt">Total Price</div>
+                  <p>${{cartDetails.total_price}}</p>
+                </div>
+
+                <!-- <button  (click)="addToCartOrder(paymentModalTemplate)" type="submit" mdbBtn color="primary" class="btn-login" >Buy Back
+                        </button> -->
+                          <button   [routerLink]="['/checkout/invoice' ]" type="submit" mdbBtn color="primary" class="btn-login" >Invoice</button>
+
+              </div>
+            </section>
+
+
+
+          </main>
+
+        </body>
+
+
+
+
+
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+</section>

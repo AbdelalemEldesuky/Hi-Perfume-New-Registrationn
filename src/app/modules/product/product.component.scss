@@ -1,0 +1,755 @@
+// @import '../home/home.component.scss';
+
+.product-container {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  padding-top: 110px;
+}
+
+
+.slider {
+  // height: 60vh;
+  // display: flex;
+  flex-direction: row-reverse;
+}
+
+.product .sm_img {
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 3px solid #FFFFFF;
+  border-radius: 10px;
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+}
+
+.product img {
+  width: 100%;
+  height: 100%;
+}
+
+.product .sm_img:hover {
+  border: #E1AF4F 4px solid;
+  border-radius: 20px;
+}
+
+.preview .lg_img {
+  // border: 6px solid #E1AF4F;
+  border-radius: 5px;
+  height: 320px;
+  width: 320px;
+  overflow: hidden;
+  background: #000;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.star,
+.price {
+  display: flex;
+}
+
+.content p {
+  // color: #FFFFFF;
+}
+
+.price .icon {
+  border-radius: 70px;
+  margin-left: 60px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  background-color: #E1AF4F;
+}
+
+.add_to_cart_btn {
+  background: transparent;
+  border: 1px solid #E1AF4F;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  height: 35px !important;
+  font-size: 14px !important;
+  transition: all 0.5s;
+  width: 70%;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  overflow: hidden;
+  background-color: #E1AF4F;
+  width: 60%;
+  padding: 5px;
+}
+
+.add_to_cart_btn:hover {
+  color: #E1AF4F;
+  background: #000
+}
+
+.add_to_cart_btn_added {
+  color: #E1AF4F;
+  background: #000
+}
+
+.price p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 150.9%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 0px;
+  margin-right: 15px;
+}
+
+.content .content-p {
+  font-weight: 600;
+  font-size: 14px;
+  /* line-height: 150.9%; */
+  letter-spacing: 0.05em;
+  color: #C6C6C6;
+  margin-top: 0px;
+}
+
+.price .icon img {
+  margin-top: 6px;
+}
+
+h2 {
+  width: fit-content;
+  margin-bottom: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.content {
+  padding-top: 20px;
+  // float: right;
+  margin-left: 100px;
+}
+
+.rating {
+  display: flex;
+  width: 106px;
+  height: 19px;
+  margin-left: 30px;
+  background: url(../../../assets/hi_perfume_images/product_view_img_.svg);
+}
+
+.rating i {
+  color: #E1AF4F;
+}
+
+h5 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  /* letter-spacing: 0.05em; */
+  color: #7E7E7E;
+  padding-bottom: 5px;
+}
+
+.price {
+  color: #FFFFFF;
+  font-size: 25px;
+  padding-top: 5px;
+  clear: both;
+}
+
+.product-text {
+  text-align: center;
+  margin: auto;
+}
+
+.product-text h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  /* letter-spacing: 0.05em; */
+  text-align: left;
+  color: #7E7E7E;
+  // width: 83%;
+  padding: 35px 0;
+}
+
+
+/////////rating/////////
+.rating-list li {
+  float: right;
+  color: #999999;
+  padding: 10px 5px;
+  font-size: 1.5rem;
+  font-size: 18px;
+  padding: 3px;
+}
+
+.rating-list li:hover,
+.rating-list li:hover~li,
+.rating-list li.selected {
+  color: #ffba00;
+  font-size: 18px;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+  direction: ltr;
+  float: left;
+}
+
+.rating-list li.selected {
+  color: #ffba00;
+  font-size: 18px;
+  padding: 3px;
+}
+
+.star_rate_container {
+  margin-top: -4px;
+  margin-left: 5px;
+
+}
+
+/* Styles for desktop devices */
+@media (max-width: 992px) {
+
+  /* CSS rules for devices with a minimum width of 992px */
+  .product-container .product {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0 15px -50px;
+  }
+
+  .slider {
+    flex-direction: row;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
+
+
+.favorite_icon {
+  border: solid 2px #E1AF4F;
+  border-radius: 50%;
+  padding: 1px 4px;
+  width: 35px;
+  height: 35px;
+  color: #E1AF4F;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.isFavorite_icon {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 1px 4px;
+}
+
+.favorite_icon_ img {
+  margin: auto;
+  margin-right: 9px;
+  margin-top: -4px;
+  cursor: pointer;
+  width: 35px;
+}
+
+.container_social ul:before {
+  content: "";
+  position: absolute;
+  top: -2%;
+  left: -8%;
+  width: 104%;
+  height: 104%;
+  border-radius: 50%;
+  // background-color: #426fc5;
+  z-index: 6;
+  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+  background: url(../../../assets/hi_perfume_images/share_icon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+}
+
+.selection_btn {
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  width: 100%;
+}
+
+
+/////////rating/////////
+.rating-list li {
+  float: right;
+  color: #999999;
+  padding: 10px 5px;
+  font-size: 1.5rem;
+  font-size: 15px;
+  padding: 2px;
+}
+
+.rating-list li:hover,
+.rating-list li:hover~li,
+.rating-list li.selected {
+  color: #ffba00;
+  font-size: 15px;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+  direction: ltr;
+  float: left;
+  margin-bottom: 5px;
+}
+
+.rating-list li.selected {
+  color: #ffba00;
+  font-size: 15px;
+  padding: 2px;
+}
+
+.star_rate_container {
+  margin-top: 5px;
+  margin-left: 5px;
+
+}
+
+/////////////////////
+
+.favorite_icon {
+  border: solid 2px #E1AF4F;
+  border-radius: 50%;
+  padding: 6px;
+  width: 35px;
+  height: 35px;
+  color: #E1AF4F;
+  margin-right: 10px;
+}
+
+.isFavorite_icon {
+  border-radius: 50%;
+  padding: 6px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border: solid 2px #E1AF4F;
+  color: #fff;
+  background-color: #E1AF4F;
+}
+
+.favorite_icon:hover {
+  border: solid 2px #E1AF4F;
+  color: #fff;
+  background-color: #E1AF4F;
+
+}
+
+.share_icon img {
+  margin: 0;
+  width: 36px;
+  height: 35px;
+  margin-right: 9px;
+  cursor: pointer;
+}
+
+
+
+///////////// Social Midea Share ////////////////
+
+
+.container_social ul {
+  position: relative;
+  list-style: none;
+  width: 35px;
+  height: 35px;
+}
+
+.container_social ul:before {
+  content: "";
+  position: absolute;
+  top: -2%;
+  left: -2%;
+  width: 104%;
+  height: 104%;
+  border-radius: 50%;
+  // background-color: #426fc5;
+  z-index: 6;
+  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+  background: url(../../../assets/hi_perfume_images/share_icon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+
+}
+
+.container_social ul:after {
+  // content: "Share me!";
+  font-size: 4vh;
+  color: white;
+  text-align: center;
+  z-index: 7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.container_social ul li {
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  width: 33px;
+  height: 33px;
+  left: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.container_social ul li:nth-child(1) {
+  // background-color: #47c157;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.58s;
+  z-index: 1;
+  font-size: 20px;
+
+}
+
+.container_social ul li:nth-child(2) {
+  // background-color: #db1cb8;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.66s;
+  z-index: 2;
+  font-size: 20px;
+
+}
+
+.container_social ul li:nth-child(3) {
+  // background-color: #3b5998;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.74s;
+  z-index: 3;
+}
+
+.container_social ul li:nth-child(4) {
+  // background-color: #55acee;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+  z-index: 4;
+}
+
+.container_social ul li:nth-child(5) {
+  // background-color: #55acee;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+  z-index: 0;
+  // display: none;
+}
+
+.bg_socila_icons {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.container_social a {
+  display: block;
+  color: #fff;
+}
+
+.container_social a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.container_social:hover li:nth-child(1) {
+  transform: translate(40px, 0);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.08s;
+}
+
+.container_social:hover li:nth-child(2) {
+  transform: translate(80px, 0);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.16s;
+}
+
+.container_social:hover li:nth-child(3) {
+  transform: translate(120px, 0);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.24s;
+}
+
+.container_social:hover li:nth-child(4) {
+  transform: translate(160px, 0);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.32s;
+}
+
+.container_social:hover li:nth-child(5) {
+  transform: translate(90px, 0);
+  transition: transform 0.4s cubic-bezier(0.75, 0, 0.175, 1) 0.32s;
+
+  .bg_socila_icons {
+    width: 200px !important;
+    height: 35px !important;
+
+  }
+
+}
+
+
+.logo {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.favorite_icon_ img {
+  margin: auto;
+  margin-right: 9px;
+  margin-top: 2px;
+  cursor: pointer;
+  width: 35px;
+}
+
+
+
+/* Styles for mobile devices */
+@media (max-width: 790px) {
+
+  .product-container .product {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 10px 0px;
+  }
+
+  .product .sm_img {
+    margin: 4px;
+  }
+
+  .add_to_cart_btn {
+
+    display: block;
+    margin: auto;
+    // margin-top: -5px;
+    height: 30px !important;
+    margin: 2px 5px;
+    width: 140px !important;
+    font-size: 12px !important;
+    padding: 5px;
+  }
+
+  .product-container {
+    padding-top: 25%;
+
+  }
+
+  .preview .lg_img {
+    // height: 180px;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+
+  }
+
+  .content {
+    padding-top: 0;
+  }
+
+  .product-text h3 {
+    padding-top: 15px;
+  }
+
+
+  .favorite_icon_ img {
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+
+.comments_component {
+padding-bottom: 20px;
+  .date {
+    font-size: 11px
+  }
+
+  .comment-text {
+    font-size: 14px;
+    color: #ede7e7;
+    padding-left: 50px;
+  clear: both;
+
+  }
+  .bg-white ,.bg-light{
+    background: transparent !important;
+  }
+  .btn-primary:hover{
+    background: #000 !important;
+    color: #E1AF4F !important;
+
+  }
+  .btn-primary{
+background: #E1AF4F !important;
+  }
+  .fs-12 {
+    font-size: 12px;
+  }
+
+  .shadow-none {
+    box-shadow: none
+  }
+
+  .name {
+    color: #E1AF4F
+  }
+
+  .cursor:hover {
+    color: #E1AF4F
+  }
+
+  .cursor {
+    cursor: pointer
+  }
+
+  .textarea {
+    resize: none
+  }
+}
+
+///////////loader/////////////
+::ng-deep.stars-line{
+  justify-content: end;
+
+}
+::ng-deep.star-full{
+  background-color: #E1AF4F !important;
+}
+::ng-deep.star-empty{
+  background-color: #c7deea !important;
+}
+::ng-deep.star-half{
+  background-color: #E1AF4F !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+   place-items: center;
+    font-family: 'Manrope', sans-serif;
+   background: red;
+    
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px;
+    width: 450px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 6px;
+    -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+}
+
+.comment-box{
+    
+    padding:5px;
+}
+
+
+
+.comment-area textarea{
+   resize: none; 
+        border: 1px solid #ad9f9f;
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgb(255, 0, 0) !important;
+}
+
+.send {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+.send:hover {
+    color: #fff;
+    background-color: #f50202;
+    border-color: #f50202;
+}
+
+
+.rating {
+ display: flex;
+        margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+        float: left;
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+        position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+
+@import '../../../assets/scss/popup_item_added.scss';

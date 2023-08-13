@@ -1,0 +1,56 @@
+<div>
+<div  class="container">
+  <div class="imgcontainer">
+    You can now join our sales team Please enter your information
+</div>
+<form [formGroup]="becomePartnersForm">
+  <div class=" form-group  login-text">
+    <input mdbInput formControlName="name" type="text" required class="form-control" id="formGroupExampleInputMD" placeholder="Full name">
+  </div>
+  <!-- <div class=" form-group  login-text">
+    <input mdbInput formControlName="address" type="text" required class="form-control" id="formGroupExampleInputMD" placeholder="Address">
+  </div> -->
+  <div class=" form-group  login-text">
+    <input mdbInput formControlName="email" type="email" required class="form-control" id="formGroupExampleInputMD" placeholder="Email">
+  </div>
+  <div class=" form-group  login-text">
+    <!-- <input mdbInput formControlName="mobile" type="text" required class="form-control" id="formGroupExampleInputMD" placeholder="Phone number"> -->
+    <ngx-intl-tel-input [cssClass]="'custom'" style="padding: 0;"
+    [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+    [enablePlaceholder]="true" [searchCountryFlag]="true"
+    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+    [selectFirstCountry]="false" [selectedCountryISO]="country_iso" [maxLength]="15"
+    [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" [separateDialCode]="separateDialCode"
+    name="phone" formControlName="mobile">
+  </ngx-intl-tel-input>
+  </div>
+  <div class=" form-group  login-text " style="margin-top: 20px;"> 
+      <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" formControlName="message"></textarea>
+
+  </div>
+  <div class=" form-group  login-text">
+    <input mdbInput formControlName="region" type="text" required class="form-control" id="formGroupExampleInputMD" placeholder="Region">
+  </div>
+  <!-- <div class=" form-group  login-text">
+    <select   id="gender" formControlName="gender" value=' "--Select Gender--"'>
+      <option value="">--Select Gender--</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div> -->
+
+
+
+  
+  <div class=" form-group " >
+    <div class="col-auto" >
+      <button type="submit" (click)="submit()" mdbBtn color="primary" class="mb-0 btn-login">Submit</button>
+    </div>
+    </div>
+
+
+
+</form>
+
+</div>
+</div>

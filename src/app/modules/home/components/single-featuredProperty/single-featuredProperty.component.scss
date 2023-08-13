@@ -1,0 +1,174 @@
+@import '../../../../../assets/scss/_variables.scss';
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.bottom-left-2 {
+  position: absolute;
+  bottom: 28px;
+  left: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: #838282;
+  font-size: 12px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  word-break: break-all;
+  color: black;
+}
+
+.top-left-2 {
+  position: absolute;
+  top: 37px;
+  left: 12px;
+  font-size: 13px;
+  word-break: break-word;
+  color: #838282;
+}
+
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  word-break: break-word;
+  color: black;
+}
+
+.top-right-2 {
+  position: absolute;
+  top: 37px;
+  right: 12px;
+  font-size: 13px;
+  word-break: break-word;
+  color: #838282;
+}
+
+.bottom-right-2 {
+  position: absolute;
+  bottom: 28px;
+  right: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: #838282;
+  font-size: 12px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.featuredProperty {
+  position: relative;
+  margin: 20px auto;
+  border-radius: 5px;
+
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  a {
+    text-decoration: none;
+    z-index: 999;
+  }
+
+  &__img {
+    width: auto;
+    height: 300px;
+    background-repeat: round;
+    // background-size: cover;
+    @media only screen and (max-width: 1440px) {
+      /* styles for MacBook Pro-sized screens and larger */
+      background-size: auto;
+      background-repeat: round;
+    }
+    @media only screen and (max-width: 1378px) {
+      /* styles for MacBook Pro-sized screens and larger */
+      background-size: auto;
+      background-repeat: round;
+    }
+    @media only screen and (max-width: 450px) {
+      /* styles for narrow screens */
+      background-repeat: inherit;
+    }
+    position: relative;
+    border-radius: 5px;
+    // background-image: linear-gradient(to top, $main-color-light, $main-color-light-1);
+    .layer {
+      background-image: linear-gradient(to top, $main-color-light, $main-color-light-1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background-repeat: round;
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .featuredProperty {
+    &__img {
+      width: auto;
+      height: 155px;
+      background-size: cover;
+      position: relative;
+      border-radius: 5px;
+      background-position: center;
+      background-repeat: no-repeat;
+      // background-repeat: round;
+    }
+  }
+}

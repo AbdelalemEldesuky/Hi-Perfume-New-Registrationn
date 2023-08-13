@@ -1,0 +1,43 @@
+<section>
+  <div class="discover_container">
+    <div class="best_seller_container">
+      <div style="position: relative;">
+        <img class="img" src="../../../../assets/hi_perfume_images/discover_perfume_text.png" alt="">
+      </div>
+    </div>
+    <div class="discover_div container wrapper">
+      <div class="tag-area">
+        <div class="tag" *ngFor="let selectedTag of selectedTags">
+          {{ selectedTag }}<span (click)="removeTag(selectedTag)"><img
+              src="../../../../assets/hi_perfume_images/close_icon.png" alt=""></span>
+        </div>
+      </div>
+      <div class="tags">
+        <h3>suggested tags :</h3>
+        <div class="dropdown_" (click)="toggleDropdown()">
+          <ul class="dropdown-menu_" [ngClass]="{ 'open': dropdownOpen }">
+            <li class="tag_div" *ngFor="let tag of tags" >
+             
+              <div class="category" [ngClass]="{ 'active': tag.showSubcategories }" (click)="tag.showSubcategories = !tag.showSubcategories">
+                <i style="font-size: 11px;" class="fa-solid fa-plus"></i>  {{ tag.name }}
+              </div>
+              <div *ngIf="tag.showSubcategories" class="body" style="    display: block;
+              line-height: 2;
+              margin-bottom: 20px;
+              padding-bottom: 20px;">
+                <a *ngFor="let subCategory of tag.sub_tags" (click)="addTag(subCategory.name)"
+                [class.added]="selectedTags.includes(subCategory.name)">
+                 <div>
+                  {{subCategory.name}}
+                 </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="view" (click)="onSearch()"><a>Discover ({{productsDiscover.length}})</a></button>
+    </div>
+  </div>
+</section>
+

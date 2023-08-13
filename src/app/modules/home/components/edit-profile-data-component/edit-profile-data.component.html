@@ -1,0 +1,347 @@
+<section *ngIf="userData" class="profile_user_container">
+
+  <div class="container profile">
+    <div class="upload-img">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+        <div class="group-gap">
+
+          <div class="avatar-upload">
+            <div class="avatar-edit">
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+            </div>
+            <div class="avatar-preview">
+              <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+              </div>
+            </div>
+          </div>
+          <div class="camera_vector" type="submit" (click)="fileInput.click()">
+            <img src="../../../../../assets/hi_perfume_images/camira_vector.png" alt="">
+          </div>
+        </div>
+
+
+      </form>
+      <div class="upload-img-name">
+        {{userData ? userData.name : ""}}
+      </div>
+      <div class="upload-img-address">
+        <!-- {{userData ? userData.address : ""}} -->
+      </div>
+    </div>
+
+    <tabset type="pills" #tabset >
+      <tab heading="OVERVIEW" id="overview">
+        <div class="container-1">
+
+
+          <div class="text-form">
+            <div class="title">
+              <div class="row">
+                <div class="col-6 col-lg-6 col-md-6 col-sm-4">
+                  <div class="head">
+                    <h3>First Name :</h3>
+                    <h3>Last Name :</h3>
+                    <h3>Email :</h3>
+                    <h3>Mobile :</h3>
+                    <h3>Gender :</h3>
+                    <h3>Country :</h3>
+                    <h3>State :</h3>
+                    <h3>City :</h3>
+                    <h3>Zip Code :</h3>
+                  </div>
+
+
+                </div>
+                <div class="col-6 col-lg-6 col-md-6 col-sm-8">
+                  <div class="prag">
+                    <p>
+                      {{userData ? userData.first_name : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.last_name : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.email : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.mobile : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.gender : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.country : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.state : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.city : ""}}
+                    </p>
+                    <p>
+                      {{userData ? userData.zip_code : ""}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="btns">
+              <button type="button" class="btn-1 btn-primary btn-sm" (click)='goto(1)'>edit</button>
+              <button type="button" class="btn-2 btn-secondary btn-sm" (click)="logOut();"> sign out</button>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab heading="ACCOUNT PROFILE" id="edit_profile" (click)="activeTabId = 'edit_profile'">
+        <div class="container-2">
+
+
+          <form [formGroup]="addUserForm">
+            <div class="form-sec row">
+              <div class="first-sec col-lg-6 col-md-6 col-sm-12">
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12"> First Name:</label>
+                  <input formControlName="first_name" class="col-lg-8 col-md-8 col-sm-12 " type="text">
+
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12"> Last Name:</label>
+                  <input formControlName="last_name" class="col-lg-8 col-md-8 col-sm-12 " type="text">
+
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Phone:</label>
+                  <ngx-intl-tel-input [cssClass]="'custom'" style="padding: 0;"
+                    [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                    [enablePlaceholder]="true" [searchCountryFlag]="true"
+                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                    [selectFirstCountry]="false" [selectedCountryISO]="country_iso" [maxLength]="15"
+                    [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                    class="col-lg-8 col-md-8 col-sm-12 " name="phone" formControlName="mobile">
+                  </ngx-intl-tel-input>
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Country:</label>
+                  <select class="col-lg-8 col-md-8 col-sm-12 " id="country" formControlName="country">
+                    <option [ngValue]="null" [disabled]="true">Select country</option>
+                    <option *ngFor="let country of countries" [value]="country.shortName"> {{ country.name }}</option>
+                  </select>
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">City:</label>
+                  <select class="col-lg-8 col-md-8 col-sm-12 " id="city" formControlName="city">
+                    <option [ngValue]="null" [disabled]="true">Select city</option>
+                    <option *ngFor="let city of cities" [value]="city"> {{ city }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="second-sec col-lg-6 col-md-6 col-sm-12">
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Email:</label>
+                  <input formControlName="email" class="col-lg-8 col-md-8 col-sm-12 " type="email">
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Password:</label>
+                  <input formControlName="password" class="col-lg-8 col-md-8 col-sm-12 " type="password">
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Gender:</label>
+                  <select class="col-lg-8 col-md-8 col-sm-12 " id="gender" formControlName="gender">
+                    <option [ngValue]="null" [disabled]="true">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">State:</label>
+                  <select class="col-lg-8 col-md-8 col-sm-12 " id="state" formControlName="state">
+                    <option [ngValue]="null" [disabled]="true">Select state</option>
+                    <option *ngFor="let state of states" [value]="state"> {{ state }}</option>
+                  </select>
+                </div>
+                <div class="form-input row">
+                  <label class="col-lg-4 col-md-4 col-sm-12">Zip code:</label>
+                  <input formControlName="zip_code" class="col-lg-8 col-md-8 col-sm-12 " type="zip_code">
+                </div>
+              </div>
+
+
+
+              <div style="width: 100%;">
+                <button type="button" (click)="updateProfile()" class="btn-1 btn-primary btn-sm save_btn">save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </tab>
+      <tab heading="ORDER HISTORY" id="orders">
+        <div class="container-3">
+
+          <div class="cart-items">
+
+            <div class="item" *ngFor="let order of orders" (click)="openOrderDetails(order.id)">
+              <div class="item-image">
+                <img [src]="order.image" alt="Product Image">
+              </div>
+              <div class="item-info">
+                <h4>{{order.date}}</h4>
+                <!-- <h6>{{order.shipping.address}}</h6> -->
+                <p>{{order.shipping.address}}</p>
+              </div>
+              <div class="item-price">
+                <p>{{order.total_price}} $</p>
+                <div *ngIf="order.order_status" class="quantity">
+                  <img src="../../../../../assets/hi_perfume_images/Vector-1.png" alt="" srcset="">
+                  <h5>{{order.order_status}}</h5>
+                </div>
+                <div class="mark_out_for_delivery"></div>
+                <!-- <div class="mark_arrived"></div> -->
+              </div>
+            </div>
+            <!-- <div class="item">
+          <div class="item-image">
+              <img src="../../../../../assets/hi_perfume_images/Rectangle 12 (2).png" alt="Product Image">
+          </div>
+          <div class="item-info">
+              <h4>product name</h4>
+              <p>Some details about the product <br> and the store</p>
+              <div class="star_rate_container">
+                <ul
+                *ngFor="let star of stars"
+                class="list-inline rating-list"
+                style="display: inline-block;"
+              >
+                    <li [ngClass]="{'selected': star <= (selectedValue)}">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </li>
+              </ul>
+             </div>
+          </div>
+          <div class="item-price">
+              <p>52 L.E</p>
+              <div class="quantity">
+                <i  class="fa-solid fa-check-double"></i>
+                  <h5 class="arrived_text">arrived</h5>
+              </div>
+              <div class="mark_arrived"></div>
+          </div>
+      </div> -->
+          </div>
+        </div>
+      </tab>
+      <!-- <tab heading="PRIVACY TERMS" id="terms">
+       
+        <div [innerHTML]="privacy_policy.value" style="    padding: 20px;">
+        </div>
+      </tab> -->
+    </tabset>
+
+
+  </div>
+  <app-footer></app-footer>
+
+</section>
+
+
+<!-- <section>
+  <div class="modal-header" dir="rtl">
+    <div class="d-flex justify-content-between bd-highlight mb-3 vertical-text-centered">
+      <div class="p-2 bd-highlight"></div>
+      <div class="p-2 bd-highlight">
+        <h4 class="modal-title text-center" style="padding: 22px 65px 0 0">
+          {{"edit_data" | translate}}
+        </h4>
+      </div>
+      <div class="p-2 bd-highlight">
+      </div>
+    </div>
+  </div>
+  <div class="text-center" style="line-height: -0.5" dir="rtl">
+    <accordion class="panel-group" [isAnimated]="true" [closeOthers]="oneAtATime">
+      <accordion-group heading='{{"edit_data" | translate}}' class="clickable panel">
+        <div *ngIf="userData">
+
+          <div class="panel-collapse collapse in show" role="tabpanel"
+            style="overflow: visible; height: auto; display: block;">
+            <div class="panel-body card-block card-body">
+              <form [formGroup]="addUserForm" class="mt-3 ng-untouched ng-pristine ng-valid" style="padding: 0 15%">
+                <div class="group mb-25">
+                  <input type="text" formControlName="name" required class="ng-untouched ng-pristine ng-valid" name=""
+                    id="">
+                  <div class="highlight"></div>
+                  <label for="" class="input-label">
+                    {{"name" | translate}}
+                    <span style="color: indianred;">*</span>
+                  </label>
+                </div>
+
+                <div class="group mb-25">
+                  <input type="email" formControlName="email" required class="ng-untouched ng-pristine ng-valid" name=""
+                    id="">
+                  <div class="highlight"></div>
+                  <label for="" class="input-label">
+                    {{"email" | translate}}
+                    <span style="color: indianred;">*</span>
+                  </label>
+                </div>
+
+                <div class="d-flex pt-2 justify-content-center bd-highlight">
+                  <button (click)="updateProfile()" class="btn bg-green text-white btn-form">
+                    {{"change" | translate}}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </accordion-group>
+      <accordion-group heading="{{'change_mobile' | translate}}">
+        <form [formGroup]="changeUserMobileForm" class="mt-3 ng-untouched ng-pristine ng-valid" style="padding: 0 15%">
+          <div class="group mb-25">
+            <input type="text" id="phone" formControlName="phone" required class="ng-untouched ng-pristine ng-valid"
+              name="">
+            <label for="" class="input-label" for="Phone">{{"mobile" | translate}}
+              <span style="color: indianred;">*</span>
+            </label>
+          </div>
+          <div class="d-flex pt-2 justify-content-center bd-highlight">
+            <button (click)="updatePhone()" class="btn bg-green text-white btn-form">{{"change" | translate}}</button>
+          </div>
+        </form>
+      </accordion-group>
+      <accordion-group heading="{{'change_password' | translate}}">
+        <form [formGroup]="changeUserPasswordForm" class="mt-3 ng-untouched ng-pristine ng-valid"
+          style="padding: 0 15%">
+          <div class="group mb-25">
+            <input type="password" id="oldPassword" formControlName="oldPassword" required
+              class="ng-untouched ng-pristine ng-valid" name="">
+            <label for="" class="input-label" for="password">{{'old_password' | translate}}
+              <span style="color: indianred;">*</span>
+            </label>
+          </div>
+          <div class="group mb-25">
+            <input type="password" id="newPassword" formControlName="newPassword" required
+              class="ng-untouched ng-pristine ng-valid" name="">
+            <label for="" class="input-label" for="newPassword">{{"new_password" | translate}}
+              <span style="color: indianred;">*</span>
+            </label>
+          </div>
+          <div class="group mb-25">
+            <input type="password" id="newPasswordConfirmation" formControlName="newPasswordConfirmation" required
+              class="ng-untouched ng-pristine ng-valid" name="">
+            <label for="" class="input-label" for="confirmPassword">{{"re_enter_password" | translate}}
+              <span style="color: indianred;">*</span>
+            </label>
+          </div>
+          <div class="d-flex pt-2 justify-content-center bd-highlight">
+            <button (click)="updatePassword()" class="btn bg-green text-white btn-form">{{"change" |
+              translate}}</button>
+          </div>
+        </form>
+      </accordion-group>
+    </accordion>
+  </div>
+</section> -->

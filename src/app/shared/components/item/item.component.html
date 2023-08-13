@@ -1,0 +1,218 @@
+
+  <section  class="sortContainer  d-none d-md-block">
+    <app-sort></app-sort>
+  </section>
+
+<div style="position: absolute;top: -75px;left: 30px;" >
+  <section style="width: 15%;" class="sortContainer  d-block d-sm-block d-md-none">
+    <app-sort></app-sort>
+  </section>
+
+  <!-- <section *ngIf="items.length > 0" style="width: 100%;margin-top: 15px;"  class="arrangement d-block d-sm-block d-md-none">
+    <ul   class="row" style="margin: 0px;">
+      <li
+        class="col-3"
+      >
+        <a >
+          <span>{{items[0].name}}</span>
+        </a>
+      </li>
+      <li
+      class="col-3"
+    >
+      <a >
+        <span>{{items[0].city.name}}</span>
+      </a>
+    </li>
+    <li
+    class="col-3"
+    *ngIf="queryParamsDate"
+  >
+    <a >
+      <span>{{queryParamsDate}}</span>
+    </a>
+  </li>
+    </ul>
+  </section> -->
+</div>
+
+<ng-template [ngIf]="loading" [ngIfElse]="itemsView">
+  <!-- <app-loader></app-loader> -->
+   
+</ng-template>
+<ng-template #itemsView>
+  <section class="filterArragement">
+    <section [@cardAnimation]="propertiesLength">
+      <section class="card" style="border-radius: 18px;" *ngFor="let item of items | paginate: config">
+        <div class="row">
+          <div class="col-md-5">
+            <a *ngIf="!end_date" [routerLink]="['item-details', item._id]" [queryParams]="{ date: date }">
+              <article *ngIf="item.images[0]" class="card__carouel "
+                [style.backgroundImage]="'url(' + item.images[0] + ')'">
+                <ng-container *ngIf="!checkPropertyAvaiable(item)">
+                  <article class="notAvaliableInThatDay">
+                    <p>{{ "reserved_on_day" | translate }}</p>
+                  </article>
+                </ng-container>
+              </article>
+            </a>
+            <a *ngIf="end_date" [routerLink]="['item-details', item._id]" [queryParams]="{ date: date, end_date: end_date }">
+              <article *ngIf="item.images[0]" class="card__carouel "
+                [style.backgroundImage]="'url(' + item.images[0] + ')'">
+                <ng-container *ngIf="!checkPropertyAvaiable(item)">
+                  <article class="notAvaliableInThatDay">
+                    <p>{{ "reserved_on_day" | translate }}</p>
+                  </article>
+                </ng-container>
+              </article>
+            </a>
+
+            <article *ngIf="!item.images[0]" class="card__carouel " [style.backgroundImage]="
+                'url(' + '/assets/image/placeholder.png' + ')'
+              "></article>
+          </div>
+          <div class="col-md-7">
+            <article class="chaletItemBox">
+              <article class="row">
+                <article class="col-12 ">
+                  <article class="chaletItemBox__content">
+                    <article class="chaletItemBox__content__title">
+                      <a [routerLink]="['item-details', item._id]" [queryParams]="{ date: date }">
+                        <strong>{{ item.name }}</strong></a>
+                      <p class="location">
+                        {{ "location" | translate }}:
+                        <span *ngIf="item.city.name"><strong>{{ item.city.name }}</strong>
+                        </span>
+                      </p>
+                    </article>
+                    <div class="activityRateContainer">
+                      <app-rate [rate]="item.rate" [status]="'good'"></app-rate>
+                    </div>
+                  </article>
+                  <article class="chaletItemBox__content__description">
+                    <h6>{{ "description" | translate }}</h6>
+                    <p>{{ item.description | truncate: [100, "..."] }}</p>
+                  </article>
+                </article>
+
+                <article class=" col-12">
+                  <article class="chaletItemBox__list">
+                    <article class="chaletItemBox__list__items">
+                      <ul *ngFor="let list of item.list">
+                        <li>{{ list }}</li>
+                      </ul>
+                    </article>
+                  </article>
+                </article>
+                <article class="col-12" style="position: relative;">
+                  <article style=" position: absolute;">
+                  <ngx-stars  style="direction: ltr;" [readonly]="true" [maxStars]="5" [initialStars]="item.rate"></ngx-stars>
+
+                    <!-- <ul
+                    *ngFor="let star of stars"
+                    class="list-inline rating-list"
+                    style="display: inline-block;"
+                  >
+                    <li [ngClass]="{ selected: star <= item.rate  }">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </li>
+                  </ul> -->
+                  </article>
+                  <article class="itemFooter">
+                    <!-- <article class="reservationBox">
+                              <small>Reserved 10 times in this week</small>
+                            </article> -->
+                    <article
+                      *ngIf="item.category && (item.category.tag === 'قاعات_افراح' || item.category.tag === 'استراحات' || item.category.tag === 'شاليهات') " class="reservationPrice">
+                      <h5 *ngIf="!item.is_offer && item.maxPrice !== item.minPrice">
+                        {{ item.minPrice }} - {{ item.maxPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="!item.is_offer && item.maxPrice === item.minPrice">
+                        {{ item.maxPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="item.is_offer && item.maxPrice !== item.minPrice" style="text-decoration-line: line-through; color: red">
+                        {{ item.minPrice }} - {{ item.maxPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer && item.maxPrice === item.minPrice" style="text-decoration-line: line-through; color: red">
+                        {{ item.minPrice }} {{ "sar" | translate }}
+                      </h5> -->
+                      <h5 *ngIf="item.is_offer && item.maxPrice !== item.minPrice">
+                        {{ item.minPriceAfterPrice }} - {{ item.maxPriceAfterPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer && item.maxPrice === item.minPrice">
+                        {{ item.maxPriceAfterPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="!item.is_offer">
+                        {{ item.maxPrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer">
+                        {{ item.minPrice }} {{ "sar" | translate }}
+                      </h5> -->
+                    </article>
+                    <article *ngIf="item.category && item.category.tag === 'ضيافة'" class="reservationPrice">
+                      <h5 *ngIf="!item.is_offer && item.packagePrices && item.packagePrices.length">
+                        {{ item.packagePrices[0].packagePrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="!item.is_offer && (!item.packagePrices || (item.packagePrices && !item.packagePrices.length)) && item.personPrices && item.personPrices.length">
+                        {{ item.personPrices[0].maximumCount * item.personPrices[0].pricePerPerson }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="item.is_offer && item.packagePrices && item.packagePrices.length" style="text-decoration-line: line-through; color: red">
+                        {{ item.packagePrices[0].packagePrice }} {{ "sar" | translate }}
+                      </h5> -->
+                      <h5 *ngIf="item.is_offer && (!item.packagePrices || (item.packagePrices && !item.packagePrices.length)) && item.personPrices && item.personPrices.length" style="text-decoration-line: line-through; color: red">
+                        {{ item.personPrices[0].maximumCount * item.personPrices[0].pricePerPerson }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer && item.packagePrices && item.packagePrices.length">
+                        {{ item.packagePrices[0].offer_price }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer && (!item.packagePrices || (item.packagePrices && !item.packagePrices.length)) && item.personPrices && item.personPrices.length">
+                        {{ item.personPrices[0].maximumCount * item.personPrices[0].offer_price }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="!item.is_offer">
+                        {{ item.packagePrices[0].packagePrice }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer">
+                        {{ item.packagePrices[0].offer_price }} {{ "sar" | translate }}
+                      </h5> -->
+                    </article>
+                    <article *ngIf="item.category && item.category.tag !== 'ضيافة' && item.category.tag !== 'قاعات_افراح' && item.category.tag !== 'استراحات' && item.category.tag !== 'شاليهات'" class="reservationPrice">
+                      <h5 *ngIf="!item.is_offer">
+                        {{ item.price }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="item.is_offer" style="text-decoration-line: line-through; color: red">
+                        {{ item.price }} {{ "sar" | translate }}
+                      </h5> -->
+                      <h5 *ngIf="item.is_offer">
+                        {{ item.offer_price }} {{ "sar" | translate }}
+                      </h5>
+                      <!-- <h5 *ngIf="!item.is_offer">
+                        {{ item.price }} {{ "sar" | translate }}
+                      </h5>
+                      <h5 *ngIf="item.is_offer">
+                        {{ item.offer_price }} {{ "sar" | translate }}
+                      </h5> -->
+                    </article>
+                  </article>
+                </article>
+                <article class="col-12">
+                  <article class="itemFooter">
+                    <p class="reservationPrice" style="color: #7c7c7c;text-transform: capitalize;font-size: 14px;margin-top: 5px;">
+                      {{ "perNight" | translate }}
+                    </p>
+                  </article>
+                </article>
+              </article>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+  <ng-container *ngIf="!noActivity || items.length > 0">
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+  </ng-container>
+</ng-template>
+
+<ng-template [ngIf]="(noActivity || items.length < 1) && !loading">
+  <app-no-items [message]="'no_activities' | translate"></app-no-items>
+</ng-template>

@@ -1,0 +1,202 @@
+
+.pickup_container{
+    padding: 140px 0;
+    text-align: center;
+  .pickup_info{
+    background-color: #000;
+    height: 275px;
+    color: #fff;
+    margin-top: 25px;
+  }
+  .pickup_info_img img{
+    width: 400px;
+  }
+  .pickup_info_text p{
+    width: 666px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    padding-top: 115px;
+  }
+  .pickup_box_container{
+    direction: rtl;
+    margin: auto;
+    margin-top: 120px;
+  }
+  .pickup_box__selectors_div{
+// width: 774px;
+height: 440px;
+border: 5px dashed #919191;
+border-radius: 29px;
+direction: ltr;
+  }
+  .pickup_box__selectors_div_img{
+    // display: grid;
+    // grid-template-columns: repeat(5, 1fr);
+    // grid-gap: 0;
+    margin: auto;
+    text-align: center;
+    padding-left: 25px;
+  }
+ .pickup_box__selectors_div_img .div {
+    width: 59px;
+    margin-top: 30px;
+    height: 370px;
+    border: 2px dashed #E1AF4F;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+ .pickup_box__selectors_div_img img {
+  width: 100%;  
+  height: 100%;
+ }
+
+ .pickup_box__footer_div_img{
+    // display: grid;
+    // grid-template-columns: repeat(5, 1fr);
+    // grid-gap: 0;
+    margin: auto;
+    text-align: center;
+    // padding-left: 48px;
+  }
+ .pickup_box__footer_div_img .div {
+
+  }
+ .pickup_box__footer_div_img img {
+
+ }
+.pickup_box_footer{
+    direction: ltr;
+    margin: auto;
+    margin-top: 30px;
+}
+ .pickup_box_footer_totals .totalprice a{
+    box-sizing: border-box;
+    padding: 11px;
+    border: 3px solid #E1AF4F;
+    border-radius: 16px;
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #E1AF4F;
+ }
+.pickup_box__footer_div_img .div{
+width: 99px;
+height: 110px;
+border: 4px solid #696969;
+border-radius: 12px;
+margin-top: 15px;
+position: relative;
+}
+.pickup_box__footer_div_img img{
+width: 100%;
+height: 100%;
+}
+ .pickup_box_footer_totals .add_to_cart a{
+    box-sizing: border-box;
+    padding: 12px;
+    background: #E1AF4F;
+    border-radius: 16px;
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+ }
+ .pickup_box_footer_items_added_cont{
+    background: #EDEDED;
+    border-radius: 25px;
+    height: 140px;
+ }
+.pickup_box__footer_div_img .div .delete_icon{
+    width: 25px;
+    height: 25px;
+    background: #E74C51;
+    border-radius: 50%;
+    position: absolute;
+    right: -15px;
+    bottom: -12px;
+}
+.pickup_box__footer_div_img .div .delete_icon img{
+  width: 22px;
+  padding: 3px;
+  margin-left: 1px;
+  height: auto;
+}
+}
+
+@media (max-width: 769px) {
+
+  }
+  
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+  }
+  
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: -500px;
+    max-width: 100%;
+    transition: left 1s ease-in-out;
+  }
+  
+  .slide-in-out {
+    transition: left 1s ease-in-out;
+  }
+  
+  .slide-in-out.ng-enter {
+    left: -500px;
+  }
+  
+  .slide-in-out.ng-enter-active {
+    left: 0;
+  }
+  
+  .slide-in-out.ng-leave {
+    left: 0;
+  }
+  
+  .slide-in-out.ng-leave-active {
+    left: 500px;
+  }
+
+.pickup_box_items{
+  height: 470px;
+  overflow: auto;
+  direction: ltr;
+}
+.pickup_box_items img{
+  height: 300px;
+
+}
+.pickup_box_items::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    border-radius: 20px;
+}
+
+.pickup_box_items::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+    border-radius: 20px;
+}
+
+.pickup_box_items::-webkit-scrollbar-thumb
+{
+	background-color: #7B7B7B;
+    border-radius: 20px;
+}
+.disabled{
+  opacity: .7;
+}

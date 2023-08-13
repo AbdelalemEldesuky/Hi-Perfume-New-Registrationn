@@ -1,0 +1,36 @@
+<ng-template [ngIf]="loading" [ngIfElse]="featuredPropertyItem">
+  <app-loader> </app-loader>
+</ng-template>
+<ng-template #featuredPropertyItem>
+  <header>
+    <div class="row">
+      <div class="col-1" style="margin-top: 14px;">
+        <img src="assets/image/deals.png" alt="">
+      </div>
+      <div *ngIf="currentLanguage === 'ar'" class="col-10" style="margin-right: 3rem;position: absolute;">
+        <h4>{{ "featuredProperties" | translate }}</h4>
+      </div>
+      <div *ngIf="currentLanguage !== 'ar'" class="col-10" style="margin-left: 3rem;position: absolute;">
+        <h4>{{ "featuredProperties" | translate }}</h4>
+      </div>
+    </div>
+    <!-- <h4>{{ "featuredProperties" | translate }}</h4> -->
+  </header>
+  <section class="row" *ngIf="featuredProperties$.length" [@cardAnimation]="featuredProperties$.length">
+    <article
+      class="featuredProperty col-md-4 col-12"
+      *ngFor="let featuredProperty of featuredProperties$"
+    >
+      <app-single-featuredProperty
+        [featuredProperty]="featuredProperty"
+      ></app-single-featuredProperty>
+    </article>
+  </section>
+  <div *ngIf="!featuredProperties$.length" style="text-align: center;">
+    <br>
+    <br>
+    <h3>{{ "noFeaturedProperties" | translate }}</h3>
+    <br>
+    <br>
+  </div>
+</ng-template>

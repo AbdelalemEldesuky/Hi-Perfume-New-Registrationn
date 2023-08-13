@@ -1,0 +1,35 @@
+<ng-template [ngIf]="loading" [ngIfElse]="homeBannerItem">
+  <app-loader> </app-loader>
+</ng-template>
+<ng-template #homeBannerItem>
+  <header>
+    <div class="row">
+      <div class="col-1" style="margin-top: 14px;">
+        <img src="assets/image/location.png" alt="">
+      </div>
+      <div *ngIf="currentLanguage === 'ar'" class="col-10" style="margin-right: 3rem;position: absolute;">
+        <h4>{{ "homeBanners" | translate }}</h4>
+      </div>
+      <div *ngIf="currentLanguage !== 'ar'" class="col-10" style="margin-left: 3rem;position: absolute;">
+        <h4>{{ "homeBanners" | translate }}</h4>
+      </div>
+    </div>
+  </header>
+  <section *ngIf="homeBanners$.length" class="row" [@cardAnimation]="homeBanners$.length">
+    <article
+      class="homeBanner col-md-3 col-6"
+      *ngFor="let homeBanner of homeBanners$"
+    >
+      <app-single-homeBanner
+        [homeBanner]="homeBanner"
+      ></app-single-homeBanner>
+    </article>
+  </section>
+  <div *ngIf="!homeBanners$.length" style="text-align: center;">
+    <br>
+    <br>
+    <h3>{{ "noHomeBanners" | translate }}</h3>
+    <br>
+    <br>
+  </div>
+</ng-template>

@@ -1,0 +1,67 @@
+.selection_container{
+  text-align: center;
+width: 70%;
+color: #888888;
+font-size: 18px;
+font-weight: 500;
+margin: auto;
+padding-top: 135px;
+text-align: left;
+
+  &_img{
+    img{
+      display: block;
+        margin: 26px auto;
+        
+    }
+  }
+     }
+  
+     .container {
+      margin-top: 50px;
+    }
+    
+    form {
+      margin-top: 30px;
+    }
+    
+    form label {
+      font-weight: bold;
+    }
+    
+    // form .form-group {
+    //   margin-bottom: 20px;
+    // }
+    
+    form textarea {
+      resize: none;
+    }
+    
+    .btn-primary {
+      margin-top: 20px;
+    }
+
+    textarea  {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border-radius: 20px;
+      // height: 43px;
+      margin-bottom: 15px;}
+
+      button:focus , button:active {
+background-color: #E1AF4F;
+border: none
+      }
+
+@import '../../auth/login/login.component.scss';
+
+
+
+
+

@@ -1,0 +1,235 @@
+<header>
+  <title>Hi product</title>
+  <meta property="og:title" content="Hi product">
+  <!-- <meta property="og:updated_time" content="<?=time()?>" /> -->
+  <meta property="og:site_name " content="Hi product name">
+  <meta property="og:description" content="Perfume product product product">
+  <meta property="og:image" content="https://admin.hiperfumeusa.com/public/upload/f2.png">
+</header>
+<div>
+  <!-- <app-header></app-header> -->
+  <section *ngIf="product" class="product-container">
+    <div class="container">
+      <div>
+        <div class="row ">
+          <div class=" slider row col-lg-6 col-md-12 col-sm-12">
+            <div class="preview col-lg-9 col-md-10 col-sm-10">
+              <div class="lg_img">
+                <img [src]="product.image" alt="" id="imagebox">
+              </div>
+            </div>
+            <div class="product col-lg-3 col-md-12 col-sm-12">
+              <div *ngFor="let img of product.galleries  | slice:0:4" class="sm_img">
+                <img [src]="img.image" alt="" (click)="clickme($event.target)">
+              </div>
+              <!-- <div class="sm_img">
+                            <img src="../../../assets/hi_perfume_images/product_view_img__82.png" alt="" (click)="clickme($event.target)">
+                        </div>
+                        <div class="sm_img">
+                            <img src="../../../assets/hi_perfume_images/Rproduct_view_img_81.svg" alt="" (click)="clickme($event.target)">
+                        </div>
+                        <div class="sm_img">
+                            <img src="../../../assets/hi_perfume_images/product_view_img_80.svg" alt="" (click)="clickme($event.target)">
+                        </div> -->
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="content">
+              <h2>{{product.name}}</h2>
+              <div>
+                <h5>
+                  <p>{{product.sub_name}}</p>
+                </h5>
+                <!-- <ngx-stars  style="direction: ltr;" [readonly]="true" [maxStars]="5" [initialStars]="3"></ngx-stars> -->
+                <div class="price">
+                  <p> ${{product.price}}</p>
+                  <!-- <div class="star_rate_container">
+                            <ul
+                            *ngFor="let star of stars"
+                            class="list-inline rating-list"
+                            style="display: inline-block;"
+                          >
+                                <li [ngClass]="{'selected': star <= (product.rate)}">
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                            </li>
+                          </ul>
+                         </div> -->
+                </div>
+              </div>
+
+              <!-- <div class="content-p">
+                        <p>{{product.sub_name}}</p>
+                    </div> -->
+              <div class="price">
+                <!-- <p> ${{product.price}}</p> -->
+                <div class="selection_btn">
+                  <a>
+                    <div *ngIf="product.isFavorit==false" class="favorite_icon_" (click)="addFavorite(product.id)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="product.isFavorit==true" class="favorite_icon_" (click)="addFavorite(product.id)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                  </a>
+                  <!-- <div (click)="addToCart(product.id)" class="selection_icon">
+                               <img src="../../../../assets/hi_perfume_images/icon_shop.png" alt="">
+                            </div> -->
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(product.name,product.image,product.sub_name,product.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                          </a></li>
+                        <li><a (click)="shareOnInstagram(product.name,product.image,product.sub_name,product.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                          </a></li>
+                        <li><a (click)="facbookShare(product.id)" class="facebook-btn" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                          </a></li>
+                        <li><a class="link">
+                            <!-- <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt=""> -->
+                          </a></li>
+                        <li><a class="link" target="_blank">
+                            <img class="bg_socila_icons" src="../../../assets/hi_perfume_images/bg_socila_icons.png"
+                              alt="">
+                          </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- <div type="submit" class="add_to_cart_btn"   (click)="addToCart(product.id,addToCartNotifyTemplate,product.name,product.image,product.sub_name)" >Add To Cart</div> -->
+                  <!-- <div *ngIf="selection.inCart==true"  type="submit" class="add_to_cart_btn add_to_cart_btn_added"  >Added To Cart</div> -->
+                  <div *ngIf="product.inCart==false" type="submit" class="add_to_cart_btn"
+                    (click)="addToCart(product,product.id,addToCartNotifyTemplate,product.name,product.image,product.sub_name,33)">
+                    Add To Cart</div>
+                  <div *ngIf="product.inCart==true" type="submit" class="add_to_cart_btn add_to_cart_btn_added">Added To
+                    Cart</div>
+                  <app-popup-notification *ngIf="product.showPopup" [image]="product.image" [name]="product.name"
+                    [sub_name]="product.sub_name"></app-popup-notification>
+
+                </div>
+              </div>
+              <div class="product-text">
+                <h3>
+                  {{product.description | extractText}}
+                </h3>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="comments_component">
+        <div class="container">
+          <div class="d-flex justify-content-left row">
+            <div class="col-md-12">
+              <div class=" comment-section row">
+               <div class="comments_div col-6 col-md-6 col-sm-12">
+                <div *ngFor="let comment of product.comments" class="bg-white p-2 ">
+                  <div class="d-flex flex-row user-info">
+                    <!-- <img *ngIf="comment.user.avatar" class="rounded-circle" [src]="comment.user.avatar" width="40"> -->
+                    <img  class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
+                    <div class="d-flex flex-column justify-content-start ml-2"><span
+                        class="d-block font-weight-bold name">{{comment.user.first_name}}  {{comment.user.last_name}} </span>
+                        <!-- <span class="date text-black-50">Shared publicly - Jan 2020</span> -->
+                      </div>
+                  </div>
+                
+                  <div class="mt-2">
+                    <ngx-stars  style="direction: ltr;float: left;margin-left: 50px;" [readonly]="true" [maxStars]="5" [initialStars]="4.5"></ngx-stars>
+                    <p class="comment-text">
+                      {{comment.comment}}
+                    </p>
+                  </div>
+                </div>
+               </div>
+                <!-- <div class="bg-white">
+                  <div class="d-flex flex-row fs-12">
+                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span>
+                    </div>
+                    <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                  </div>
+                </div> -->
+                <div class="bg-light p-2 col-6 col-md-6 col-sm-12">
+                  <div class="d-flex flex-row align-items-start">
+                    <img class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
+                    <div class="d-flex flex-column justify-content-start ml-2"><span
+                      class="d-block font-weight-bold name">User Name </span>
+                      <!-- <span class="date text-black-50">Shared publicly - Jan 2020</span> -->
+                    </div>
+                  </div>
+                    <form [formGroup]="addCommentForm">
+                      <div>
+                        <ngx-stars  style="direction: ltr;float: left;margin-left: 5px;margin-bottom: 5px;" [readonly]="false" [maxStars]="5" ></ngx-stars>
+
+                      </div>
+                        <textarea
+                        class="form-control ml-1 shadow-none textarea" formControlName="comment"></textarea>
+                        
+                        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addComment()">Post
+                            comment</button>
+                            <!-- <button class="btn btn-outline-primary btn-sm ml-1 shadow-none"
+                            type="button">Cancel</button> -->
+                          </div>
+                      </form>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <div style="margin: 30px 0;">
+    <app-best-seller-home></app-best-seller-home>
+
+  </div>
+  <app-footer></app-footer>
+
+  <!-- <ng-template #addToCartNotifyTemplate >
+  <div  class="close_icon">
+      <img  (click)="closeModal()"  src="../../../assets/hi_perfume_images/close_icon.png" alt="">
+    </div>
+    <div class="cart_added_container">
+      <div class="content row-1">
+          <h4><i class="fas fa-check"></i> item added to your cart</h4>
+      </div>
+      <div class="content row-2">
+          <div>
+              <img class="item-img" [src]="item_image" alt="">
+          </div>
+          <div>
+              <h3>{{item_name}}</h3>
+              <p>{{item_sub_name}}</p>
+          </div>
+      </div>
+      <div class="content">
+          <div>
+              <button class="add_to_cart_btn">VIEW MY CART </button>
+          </div>
+      </div>
+      <div class="content">
+          <div class="col-12">
+              <a href="#">continue shopping</a>
+          </div>
+      </div>
+  </div>
+</ng-template> -->
+
+
+
+</div>

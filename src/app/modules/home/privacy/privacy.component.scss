@@ -1,0 +1,26 @@
+.selection_container{
+  text-align: center;
+width: 70%;
+// color: #888888;
+// font-size: 18px;
+// font-weight: 500;
+margin: auto;
+padding-top: 135px;
+text-align: left;
+
+  &_img{
+    img{
+      display: block;
+        margin: 26px auto;
+        
+    }
+  }
+     }
+  
+
+     .terms_name{
+      font-size: 30px;
+      font-weight: 600;
+      padding-bottom: 40px;
+      text-align: center;
+     }

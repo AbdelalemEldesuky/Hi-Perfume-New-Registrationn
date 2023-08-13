@@ -1,0 +1,14 @@
+header {
+  h4 {
+    margin: 20px auto 5px auto;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  ::ng-deep {
+    .header{
+      margin-top: 14rem !important;
+    }
+
+  }
+}

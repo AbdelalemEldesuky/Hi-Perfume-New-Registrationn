@@ -1,0 +1,224 @@
+<div>
+  <div>
+    <main>
+      <data>
+        <!-- ======= Header ======= -->
+        <!-- [routerLink]="['/perfumes' ]" -->
+        <header id="header" class="fixed-top ">
+          <div class="container d-flex align-items-center">
+            <h1 class="logo mr-auto"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                [routerLink]="['/' ]"><img src="../../../assets/hi_perfume_images/header_logo.svg" alt=""></a></h1>
+
+            <nav class="navbar-light bg-light nav__container nav-menu d-none d-lg-block nav__container2">
+              <ul class="list list_right">
+                <li (click)="addActiveClass('home')" id="home" class="active"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['/' ]" pageScroll>Home</a></li>
+                    <!-- <li ><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                      [routerLink]="['/user/profile' ]" >My Orders</a></li> -->
+                <li (click)="addActiveClass('perfume')" id="perfume"><a (mouseover)="openFilter()"   routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                     pageScroll  [routerLink]="['/perfumes' ]">Perfumes</a>
+                     <div class="filter" *ngIf="showFilter">
+                      <app-filter></app-filter>
+                    </div>
+                    </li>
+                <li (click)="addActiveClass('ourServices')" id="ourServices"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['/ourServices' ]" pageScroll >Services</a></li>
+                <li (click)="addActiveClass('stories')" id="stories"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['/stories' ]" pageScroll >Stories</a></li>
+                <li (click)="addActiveClass('bestSeller')" id="bestSeller"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    [routerLink]="['/bestSeller' ]" pageScroll >Best Sellers </a></li>
+                    <li (click)="addActiveClass('discover')" id="discover"><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                      [routerLink]="['/perfumes/discover' ]" pageScroll >Discover Your Perfume </a></li>
+
+         
+                      <!-- <li><a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                        [routerLink]="['/user/about' ]" pageScroll >About </a></li> -->
+                <!-- <li *ngIf="!authService.isToken() "><a [routerLink]="'/auth/signup' "
+                    routerLinkActive="active"> {{"new_user" | translate}}</a></li> -->
+                <!-- <li *ngIf="!authService.isToken()"><a (click)="loginRoute()"> {{"login" | translate}}</a></li>
+                <li class="list__item items-left list__item__user "
+                  *ngIf="authService.isToken() || (logoutState$ | async)">
+
+                  <a *ngIf="userData" class="list__item__link" (click)=toggleDisplay()>
+                    <img src="/assets/image/user.jpg" />
+                    <span>{{userData ? userData.name : ""}}</span>
+                    <button class="btn dropdown-toggle">
+                      <span class="caret"></span>
+                    </button>
+
+                  </a>
+                  <div (mouseleave)="toggleDisplay()" class="user__menu" [hidden]="isShow">
+                    <div>
+                      <div class="orders" [routerLink]="'/my-orders' " (click)=toggleDisplay()
+                        routerLinkActive="active">
+                        <i class="fas fa-bars text-green m-2"></i>
+                        <span>
+                          {{ "my_orders" | translate }}
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="data" [routerLink]="'/user/editProfile' " (click)=toggleDisplay()
+                        routerLinkActive="active">
+                        <i class="fas fa-user-edit text-green m-2"></i>
+                        <span>
+                          {{"edit_my_profile" | translate}}
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="cash" (click)=toggleDisplay()>
+                        <span>
+                          {{"balance" | translate}}:
+                        </span>
+                        <span class="amount">{{userData ? userData.wallet : 0}} {{"egp" | translate}}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div (click)="logOut();toggleDisplay()" class="log__out" [routerLink]="'/auth/login' "
+                        routerLinkActive="active">
+                        {{"logout" | translate}}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li><a (click)="switchLang()">العربية</a></li> -->
+
+              </ul>
+            </nav><!-- .nav-menu -->
+
+            <!-- <a href="tel:19620" class="get-started-btn scrollto"><i class="fa-solid fa-phone"></i>Hot Line:19620</a> -->
+            <li class="search-icon">
+              <!-- <input (keyup.enter)="onSearch($event.target.value , searchInput)" #searchInput type="search"  placeholder="Find your fav perfume"> -->
+              <input (keyup.enter)="onSearch($event.target.value )" #searchInput type="search"  placeholder="Find your fav perfume">
+              <!-- <label class="icon">
+                  <span>
+                    <img (click)="openPerfumeFilter()" src="../../../assets/hi_perfume_images/filter_icon.png" alt="">
+                  </span>
+              </label> -->
+
+
+              <!-- <label   [routerLink]="['/gifts' ]" class="icon" style="margin-left: 20px;">
+                <span>
+                  <img src="../../../assets/hi_perfume_images/gifts_icon.svg" alt="">
+                </span>
+            </label> -->
+           
+          </li>
+          <div class="nav__container" >
+            <li class="list__item items-left list__item__user " style="margin-top: 3px !important;"
+            *ngIf="isLoggedIn=='true'">
+  
+            <a *ngIf="userData" class="list__item__link user_icon" (click)=toggleDisplay()>
+              <i class="fa-solid fa-user"></i>
+           
+            </a>
+            <div (mouseleave)="toggleDisplay()" class="user__menu" [hidden]="isShow">
+              <div>
+                <div class="orders border_buttom" [routerLink]="'/user/profile' " (click)=toggleDisplay();opeEditProfilePage();
+                  routerLinkActive="active">
+                  <span>
+                   Edit
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="data border_buttom" [routerLink]="'/user/profile' " (click)=toggleDisplay();openOrderPage();
+                  routerLinkActive="active ">
+                  <span>
+                  My Orders
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div class="data border_buttom" [routerLink]="'/user/refer' " (click)=toggleDisplay()
+                  routerLinkActive="active ">
+                  <span>
+                  Refer
+                  </span>
+                </div>
+              </div>
+              <div >
+                <div (click)="logOut();toggleDisplay()" class="log__out " [routerLink]="'/auth/login' "
+                  routerLinkActive="active">
+                 Logout
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="list__item items-left list__item__user " style="margin-top: 3px !important;"
+          *ngIf="isLoggedIn=='false'">
+
+          <a class="list__item__link user_icon" (click)=toggleDisplay()>
+            <i class="fa-solid fa-user-plus" style="margin-right: -2px;"></i>         
+          </a>
+          <div (mouseleave)="toggleDisplay()" class="user__menu" [hidden]="isShow">
+            <div>
+              <div class="orders border_buttom" (click)="logInfromPage()"
+                routerLinkActive="active">
+                <span>
+                  Login
+                </span>
+              </div>
+            </div>
+            <div>
+              <div class="data border_buttom"  (click)="signUpfromPage()"
+                routerLinkActive="active ">
+                <span>
+                  Sign up
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+          </div>
+
+          </div>
+        </header><!-- End Header -->
+      </data>
+    </main>
+  </div>
+
+  <div class="showPerfumeFilter" (mouseleave)="toggleFilterDisplay()" [hidden]="!showPerfumeFilter">
+    <div >
+
+        <h6>
+          Filter
+        </h6>
+        <form [formGroup]="filterPForm" (ngSubmit)="onSubmit()">
+          <select (change)="onSubmit()" id="category" formControlName="category" >
+            <option  value="Select a category" disabled selected>Select a category</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+          </select>
+          <div class="slideText">
+            <span>Price Range
+            </span>
+            <span >
+              {{value}}- {{highValue}} $
+            </span>
+          </div>
+          <ngx-slider (userChangeEnd)="onSubmit()" formControlName="price"  [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+        
+          <div class="btn-high">
+            <input (click)="choseRange()" [ngClass]="{'btn-range-active': isClicked}"  type="button" id="high" formControlName="high" value="High to Low">
+            <input (click)="choseRange2()" [ngClass]="{'btn-range-active2': isClicked2}"  type="button" id="low" formControlName="low">
+          </div>
+                
+          <button [disabled]="productsFilter.length==0" [routerLink]="'perfumes'" type="submit" class="sow_result">Show {{productsFilter.length}} Result</button>
+        </form>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+            
+             
+
+</div>

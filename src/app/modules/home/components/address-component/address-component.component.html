@@ -1,0 +1,18 @@
+
+<section>
+  <div class="current_location">
+    <h3 class="current_location__title">{{"location" | translate}}</h3>
+    <div class="current_location__text">
+      <h4>{{userArea.name}}</h4>
+    </div>
+    <button class="btn  current_location__button" (click)="changeAddress();" [routerLink]="'/user/editAddress'" routerLinkActive="active">{{"change" | translate}}</button>
+  </div>
+</section>
+
+  <!-----------------address Modale--------------->
+  
+  <ng-template  #addressTemplate>
+    <section  class="arrangement">
+     <app-address-modal></app-address-modal>
+    </section>
+    </ng-template>

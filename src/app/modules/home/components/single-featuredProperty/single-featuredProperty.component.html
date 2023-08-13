@@ -1,0 +1,35 @@
+<article class="featuredProperty">
+  <a [routerLink]="['/search-results' , 'item-details', featuredProperty._id]" [queryParams]="{ date: date }">
+    <div class="row" style="justify-content: center;">
+      <div class="col-4" style="padding: 0px 0px 0px 0px;">
+        <div *ngIf="currentLanguage !== 'ar'" class="featuredProperty__img"
+          style="height: 8rem;border-top-left-radius: 22px;border-bottom-left-radius: 22px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.2);"
+          [ngStyle]="{'background-image': 'url(' + featuredProperty.images[0] + ')'}">
+          <div></div>
+        </div>
+        <div *ngIf="currentLanguage === 'ar'" class="featuredProperty__img"
+          style="height: 8rem;border-top-right-radius: 22px;border-bottom-right-radius: 22px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.2);"
+          [ngStyle]="{'background-image': 'url(' + featuredProperty.images[0] + ')'}">
+          <div></div>
+        </div>
+      </div>
+      <div *ngIf="currentLanguage !== 'ar'" class="col-7"
+        style="background-color: white;padding: 5px;border-top-right-radius: 22px;border-bottom-right-radius: 22px;box-shadow: 0px 3px 13px -2px rgba(0, 0, 0, 0.2);">
+        <div class="top-left">{{featuredProperty.name ? featuredProperty.name : ""}}</div>
+        <br>
+        <div class="top-left-2">{{featuredProperty.city ? featuredProperty.city.name : ""}}</div>
+        <div class="bottom-right-2">{{featuredProperty.minPrice ? featuredProperty.minPrice : featuredProperty.packagePrices[0].packagePrice}} {{ "sar" | translate }}
+        </div>
+        <div class="bottom-right">{{ "perNight" | translate }}</div>
+      </div>
+      <div *ngIf="currentLanguage === 'ar'" class="col-7"
+        style="background-color: white;padding: 5px;border-top-left-radius: 22px;border-bottom-left-radius: 22px;box-shadow: 0px 3px 13px -2px rgba(0, 0, 0, 0.2);">
+        <div class="top-right">{{featuredProperty.name ? featuredProperty.name : ""}}</div>
+        <br>
+        <div class="top-right-2">{{featuredProperty.city ? featuredProperty.city.name : ""}}</div>
+        <div class="bottom-left-2">{{featuredProperty.minPrice ? featuredProperty.minPrice : featuredProperty.packagePrices[0].packagePrice}} {{ "sar" | translate }}</div>
+        <div class="bottom-left">{{ "perNight" | translate }}</div>
+      </div>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,370 @@
+<ngx-ui-loader bgsColor= "#ffcd00"
+bgsOpacity= 1
+bgsPosition= "bottom-right"
+bgsSize= 70
+bgsType= "circle"
+blur= 15
+delay= 0
+fastFadeOut= true
+fgsColor= "#ffcd00"
+fgsPosition= "center-center"
+fgsSize= 70
+fgsType= "circle"
+gap= 24
+logoPosition= "center-center"
+logoSize= 120
+logoUrl= ""
+masterLoaderId= "master"
+overlayBorderRadius= "0"
+overlayColor= "#37517e"
+pbColor= "#ffcd00 "
+pbDirection= "ltr"
+pbThickness= 3
+hasProgressBar= true
+text= ""
+textColor= "#FFFFFF"
+textPosition= "center-center"
+maxTime= -1
+minTime= 300></ngx-ui-loader>
+<ng-template [ngIf]="loading" [ngIfElse]="categoryItem">
+  <!-- <app-loader> </app-loader> -->
+  <section class="container">
+    <section
+    class="reservationContainer" style="background: transparent;">
+    <header class="reservationContainer__head">
+      <ngx-skeleton-loader
+      count="1"
+      [theme]="{ 
+        'border-radius': '18px',
+        height: '20px',
+        width:'100px',
+        'background-color': '#ddd',
+        border: '1px solid #ddd'
+      }"
+></ngx-skeleton-loader>
+    </header>
+    <section class="reservationContainer__body row">
+      <section
+        class="reservationContainer__body__itemContainer col-md-4" style="border: none;">
+        <ngx-skeleton-loader
+        count="2"
+        [theme]="{ 
+          'border-radius': '18px',
+          height: '340px',
+          'background-color': '#ddd',
+          border: '1px solid #ddd'
+        }"
+  ></ngx-skeleton-loader>
+      </section>
+      <section
+      class="reservationContainer__body__itemContainer col-md-4" style="border: none;">
+      <ngx-skeleton-loader
+      count="2"
+      [theme]="{ 
+        'border-radius': '18px',
+        height: '340px',
+        'background-color': '#ddd',
+        border: '1px solid #ddd'
+      }"
+></ngx-skeleton-loader>
+    </section>
+    <section
+    class="reservationContainer__body__itemContainer col-md-4" style="border: none;">
+    <ngx-skeleton-loader
+    count="2"
+    [theme]="{ 
+      'border-radius': '18px',
+      height: '340px',
+      'background-color': '#ddd',
+      border: '1px solid #ddd'
+    }"
+></ngx-skeleton-loader>
+  </section>
+  </section>
+  </section>
+  </section>
+</ng-template>
+<ng-template #categoryItem>
+  <section class="container">
+    <section
+      class="reservationContainer"
+      *ngIf="reservationData.length > 0; else noReservation"
+    >
+      <header class="reservationContainer__head">
+        <h1 class="reservationContainer__head__title">
+          {{ "my_reservation" | translate }}
+        </h1>
+      </header>
+      <section class="reservationContainer__body row">
+        <section
+          class="reservationContainer__body__itemContainer col-md-4"
+          *ngFor="let reservation of reservationData; let i = index"
+        >
+          <header
+            class="reservationContainer__body__itemContainer__header"
+            [style.backgroundImage]="
+              'url(' + reservation.property.images[0] + ')'
+            "
+          ></header>
+
+          <section
+            class="reservationContainer__body__itemContainer__mainContent"
+          >
+            <!--Main content start name section-->
+            <section
+              class="reservationContainer__body__itemContainer__mainContent__wrapper"
+            >
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__title"
+              >
+                <h6>{{ "name" | translate }}</h6>
+              </section>
+
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__value"
+              >
+                {{ reservation.property.name }}
+              </section>
+            </section>
+            <!--End name section-->
+            <!--start order number section-->
+            <section
+              class="reservationContainer__body__itemContainer__mainContent__wrapper"
+            >
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__title"
+              >
+                <h6>{{ "reservationNum" | translate }}</h6>
+              </section>
+
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__value"
+              >
+                {{ reservation.booking_number }}
+              </section>
+            </section>
+            <!--End order number section-->
+
+            <!--start price  section-->
+            <section
+              class="reservationContainer__body__itemContainer__mainContent__wrapper"
+            >
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__title"
+              >
+                <h6>{{ "reservation_date" | translate }}</h6>
+              </section>
+
+              <section
+                class="reservationContainer__body__itemContainer__mainContent__wrapper__value"
+              >
+                {{ reservation.date | date: "mediumDate" }}
+              </section>
+            </section>
+
+            <section
+              class="reservationContainer__body__itemContainer__mainContent__wrapper"
+            >
+              <h6 *ngIf="reservation.current_status === 'paid'" class="congts-msg">{{ "deposit" | translate }}</h6>
+              <h6 *ngIf="reservation.current_status === 'unpaid'" class="congts-msg">{{ "no_deposit" | translate }}</h6>
+            </section>
+          </section>
+
+          <section class="reservationContainer__body__itemContainer__footer" style="cursor: pointer;">
+            <a (click)="openModal(template, reservation)" >{{
+              "show_detail" | translate
+            }}</a>
+          </section>
+        </section>
+      </section>
+    </section>
+    <ng-template #noReservation>
+      <section class="noReservationContainer">
+        <h3 class="noReservationContainer__title">
+          {{ "no_reservation" | translate }}
+        </h3>
+      </section>
+    </ng-template>
+  </section>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">
+        {{ "reservation_detail" | translate }}
+      </h4>
+    </div>
+    <div class="modal-body">
+      <section class="reservationStatus">
+        <h6 class="inoviceContainer__bodyTitle">
+          {{ "deposit" | translate }}
+        </h6>
+        <section class="invoiceWrapper">
+          <section class="invoiceWrapper__info">
+            {{ "reservation_number" | translate }}
+          </section>
+          <section class="invoiceWrapper__value">
+            {{ selectedReservation.booking_number }}
+          </section>
+        </section>
+        <hr />
+      </section>
+
+      <section class="inoviceContainer">
+        <h6 class="inoviceContainer__bodyTitle">
+          {{ "reservation_detail" | translate }}
+        </h6>
+        <section class="inoviceContainer__invoiceWrapper">
+          <section class="inoviceContainer__invoiceWrapper__info">
+            {{ "date" | translate }}
+          </section>
+          <section class="inoviceContainer__invoiceWrapper__value">
+            {{ selectedReservation.date | date }}
+          </section>
+        </section>
+        <hr />
+
+        <section class="inoviceContainer__invoiceWrapper">
+          <section class="inoviceContainer__invoiceWrapper__info">
+            {{ "activity" | translate }}
+          </section>
+          <section class="inoviceContainer__invoiceWrapper__value">
+            <p>{{ selectedReservation.property.category.name }}</p>
+          </section>
+        </section>
+        <hr />
+
+        <section class="inoviceContainer__invoiceWrapper">
+          <section class="inoviceContainer__invoiceWrapper__info">
+            {{ "property_name" | translate }}
+          </section>
+          <section class="inoviceContainer__invoiceWrapper__value">
+            <p>{{ selectedReservation.property.name }}</p>
+          </section>
+        </section>
+        <hr />
+
+        <section class="inoviceContainer__invoiceWrapper">
+          <section class="inoviceContainer__invoiceWrapper__info">
+            {{ "property_owner_mobile" | translate }}
+          </section>
+          <section class="inoviceContainer__invoiceWrapper__value">
+            <p>{{ selectedReservation.property.ownerMobile ? selectedReservation.property.ownerMobile : "-" }}</p>
+          </section>
+        </section>
+        <hr />
+
+        <ng-container *ngIf="selectedReservation.property.is_offer">
+          <section class="inoviceContainer__invoiceWrapper">
+            <section class="inoviceContainer__invoiceWrapper__info">
+              {{ "will_pay" | translate }}
+            </section>
+            <section class="inoviceContainer__invoiceWrapper__value">
+              <p>
+                {{ calculateWillpay() }}
+                <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+        <ng-container *ngIf="!selectedReservation.property.is_offer">
+          <section class="inoviceContainer__invoiceWrapper">
+            <section class="inoviceContainer__invoiceWrapper__info">
+              {{ "will_pay" | translate }}
+            </section>
+            <section class="inoviceContainer__invoiceWrapper__value">
+              <p>
+                {{ calculateWillpay() }} <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+
+        <ng-container *ngIf="!selectedReservation.property.is_offer">
+          <section class="inoviceContainer__invoiceWrapper">
+            <section class="inoviceContainer__invoiceWrapper__info">
+              {{ "will_pay_entering" | translate }}
+            </section>
+            <section class="inoviceContainer__invoiceWrapper__value">
+              <p>
+                {{
+                  selectedReservation.property.price - calculateWillpay(element)
+                }}
+                <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+
+        <ng-container *ngIf="selectedReservation.property.is_offer">
+          <section class="inoviceContainer__invoiceWrapper">
+            <section class="inoviceContainer__invoiceWrapper__info">
+              {{ "will_pay_entering" | translate }}
+            </section>
+            <section class="inoviceContainer__invoiceWrapper__value">
+              <p>
+                {{
+                  selectedReservation.property.offer_price -
+                    calculateWillpay(element)
+                }}
+                <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+
+        <ng-container *ngIf="selectedReservation.property.is_offer">
+          <section class="inoviceContainer__invoiceWrapper">
+            <section class="inoviceContainer__invoiceWrapper__info">
+              {{ "total" | translate }}
+            </section>
+            <section class="inoviceContainer__invoiceWrapper__value">
+              <p>
+                {{ selectedReservation.property.offer_price }}
+                <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+
+        <ng-container *ngIf="!selectedReservation.property.is_offer">
+          <section class="invoiceWrapper">
+            <section class="invoiceWrapper__info">
+              {{ "total" | translate }}
+            </section>
+            <section class="invoiceWrapper__value">
+              <p>
+                {{ selectedReservation.property.price }}
+                <span>{{ "sar" | translate }}</span>
+              </p>
+            </section>
+          </section>
+          <hr />
+        </ng-container>
+
+        <section class="inoviceContainer__invoiceWrapper">
+          <div class="map">
+            <agm-map [latitude]="center.lat" [longitude]="center.lng" [zoom]="5" [fullscreenControl]="true">
+              <agm-marker [latitude]="selectedReservation.property.location.coordinates[1]" [longitude]="selectedReservation.property.location.coordinates[0]"
+                [markerDraggable]="true" (dragEnd)="selectMarker($event)">
+              </agm-marker>
+            </agm-map>
+      
+          </div>
+        </section>
+        
+      </section>
+    </div>
+    <div class="modal-footer">
+      <app-custom-btn
+        [name]="'cancel' | translate"
+        [color]="'#d31212'"
+        (isClicked)="modalRef.hide()"
+      ></app-custom-btn>
+    </div>
+  </ng-template>
+</ng-template>

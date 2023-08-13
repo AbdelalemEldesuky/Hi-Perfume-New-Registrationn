@@ -1,0 +1,226 @@
+.form {
+  .text_header{
+    color: #434343;
+font-size: 25px;
+text-align: center;
+font-weight: 600;
+  }
+  .payment_images{
+    width: 400px;
+    margin: auto;
+    margin-top: 25px;
+       img{
+    width: 100%;
+   }
+  }
+  // background: rgba(255,255,255,0.8);
+
+    /* position: fixed; */
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // z-index: 9999;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    display: block;
+    margin: auto;
+    width: 100%;
+    margin-top: 200px !important;
+
+
+  &-wrapper {
+    border-radius: 24px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &-header {
+    background: #f3f3f3;
+    // padding: 22px 0 16px;
+    text-align: center;
+    background-color: transparent;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  &-main {
+    background: #fff;
+    padding: 10px 40px 10px;
+    position: relative;
+    background-color: transparent;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100% !important;
+    }
+
+    .input-group {
+      padding: 14px 0;
+      position: relative;
+      width: 100%;
+
+      input,
+      select {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+
+        font-size: 16px;
+        text-align: center;
+
+        position: relative;
+        padding: 8px 14px;
+        height: 38px;
+        width: 100%;
+        z-index: 2;
+
+        &:focus + label {
+          font-size: 10px;
+          color: #ccc;
+
+          top: -2px;
+          left: 0;
+        }
+      }
+      input:disabled {
+        color: #ccc;
+      }
+
+      label {
+        font-size: 12px;
+
+        pointer-events: none;
+        position: absolute;
+        top: 26px;
+        left: 10px;
+        transition: all 0.2s;
+        width: auto;
+        z-index: 3;
+
+        &.active {
+          font-size: 10px;
+          color: #ccc;
+
+          top: -2px;
+          left: 0;
+        }
+      }
+
+      button {
+        display: block;
+        margin: auto;
+        max-width: 220px;
+        width: 100%;
+        background-color: #E1AF4F;
+        cursor: pointer;
+        border: navajowhite;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: 'Alexandria';
+
+      }
+
+      &__third {
+        width: 48%;
+      }
+
+      &__checkbox {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+    .input-error {
+      color: #ef1111;
+      font-size: 10px;
+
+      position: absolute;
+      top: 30px;
+      left: 6px;
+      transition: top 0.2s;
+      z-index: 1;
+
+      &.active {
+        top: 50px;
+      }
+    }
+  }
+
+  &-spiner {
+    background: rgba(255,255,255,0.8);
+    position: absolute;
+    top: 67px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .mat-spinner {
+      position: absolute;
+      top: calc(50% - 50px);
+      left: calc(50% - 50px);
+    }
+  }
+  &-success {
+    background: rgba(255,255,255,1);
+    position: absolute;
+    top: 67px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .message {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+  }
+
+
+  &-footer {
+    padding: 20px 30px 26px;
+  }
+}
+
+@media screen and (max-width: 424px){
+  .form {
+    &-main {
+      padding: 10px 20px 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .payment_form_component {
+    .text_header{
+      font-size: 22px;
+    }
+    .form{
+      margin-top: 130px !important;
+
+    }
+  .form-wrapper{
+    max-width: 300px;
+
+  }
+}
+}
+
+// @import '../../modules/checkout/checkout.component.scss';

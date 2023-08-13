@@ -1,0 +1,39 @@
+<!-- <div class="popup-notification">
+  <img [src]="image" alt="Product Image">
+  <h3>{{ name }}</h3>
+</div> -->
+
+
+<div class="popup_item_idded_to_cart" *ngIf="isLoggedIn=='true'">
+  <div id="popup_2" class="popup">
+    <div class="popup-overlay"></div>
+    <div class="popup-content">
+      <a (click)="closePopup()"  class="close-popup" data-id="popup_2" data-animation="scale">&times;</a>
+    
+      <div class="cart_added_container">
+        <div class="content row-1">
+            <h4><i class="fas fa-check"></i> item added to your cart</h4>
+        </div>
+        <div class="content row-2">
+            <div>
+                <img class="item-img" [src]="image" alt="">
+            </div>
+            <div>
+                <h3>{{name}}</h3>
+                <p>{{item_sub_name}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <button class="add_to_cart_btn"  [routerLink]="['/checkout/complete-payment' ]" >VIEW MY CART </button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="col-12">
+                <a class="close-popup continue_to_shopping" data-id="popup_2" data-animation="scale" (click)="closePopup()">continue shopping</a>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>

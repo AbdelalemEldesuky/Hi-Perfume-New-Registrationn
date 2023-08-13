@@ -1,0 +1,51 @@
+<section>
+   <!-- <app-header></app-header> -->
+   <div class="perfumes_container">
+     <div class="ourServices_container">
+       <div style="position: relative;">
+          <img src="../../../assets/hi_perfume_images/our_services_text_image.png" alt="">
+       </div>
+      
+       <div class="container mt-5" *ngIf="services.length>0">
+         <div class="row">
+         <div  *ngFor="let service of services; let i=index" class="col-{{ i === 0 ? '12' : (i - 1) % 2 === 0 ? '6' : '6' }}">
+         <a  class="url-box" >
+           <figure id="cf" class='newsCard news-Slide-up '>
+            <a>
+              <div  [style.backgroundImage]="'url(' + service.image + ')'" class="bottom card_img_sec_1_top img">
+
+              </div>
+            </a>
+            <a>
+               <div  [style.backgroundImage]="'url(' + service.image + ')'" class="top card_img_sec_1_bottom img">
+
+               </div>
+            </a>
+             <div class='newsCaption px-4'>
+             <div class="d-flex align-items-center justify-content-between cnt-title">
+              <h5 class='newsCaption-title text-white m-0'>{{service.title}}</h5> 
+              
+              </div>
+              <div class='newsCaption-content d-flex '>
+              <p class="col-10 py-3 px-0">{{service.sub_title}}</p>
+             </div>
+             </div>
+             <span class="overlay"></span>
+           </figure>
+         </a>
+         </div> 
+         </div>
+
+     
+       </div>
+     </div>
+
+     <div *ngIf="services.length==0" class="no_items"> 
+      No Services Added
+    </div>
+   </div>
+   
+           
+
+   <app-footer></app-footer>
+ </section>

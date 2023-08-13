@@ -1,0 +1,398 @@
+// .container {
+//   margin: 0 auto;
+//   margin-top: 50px;
+//   padding-top: 60px !important;
+//   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+//   width: 400px;
+//   height: 100%;
+//   background: linear-gradient(to top, rgba(217, 217, 217, 0.8)50%, rgba(217, 217, 217, 0.8)50%);
+//   border-radius: 164px 41px 41px 41px;
+// }
+
+.container .login-last {
+  text-align: center;
+}
+
+.login-last p {
+  color: #696969;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.login-last h5 {
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  color: #2A2D3F;
+}
+.show_pass_icon{
+  position: absolute;
+  right: 15px;
+  top: 18px;
+}
+.login-last h5 {
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  color: #2A2D3F;
+}
+.close_icon{
+  text-align: right;
+  color: #787676e0;
+  font-size: 30px;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 18px;
+  cursor: pointer;
+  z-index: 99999999999999999;
+}
+.close_icon img{
+  cursor: pointer;
+  width: 30px;
+
+  }
+.login-last .icon ion-icon {
+  padding-left: 15px;
+  font-size: 30px;
+  color: #444;
+}
+
+.login-sign h2 {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #2A2D3F;
+  padding: 15px;
+}
+
+.login-sign h2 a {
+  
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h3 {
+  text-align: right;
+  margin-top: -10px;
+}
+
+h3 a {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password]  {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 139px;
+  height: 43px;
+  margin-bottom: 15px;
+}
+input:focus , input:active ,textarea:focus , textarea:active {
+  background: #FFFFFF !important;
+  border: 2px solid #ccc !important;
+  outline: none;
+}
+.form-group{
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+button {
+  height: 50px;
+  background: #373737;
+  border-radius: 9px;
+  padding: 14px 20px;
+  margin: 35px 0 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+button:hover {
+  background-color: #E1AF4F; 
+  color: #000;
+}
+
+.cancelbtn {
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  position: relative;
+  text-align: center;
+  margin: 10px 0 25px 0;
+
+}
+.imgcontainer img{
+  width: 100px;
+}
+.login-pass {
+  position: relative;
+}
+
+.login-pass ion-icon {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  color: #C7C7C7;
+  font-size: 20px;
+}
+
+// .container {
+//   padding: 16px;
+// }
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  span.psw {
+      display: block;
+      float: none;
+  }
+
+  .cancelbtn {
+      width: 100%;
+  }
+}
+
+::ng-deep .modal-content{
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  width: 400px;
+  background: #b6b6b6;
+// background: rgba(217, 217, 217, 0.76);
+  border-radius: 164px 41px 41px 41px;
+  padding: 0;
+  // opacity: .8;
+  width: 385px;
+height: 550px;
+padding: 40px 10px;
+}
+ form{
+width: 95% !important;
+ }
+ ::ng-deep  .modal-backdrop.show{
+  opacity: .84 !important;
+}
+
+.icon{
+  margin: 5px auto;
+  background: #ECECEC;
+  direction: ltr;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.icon span{
+  padding-top: 10px;
+
+}
+
+
+// @import '../../../../assets/scss/variables';
+
+
+// :host {
+//   .formContainer {
+//     min-height: 300px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+
+//   .roundCycle {
+//     width: 60%;
+//     padding: 70px 15px;
+//     display: flex;
+//     flex-direction: column;
+//     overflow: hidden;
+//     background: white;
+//     border-radius: 10px;
+//     background-size: cover;
+//     background:
+//     linear-gradient(to top, $main-color-light, $main-color-light-1),
+//       url(/assets/image/login-img-1.jpeg);
+//     p {
+//       color: #fff;
+//     }
+//     h6 {
+//       font-size: 20px;
+//       color: $secondary-color;
+//     }
+
+//   }
+
+//   form {
+//     width: 32%;
+//     margin-top: 30px;
+//     margin-bottom: 30px;
+//     .input-group {
+//       margin: 20px auto;
+//       .input-group-prepend {
+//         .input-group-text {
+//           [dir=rtl] & {
+//             border-top-right-radius: 5px;
+//             border-bottom-right-radius: 5px;
+//             border-top-left-radius: 0px;
+//             border-bottom-left-radius: 0px;
+//           }
+//         }
+//       }
+//       .form-control:not(:first-child) {
+//         [dir=rtl] & {
+//           border-top-left-radius: 5px;
+//           border-bottom-left-radius: 5px;
+//           border-top-right-radius: 0px;
+//           border-bottom-right-radius: 0px;
+//         }
+//       }
+//     }
+//   }
+
+//   .submit_btn {
+//     background: $secondary-color;
+//     color: #fff;
+//     margin: 10px 0;
+//     padding: 10px 0px;
+//   }
+
+//   @media screen and(max-width: 767px) {
+//     .formContainer {
+//       margin: 40px auto;
+//       min-height: 300px;
+
+//       .roundCycle {
+//         width: 90% !important;
+//         padding: 45px 15px !important;
+//       }
+//     }
+
+//     form {
+//       width: 95%;
+//       margin: 10px auto;
+//     }
+
+//   }
+
+
+// }
+
+
+
+// :ng-deep {
+//   svg-icon {
+//     svg {
+//       width: 40px !important;
+//     }
+//   }
+
+// }
+// /////////////////////////////###############///////////////////
+// .example-form {
+//   min-width: 150px;
+//   max-width: 500px;
+//   width: 100%;
+// }
+
+// .example-full-width {
+//   width: 100%;
+// }
+// .form-control{
+// font-size: $form-font;
+// }
+// .btn-login{
+//   width: 100%;
+//   margin: auto;
+//   background-color: $green-color ;
+//   color: $black-color;
+//   padding: 12px;
+//   font-weight: bold;
+// }
+
+// .forget-password{
+//   display: flex;
+//   justify-content: space-between;
+//   color: $blue-color;
+// font-size: $form-font;
+// }
+
+// .register-by{
+//   color: $black-color;
+//   font-size: .8rem;
+//   font-weight: 600;
+//     text-align: center;
+//     margin-top: 20px;
+// }
+
+// .btn-facebook{
+//   background-color: $blue-color;
+//   color: $white-color;
+//   color: #fff;
+//   border-radius: 0.1875rem;
+//   max-width: 100%;
+//   height: 2.5rem;
+//   width: 12.5rem;
+//   margin: 15px auto;
+//   display: block;
+//   font-weight: bold;
+//   text-transform: capitalize;
+//   padding: 5px;
+//   cursor: pointer;
+// }
+// .form-control-feedback {
+//   color: #c0392b;
+//   font-size: .75rem;
+//   display: none;
+// }
+
+@media only screen and (max-width: 790px) {
+
+  ::ng-deep .modal-content{
+    width: 90% !important
+   }
+ 
+ }

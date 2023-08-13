@@ -1,0 +1,41 @@
+<section>
+
+  <div class="refer_component container">
+
+    <div class="refer_title">
+     Refer your friends, get rewarded.
+    </div>
+    <div class="refer_subTitle">
+     Share your referral link
+    </div>
+   <div class="ref_container">
+     <div class="cool_btn">
+       <span class="ref_url">https://hiperfumeusa.com/refer/{{userId}}</span>
+       
+       <span class="ref_url_btn">Click to copy</span>
+       
+       <div class="ref_url_copied2">Copied</div>
+     </div>
+     <!-- <button class="ref_share">Share your link</button> -->
+   </div>
+   <div class="btn_container">
+     <input class="email_btn" type="email" placeholder="Enter your friend’s email address">
+     <input class="send_btn" type="submit" value="Send">
+   </div>
+   <div>
+     <ul>
+       <li><a (click)="facbookShare()" class="facebook-btn"  target="_blank" >
+         <img src="../../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+       </a></li>
+       <!-- <li><a (click)="messengerShare()" class="facebook-btn"  target="_blank" >
+         <img src="../../../../assets/hi_perfume_images/messenger.jpg" alt="">
+       </a></li> -->
+       <li><a (click)="shareOnWhatsapp()" class="link"  target="_blank">
+         <img class="whatsImg" src="../../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+       </a></li>
+     </ul>
+   </div>
+ </div>
+
+ <app-footer></app-footer>
+</section>

@@ -1,0 +1,84 @@
+<div>
+  <!-- <div class="sidebar">
+    <ul class="list list_right" >
+      <li
+      class="list__item items-left list__item__user "
+      *ngIf="authService.isToken() || (logoutState$ | async)" 
+    >
+      <a *ngIf="userData" class="list__item__link" (click) = toggleDisplay()>
+        <span>{{userData.name}}</span>
+        
+
+      </a> 
+      </li>
+      <li
+      class="list__item items-left list__item__user "
+      *ngIf="authService.isToken() || (logoutState$ | async)" 
+    >
+        <div>
+          <div class="orders" [routerLink]="'/my-orders' | localize" routerLinkActive="active">
+            <i class="fas fa-bars text-green m-2"></i>
+            <span>{{"my_orders" | translate}}</span>
+          </div>
+        </div>
+      </li>
+      <li
+      class="list__item items-left list__item__user "
+      *ngIf="authService.isToken() || (logoutState$ | async)" 
+    >
+        <div>
+          <div class="data" [routerLink]="'/user/editProfile' | localize"  routerLinkActive="active">
+            <i class="fas fa-user-edit text-green m-2"></i>
+            <span >{{"edit_my_profile" | translate}}</span>
+          </div>
+        </div>
+      </li>
+      <li
+      class="list__item items-left list__item__user "
+      *ngIf="authService.isToken() || (logoutState$ | async)" 
+    >
+          <div class="cash">
+            <span>{{"balance" | translate}}:</span>
+            <span class="amount">{{userData.wallet}} {{"egp" | translate}}</span>
+          </div>
+      </li>
+        <li
+        class="list__item items-left list__item__user "
+        *ngIf="authService.isToken() || (logoutState$ | async)" 
+      >
+        <div>
+          <div (click)="logOut()" class="log__out" [routerLink]="'/auth/login' | localize" routerLinkActive="active">
+           {{"logout" | translate}}
+          </div>
+        </div>
+        </li>
+      <li
+        class="list__item items-left list__item__newUser "
+        *ngIf="!authService.isToken() " 
+      >
+      <a [routerLink]="'/auth/signup' | localize" routerLinkActive="active">
+        <span>{{"new_user" | translate}}</span>
+      </a>
+      </li>
+      <li
+      class="list__item items-left list__item__register "
+      *ngIf="!authService.isToken() " 
+    >
+    <a [routerLink]="'/auth/login' | localize" routerLinkActive="active">
+      <span>{{"login" | translate}}</span>
+    </a>
+    </li>
+   
+      <li class="list__item list__item__en ">
+        <a class="list__item__link" (click)="switchLang()">
+          <a href=""><span>{{"lang" | translate}}</span></a>
+        </a>
+      </li>
+    </ul>
+</div>
+<ng-template  #editDataTemplate>
+<section  class="arrangement">
+</section>
+</ng-template> -->
+
+</div>

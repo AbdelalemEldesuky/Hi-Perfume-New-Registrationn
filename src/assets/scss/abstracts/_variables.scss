@@ -1,0 +1,30 @@
+// Fonts
+$sansSerif : 'Open Sans';
+
+// Font Sizing
+$baseFontSize : 16px;
+$baseLineHeight : 1.5;
+$headingLineHeight : 1.2;
+
+// Colors
+$black : rgba(51, 51, 51, 1);
+$red : #d52b1e;
+$blue : #00a1de;
+
+// Spacing
+$pad : 1em;
+
+// Breakpoints
+$smallBreakpoint : 600px;
+$largeBreakpoint : 1080px;
+
+
+// input variables 
+
+$form-background: #f8f8f8;
+$form-color: #f1f1f1;
+$form-border: 1px solid lighten($form-color, 50%);
+
+$form-focus-background: darken($form-background, 10%);
+$form-focus-color: #999;
+$form-focus-border: 1px solid $form-color;

@@ -1,0 +1,40 @@
+@import '../../../../assets/scss/variables';
+@import '../signup/signup.component.scss';
+
+
+.progress {
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: .75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #E1AF4F;
+  transition: width .6s ease;
+}
+ .resend__button {
+  color: $blue-color;
+  cursor: pointer;
+}
+
+
+
+.form .form-peice{
+  min-height: 480px;
+}
+.brand{
+  min-height: 520px;
+
+}
+
+.form form .CTA{
+  margin-top: 35px;
+}

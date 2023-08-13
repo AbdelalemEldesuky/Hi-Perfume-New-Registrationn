@@ -1,0 +1,6 @@
+<ng-container *ngIf="rate > 0">
+  <article class="chaletItemStar">
+    <p class="chaletItemStar__number">{{ rate.toFixed(2) }}</p>
+    <p class="chaletItemStar__status">{{ getAppropriateRate(rate) }}</p>
+  </article>
+</ng-container>

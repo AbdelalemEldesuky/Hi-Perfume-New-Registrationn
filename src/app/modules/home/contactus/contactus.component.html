@@ -1,0 +1,37 @@
+<div style="margin-top: 100px;"> 
+  <section class="selection_container">
+    <div class="selection_container_img">
+      <!-- <img src="../../../../assets/hi_perfume_images/selection_img.png" alt=""> -->
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <h2>Contact Us</h2>
+          <form [formGroup]="myForm" (ngSubmit)="submit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile</label>
+              <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile" formControlName="mobile">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" formControlName="message"></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  <app-footer></app-footer>
+   
+</div>

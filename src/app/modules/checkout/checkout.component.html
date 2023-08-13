@@ -1,0 +1,198 @@
+<section class="checkout-container">
+  <body *ngIf="carts.length>0">
+    <header>
+      <h3>Checkout</h3>
+    </header>
+    <main>
+      <section class="checkout-form">
+        <form action="#!" method="get" [formGroup]="shippingForm">
+          <div class="total_txt">Contact information</div>
+          <div class="form-control">
+            <label for="checkout-email">E-mail</label>
+            <div>
+              <span class="fa fa-envelope"></span>
+              <input formControlName="email" type="email" id="checkout-email" name="checkout-email"
+                placeholder="Enter your email...">
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-phone">Phone</label>
+
+            <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+              [selectedCountryISO]="country_iso" [maxLength]="15" [tooltipField]="TooltipLabel.Name"
+              [phoneValidation]="true" [separateDialCode]="separateDialCode" name="phone" formControlName="mobile">
+            </ngx-intl-tel-input>
+          </div>
+          <br>
+          <div class="total_txt">Shipping address</div>
+          <div class="form-control">
+            <label for="checkout-name">First name</label>
+            <div>
+              <span class="fa fa-user-circle"></span>
+              <input formControlName="first_name" type="text" id="checkout-name" name="checkout-name"
+                placeholder="Enter you name...">
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-name">Last name</label>
+            <div>
+              <span class="fa fa-user-circle"></span>
+              <input formControlName="last_name" type="text" id="checkout-name" name="checkout-name"
+                placeholder="Enter you name...">
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-address">Address</label>
+            <div>
+              <span class="fa fa-home"></span>
+              <input formControlName="address" type="text" name="checkout-address" id="checkout-address"
+                placeholder="Your address...">
+            </div>
+          </div>
+          <div class="form-group" style="margin: 0;">
+
+            <div class="form-control">
+              <label for="checkout-city">Country</label>
+              <!-- <div>
+                <span class="fa fa-building"></span>
+                <input type="text" name="checkout-city" id="checkout-city" placeholder="Your city...">
+              </div> -->
+              <select id="country" formControlName="country">
+                <span class="fa fa-building"></span>
+
+                <option [ngValue]="null" [disabled]="true">Select country</option>
+                <option *ngFor="let country of countries" [value]="country.shortName"> {{ country.name }}</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="checkout-country">State</label>
+              <div>
+                <!-- <span class="fa fa-globe"></span>
+                <input type="text" name="checkout-country" id="checkout-country" placeholder="Your country..." list="country-list">
+                <datalist id="country-list">
+                  <option value="India"></option>
+                  <option value="USA"></option>
+                  <option value="Russia"></option>
+                  <option value="Japan"></option>
+                  <option value="Egypt"></option>
+                </datalist> -->
+                <select id="state" formControlName="state">
+                  <option [ngValue]="null" [disabled]="true">Select state</option>
+                  <option *ngFor="let state of states" [value]="state"> {{ state }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+            <div class="form-control">
+              <label for="checkout-country">City</label>
+              <select id="city" formControlName="city">
+                <option [ngValue]="null" [disabled]="true">Select city</option>
+                <option *ngFor="let city of cities" [value]="city"> {{ city }}</option>
+              </select>
+
+            </div>
+            <div class="form-control">
+              <label for="checkout-postal">Postal code</label>
+              <div>
+                <span class="fa fa-archive"></span>
+                <!-- <input type="numeric" name="checkout-postal" id="checkout-postal" placeholder="Your postal code..."> -->
+                <input formControlName="zip_code" mdbInput type="text" class="form-control" id="formGroupExampleInputMD"
+                  placeholder="Your postal code...">
+              </div>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-address">Order special instructions</label>
+            <div>
+              <!-- <span class="fa fa-home"></span> -->
+              <textarea formControlName="description" name="" id="" cols="30" rows="3"></textarea>
+              <!-- <input formControlName="description" type="text" name="checkout-address" id="checkout-address" placeholder="Order special instructions..."> -->
+            </div>
+          </div>
+          <div class="form-control checkbox-control">
+            <input formControlName="myCheckbox" type="checkbox" name="checkout-checkbox" id="checkout-checkbox">
+            <label for="checkout-checkbox">
+              For return please read the <a  href="https://hiperfumeusa.com/user/shippingPolicy" target="_blank">policy</a>. Must be unopened and within 48 hours of receiving. The shipping on your
+              cost.
+            </label>
+          </div>
+          <div class="form-control-btn"  >
+            <button *ngIf="shippingData" (click)="continueToShipping(cartDetails.total_cart);">Continue</button>
+            <button *ngIf="shippingData" (click)="addShippingData(cartDetails.total_cart);">Update</button>
+            <button *ngIf="!shippingData" (click)="addShippingData(cartDetails.total_cart);">Savse</button>
+          </div>
+        
+        </form>
+      </section>
+
+      <section class="checkout-details">
+        <div class="checkout-details-inner">
+          <div class="checkout-lists">
+            <div class="items_div">
+              <div *ngFor="let cart of carts" class="card_">
+                <div class="card_-image"><img [src]="cart.image" alt=""></div>
+                <div class="card_-details" style="width: 50%;">
+                  <div class="card_-name">{{cart.item_name}}</div>
+                  <!-- <div class="star_rate_container">
+                        <ul *ngFor="let star of stars" class="list-inline rating-list"
+                            style="display: inline-block;">
+                            <li [ngClass]="{'selected': star <= (cart.item_rate)}">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                    </div> -->
+                  <div class="card_-price">${{cart.total_price}}
+                    <!-- <span>$94.99</span> -->
+                  </div>
+                  <div class="card_-wheel">
+                    <button [disabled]="cart.quantity == 1" (click)="updateCart(cart.cart_id,cart.quantity)">-</button>
+                    <span>{{cart.quantity}}</span>
+                    <button (click)="addToCart(cart.item_id)">+</button>
+                  </div>
+                </div>
+                <div>
+                  <div (click)="deleteCart(cart.item_id)" class="delete_cart">
+                    <img src="../../../assets/hi_perfume_images/delete_icon.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkout-shipping">
+            <div class="total_txt">Initial Price</div>
+            <p>${{cartDetails.subtotal}}</p>
+          </div>
+          <div class="checkout-shipping">
+            <div class="total_txt">Offer</div>
+            <p>${{cartDetails.discount}}</p>
+          </div>
+          <div class="checkout-shipping" *ngIf="shippingData">
+            <div class="total_txt">Shipping</div>
+            <p>${{cartDetails.shipping.price}}</p>
+          </div>
+          <div class="checkout-total">
+            <div class="total_txt">Total Price</div>
+            <p>${{cartDetails.total_cart}}</p>
+          </div>
+
+          <button [routerLink]="['/pay' ]" type="submit" mdbBtn color="primary" class="btn-login"
+            *ngIf="shippingData">Pay Now</button>
+
+        </div>
+      </section>
+    </main>
+  </body>
+  <section class="no_items" *ngIf="!carts.length">
+    No Items Added
+  </section>
+  <div style="padding-top: 30px;">
+    <app-footer></app-footer>
+  </div>
+
+
+
+</section>

@@ -1,0 +1,45 @@
+  <section  class="arrangement d-none d-md-block">
+    <ul  class="row" style="margin: 0px;">
+      <li
+        class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
+        *ngFor="let arrangment of arrangements"
+        [ngClass]="{ active: arrangment.value === step }"
+      >
+        <a (click)="getArrangmentValue(arrangment.value)">
+          <span>{{ arrangment.title | translate }}</span>
+        </a>
+      </li>
+      <li *ngIf="step">
+        <a (click)="getArrangmentValue('clear')">
+          <span>{{ "clear" | translate }}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <ng-template  #sortTemplate>
+    <section  class="arrangement">
+      <ul  class="row" style="margin: 0px;">
+        <li
+          class="col-lg-3 col-md-3 col-sm-12 col-xs-12"
+          *ngFor="let arrangment of arrangements"
+          [ngClass]="{ active: arrangment.value === step }"
+        >
+          <a (click)="getArrangmentValue(arrangment.value)">
+            <span>{{ arrangment.title | translate }}</span>
+          </a>
+        </li>
+        <li *ngIf="step">
+          <a (click)="getArrangmentValue('clear')">
+            <span>{{ "clear" | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    </ng-template>
+    <section style="margin-right: 10px;"  class="d-block d-sm-block d-md-none">
+      <!-- <img style="width: 40px;" (click)="openModal(sortTemplate)" src="../../../../assets/image/sort.png" alt=""> -->
+      <!-- <i style="font-size: 18px;color:#000;"  class="fa-solid fa-arrow-down-wide-short"></i> -->
+      <i style="font-size: 30px;color: #5d47d0;font-weight: bold;" (click)="openModal(sortTemplate)" class='fas fa-sort-amount-down'></i>
+    </section>
+
+

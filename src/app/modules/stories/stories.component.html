@@ -1,0 +1,73 @@
+<section>
+   <div class="stories_container">
+      <div style="position: relative;">
+         <img src="../../../assets/hi_perfume_images/stories_text_img.png" alt="">
+      </div>
+      <div *ngIf="stories.length>0">
+   <div>
+      <!-- <app-header></app-header> -->
+   </div>
+      <div class="stories_header_img container">
+
+      </div>
+      <div class="text-container">
+         <h3>Discover the history and background behind Clive Christian noble collection.
+            Find out more about QueenAnne, Rococo andArt Deco perfumes.</h3>
+      </div>
+<div  *ngIf="stories">
+   <div class="card" *ngIf="stories[0]">
+      <div class="card-content row">
+         <div class=" col-md-4 col-sm-10">
+            <img [src]="stories[0].imagge">
+         </div>
+         <div class="text  col-md-8 col-sm-12">
+            <h3>{{stories[0].title}}</h3>
+            <p>
+               {{stories[0].description | extractText}}
+            </p>
+         </div>
+      </div>
+   </div>
+
+   <div class="stories_sec2 row container" *ngIf="stories[1]">
+      <div class=" col-md-8 col-sm-10 text-1">
+         <div class="stories_sec2_text">
+            <div class="stories_sec2_text_title">
+             {{stories[1].title}}
+            </div>
+            <div class="stories_sec2_text_text">
+               {{stories[1].description | extractText}}
+            </div>
+         </div>
+      </div>
+      <div class="img col-md-4 col-sm-10">
+         <img [src]="stories[1].imagge" alt="">
+      </div>
+   </div>
+
+   <div class="stories_sec3 row container" *ngIf="stories[2]">
+      <div class=" img col-md-4 col-sm-10">
+         <img [src]="stories[2].imagge" alt="">
+      </div>
+      <div class="col-md-8 col-sm-10 text-2">
+         <div class="stories_sec3_text">
+            <div class="stories_sec3_text_title">
+             {{stories[2].title}}
+            </div>
+            <div class="stories_sec3_text_text">
+               {{stories[2].description | extractText}}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+  </div>
+  
+  <div *ngIf="stories.length==0" class="no_items"> 
+     No Stories Added
+   </div>
+</div>
+   <div>
+      <app-footer></app-footer>
+   </div>
+</section>

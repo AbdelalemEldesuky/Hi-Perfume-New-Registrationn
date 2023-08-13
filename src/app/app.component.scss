@@ -1,0 +1,47 @@
+:host {
+  background: #f6f6f6;
+}
+
+@import '../assets/scss/variables';
+
+.main {
+  min-height: 600px;
+  display: block;
+}
+.ratingContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+  input {
+    display: none;
+  }
+
+  .rating {
+    border: 1px solid #000;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    padding: 3px 13px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+  .checked {
+    background: $main-color;
+    color: #fff;
+  }
+}
+
+:ng-deep {
+  @media screen and (min-width: 576px) {
+    .modal-dialog {
+      max-width: 630px !important;
+      margin: 1.75rem auto;
+    }
+  }
+}

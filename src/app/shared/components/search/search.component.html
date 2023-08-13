@@ -1,0 +1,130 @@
+<section class="container">
+  <section class="search__wrapper ">
+    <!-- <div class="search__wrapper__titleContainer">
+      <h4>{{ "search" | translate }}</h4>
+    </div> -->
+
+    <div class="row searchBar">
+      <div class="col-lg-2 col-md-6 col-6 col-sm-6 col-xs-6" style="padding: 5px;">
+        <div class="row" style="margin: 0px;">
+          <div class="col-1" style="padding: 0px;">
+            <img src="assets/image/location2.png" alt="" style="padding: 12px;">
+          </div>
+          <div class="col-11 search__wrapper-div">
+            <div class="search__wrapper__cityContainer">
+              <ng-select class="disable-arrow disable-dropdown disable-clear-all" [items]="cities" bindValue="_id"
+                bindLabel="name" [(ngModel)]="cityId" [placeholder]="'select_city' | translate">
+              </ng-select>
+              <!-- <i nz-icon nzType="step-backward" nzTheme="outline"></i> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="!this.selectedCategory || (this.selectedCategory && !this.selectedCategory.multi_days_booking_enabled)"
+        class="col-lg-3 col-md-6 col-6 col-sm-6 col-xs-6" style="padding: 5px;">
+        <div class="row" style="margin: 0px;">
+          <div class="col-1" style="padding: 0px;">
+            <img src="assets/image/calender.png" alt="" style="padding: 14px;">
+          </div>
+          <div class="col-11 search__wrapper-div">
+            <div class="search__wrapper__dateContainer">
+              <input style="border: none;" [placeholder]="'select_date' | translate" class="form-control"
+                [(ngModel)]="date" bsDatepicker [minDate]="minDate"
+                [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD'}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="this.selectedCategory && this.selectedCategory.multi_days_booking_enabled"
+        class="col-lg-4 col-md-12 col-sm-12 col-xs-12" style="padding: 5px;">
+        <div class="row" style="margin: 0px;">
+          <div class="col-6 row" style="margin: 0px;">
+            <div class="col-1" style="padding: 0px;">
+              <img src="assets/image/calender.png" alt="" style="padding: 14px;">
+            </div>
+            <div class="col-11 search__wrapper-div">
+              <div class="search__wrapper__dateContainer">
+                <input style="border: none;" [placeholder]="'start_date' | translate" class="form-control"
+                  [(ngModel)]="date" bsDatepicker [minDate]="minDate"
+                  [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD'}" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 row" style="margin: 0px;">
+            <div class="col-1" style="padding: 0px;">
+              <img src="assets/image/calender.png" alt="" style="padding: 14px;">
+            </div>
+            <div class="col-11 search__wrapper-div">
+              <div class="search__wrapper__dateContainer">
+                <input style="border: none;" [placeholder]="'end_date' | translate" class="form-control"
+                  [(ngModel)]="end_date" bsDatepicker [minDate]="minDate"
+                  [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD'}" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="!this.selectedCategory || (this.selectedCategory && !this.selectedCategory.multi_days_booking_enabled)"
+        class="col-lg-3 col-md-6 col-6 col-sm-6 col-xs-6" style="padding: 5px;">
+        <div class="row" style="margin: 0px;">
+          <div class="col-1" style="padding: 0px;">
+            <img src="assets/image/location2.png" alt="" style="padding: 14px;">
+          </div>
+          <div class="col-11 search__wrapper-div">
+            <div class="search__wrapper__chaletsContainer">
+              <ng-select nzIcon="user" class="disable-arrow disable-dropdown disable-clear-all" [items]="occasions"
+                bindValue="_id" bindLabel="name" [(ngModel)]="occasionId" [placeholder]="'select_occasion' | translate">
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="this.selectedCategory && this.selectedCategory.multi_days_booking_enabled"
+        class="col-lg-2 col-md-6 col-6 col-sm-6 col-xs-6" style="padding: 5px;">
+        <div class="row" style="margin: 0px;">
+          <div class="col-1" style="padding: 0px;">
+            <img src="assets/image/location2.png" alt="" style="padding: 14px;">
+          </div>
+          <div class="col-11 search__wrapper-div">
+            <div class="search__wrapper__chaletsContainer">
+              <ng-select nzIcon="user" class="disable-arrow disable-dropdown disable-clear-all" [items]="occasions"
+                bindValue="_id" bindLabel="name" [(ngModel)]="occasionId" [placeholder]="'select_occasion' | translate">
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-6 col-sm-6 col-xs-6" style="padding: 5px">
+        <div class="row" style="margin: 0px;">
+          <div class="col-1" style="padding: 0px;">
+            <img src="assets/image/location2.png" alt="" style="padding: 14px;">
+          </div>
+          <div class="col-11 search__wrapper-div">
+            <div class="search__wrapper__chaletsContainer">
+              <ng-select nzIcon="user" class="disable-arrow disable-dropdown disable-clear-all" [items]="categories"
+                bindValue="_id" bindLabel="name" (change)="changeCategory()" [(ngModel)]="categoryId"
+                [placeholder]="'select_category' | translate">
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12" style="padding: 4px 0px 0px 0px;">
+        <div class="search__wrapper__submit">
+          <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> -->
+          <button class="btn btn-block searchBtn" (click)="submitSearch()"
+            style="padding: 0px !important;">
+            {{ "search" | translate }}
+          </button>
+        </div>
+      </div>
+      <!-- <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
+        <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+        <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+        <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+      </nz-select> -->
+    </div>
+  </section>
+</section>

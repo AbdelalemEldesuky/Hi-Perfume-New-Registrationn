@@ -1,0 +1,73 @@
+@import '../../../assets/scss/variables';
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin ball {
+  @include center;
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 2;
+  margin-top: 4px;
+  animation: ball 0.45s cubic-bezier(0, 0, 0.15, 1) alternate infinite;
+}
+
+.btn-1 {
+  color: #fff;
+  font-weight: 650;
+  border-radius: 5px;
+  background: #5d47d0;
+  font-weight: 650;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 16px;
+  margin: 10px auto;
+  padding: 0px 25px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+
+  &:focus {
+    outline: 0;
+  }
+
+  .loading {
+    &::before {
+      @include ball;
+      animation-delay: 0.15s;
+    }
+  }
+
+  &.loading-btn {
+    font-size: 0;
+    padding: 0px 50px;
+
+    &::before {
+      @include ball;
+      margin-left: -10px;
+    }
+
+    &::after {
+      @include ball;
+      margin-left: 10px;
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+@keyframes ball {
+  from {
+    transform: translateY(0) scaleY(0.8);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}

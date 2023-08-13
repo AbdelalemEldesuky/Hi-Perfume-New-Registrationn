@@ -1,0 +1,110 @@
+@import '../../../../../assets/scss/variables';
+
+.bg-blue {
+  background-color: $blue-color;
+}
+.incomplete-orders-bar {
+  height: 144px;
+}
+.d-flex {
+  display: flex!important;
+}
+.p-2 {
+  padding: 0.5rem!important;
+}
+.incomplete-orders-bar-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.text-white {
+  color: #fff!important;
+}
+.flex-grow-1 {
+  flex-grow: 1!important;
+}
+.p-2 {
+  padding: 0.5rem!important;
+}
+.incomplete-order-card {
+  height: 70px;
+  border-radius: 0;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  background-color: transparent;
+
+}
+.header-item-close-button{
+  position: absolute;
+  box-sizing: border-box;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #979797;
+  background-color: #fff;
+  border-radius: 50%;
+  color: $blue-color;
+  font-size: 10px;
+  font-weight: 500;
+  top: -10px;
+  left: -10px;
+  padding: 0;
+}
+.clickable {
+  cursor: pointer;
+}
+.fa, .fas {
+  font-weight: 900;
+}
+.incomplete-order-card-body {
+  padding: 0.5rem;
+  text-align: start;
+}
+.incomplete-order-card-subtitle{
+  font-size: 14px;
+  color: #2c3a5f;
+  font-weight: 600;
+}
+.clickable {
+  cursor: pointer;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+.vertical-text-centered {
+  display: flex;
+  align-items: center;
+}
+.group {
+  position: relative;
+  margin-bottom: 35px;
+  color: #9b9b9b;
+}
+.bg-gray {
+  background-color: #f6f6f6;
+}
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.btn-form {
+  width: 170px;
+  font-weight: 700;
+  font-size: 16px;
+  height: 45px;
+  border-radius: 3px;
+}
+.bg-green {
+  background-color: $green-color;
+}
+.text-white {
+  color: #fff!important;
+}

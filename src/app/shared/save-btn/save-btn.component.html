@@ -1,0 +1,9 @@
+<button
+  class="custom-btn btn-1 btn"
+  [ngClass]="{ 'loading-btn': loading, 'btn-block': btnBlock }"
+  (click)="handleIsClicked()"
+  [disabled]="loading"
+>
+  {{ name }}
+  <span class="loading" *ngIf="loading"> </span>
+</button>

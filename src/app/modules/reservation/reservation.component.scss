@@ -1,0 +1,132 @@
+@import '../../../assets/scss/variables';
+
+agm-map {
+  height: 300px;
+  width: 100%;
+}
+.map {
+  margin-bottom: 15px;
+}
+
+@media screen and(max-width: 670px) {
+  agm-map {
+    height: 200px;
+    width: 100%;
+  }
+  .map {
+    margin-bottom: 15px;
+  }
+}
+
+:host {
+  .container {
+    min-height: 600px;
+  }
+  .reservationContainer {
+    background: #fff;
+    padding: 15px;
+
+    &__head {
+      &__title {
+        font-size: 20px;
+      }
+    }
+
+    &__body {
+      .col-md-4 {
+        flex: 0 0 30.333333%;
+      }
+
+      &__itemContainer {
+        margin: 15px auto;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+
+        &__header {
+          width: auto;
+          height: 250px;
+          background-size: cover;
+          position: relative;
+          background-position: center;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+        }
+
+        &__mainContent {
+          padding: 10px;
+
+          &__wrapper {
+            display: flex;
+            justify-content: center;
+            .congts-msg {
+              margin: 10px 0px;
+            }
+            &__value {
+              margin-left: auto;
+
+              [dir=rtl] & {
+                margin-left: initial;
+                margin-right: auto;
+              }
+            }
+          }
+        }
+
+        &__footer {
+          color: #fff;
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+          text-align: center;
+          padding: 10px;
+
+          &:nth-child(odd) {
+            background: $secondary-color;
+          }
+
+          &:nth-child(even) {
+            background: $main-color;
+          }
+
+          .congts-msg {
+            padding: 10px auto;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .noReservationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    background: #fff;
+  }
+}
+
+:host {}
+
+.modal-body {
+
+  .inoviceContainer {
+    &__bodyTitle {
+      color: $main-color;
+    }
+
+    &__invoiceWrapper {
+
+      &__value {
+        margin-left: auto;
+
+        [dir=rtl] & {
+          margin-left: initial;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}

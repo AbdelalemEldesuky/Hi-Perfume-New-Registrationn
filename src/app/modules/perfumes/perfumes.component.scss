@@ -1,0 +1,840 @@
+@import '../home/home.component.scss';
+// @import '../../../assets/scss/popup_item_added.scss';
+
+.perfumes_container {
+    padding: 75px 0;
+
+    .card-img {
+        border-radius: 73px 17px 17px 17px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: currentcolor;
+        height: 320px;
+        cursor: pointer;
+
+    }
+
+    .card-2 {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: currentcolor;
+        color: #000;
+    }
+
+
+}
+// ::ng-deep .ngx-pagination li{
+//     display: flex !important;
+// }
+// ::ng-deep.ngx-pagination a, .ngx-pagination button{
+//     cursor: pointer !important;
+//     display: block !important;
+//     margin: auto !important;
+//     text-align: center !important;
+//     border-radius: 10px !important;
+//     padding: 2px 10px !important;
+//     display: block !important;
+//     background: #f6c812 !important;
+//     color: #000 !important;
+// }
+
+::ng-deep.mat-paginator-range-actions{
+margin: auto !important;
+color: #000 !important;
+background: #f6c812 !important;
+border-radius: 10px !important;
+padding: 3px 22px !important;
+}
+::ng-deep.mat-paginator-page-size{
+    display: none !important;
+}
+@media (max-width: 680px) {
+    img {
+        width: 100%;
+    }
+}
+
+// .imdb-rating{
+//     position: absolute;
+//     font-size: 2.5em;
+//     right: 18px;
+//     top: 10px;
+//     text-shadow: 0 0 4px #bbb;
+//     -webkit-text-stroke: 1px #fe0;
+//     // -webkit-text-stroke: 1px #E1AF4F;
+//     color: #E1AF4F;
+// }
+// .fa{
+//     -webkit-font-smoothing: antialiased;
+//     display: inline-block;
+//     font-style: normal;
+//     font-variant: normal;
+//     text-rendering: auto;
+//     font-family: "Font Awesome 5 ";
+//     font-weight: 900;
+//     line-height: 1;
+// }
+// .fa-star:before{
+//     content: "\f005";
+
+// }
+
+// .imdb-rating span{
+//     position: absolute;
+//     font-size: 14px;
+//     /* right: 9px; */
+//     color: #000;
+//     left: 10px;
+//     top: 11px;
+//     -webkit-text-stroke: 0px;
+// }
+
+/////////rating/////////
+.rating-list li {
+    float: right;
+    color: #999999;
+    padding: 10px 5px;
+    font-size: 1.5rem;
+    font-size: 15px;
+    padding: 2px;
+  }
+  
+  .rating-list li:hover,
+  .rating-list li:hover~li,
+  .rating-list li.selected {
+    color: #ffba00;
+    font-size: 15px;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+    direction: ltr;
+    float: left;
+    margin-bottom: 5px;
+  }
+  
+  .rating-list li.selected {
+    color: #ffba00;
+    font-size: 15px;
+    padding: 2px;
+  }
+  
+  .star_rate_container {
+    margin-top: 0px;
+    margin-left: 5px;
+  
+  }
+  
+  /////////////////////
+  
+  .favorite_icon{
+    border: solid 2px #E1AF4F;
+    border-radius: 50%;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    color: #E1AF4F;
+    margin-right: 10px;
+  }
+  .isFavorite_icon{
+    border-radius: 50%;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border: solid 2px #E1AF4F;
+    color: #fff;
+    background-color: #E1AF4F;
+  }
+  .favorite_icon:hover{
+    border: solid 2px #E1AF4F;
+    color: #fff;
+    background-color: #E1AF4F;
+  
+  }
+  
+  .share_icon img{
+    margin: 0;
+    width: 36px;
+    height: 35px;
+    margin-right: 9px;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  
+  .logo {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+  }
+  
+  .favorite_icon_ img{
+    margin: auto;
+      margin-right: 9px;
+      margin-top: 2px;
+      cursor: pointer;
+      width: 35px;
+  }
+  
+  .best .view {
+    width: 140px;
+    height: 35px;
+    border: none;
+    background: #E1AF4F;
+    border-radius: 66px;
+    margin: auto;
+    display: block;
+    margin: 40px auto 20px auto;
+  }
+  
+  .best .view a {
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      color: #FFFFFF;
+  }
+  .selection_name{
+    color: #7E7E7E;
+    font-weight: bold;
+    font-size: 18px;
+    // padding-top: 20px;
+    // padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    height: 35px;
+    margin: auto;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    justify-content: space-around;    height: auto;
+    font-size: 13px;
+    height: 95px;
+  
+  }
+  .selection_name_span{
+    width: 85%;text-align: left;
+  }
+  .selection_desc{
+    color: #898989;
+    font-size: 11px;
+    overflow: hidden;
+    width: 90%;
+    text-align: center;
+    margin: 12px auto;
+    font-weight: 600;
+    width:  auto;
+    text-align: left;    margin: 0px auto;
+  
+  }
+  .price_div{
+    width: 30%;
+    text-align: center;padding-right: 15px;
+  }
+  .retail_price{
+    color: #E1AF4F;font-weight: 100;font-size: 14px;
+  }
+  .include_tax{
+    color: #E1AF4F;
+    font-size: 8px;
+  }
+  .main_price{
+    font-weight: 100;font-size: 14px;text-decoration: line-through;
+  }
+  .descount_price{
+    font-weight: 100;font-size: 14px;
+  }
+  .selection_btn{
+    display: flex;
+    justify-content: left;
+  }
+  .selection_btn button{
+    width: 125px;
+    height: 36px;
+    background: #DBDBDB;
+    border-radius: 71px;
+    border: navajowhite;
+    color: #9A9A9A;
+  }
+  .selection_btn .selection_icon{
+  background-color: #E1AF4F;
+  border-radius: 50%;
+  padding: 7px;
+  margin-right: 9px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  }
+  .selection_btn .selection_icon img{
+    width: 16px;
+    display: block;
+    margin: auto;
+  }
+  .center{
+    text-align: center;
+  }
+  
+  .perfume_img{
+    height: 250px;
+    cursor: pointer;
+    width: 100%;
+
+  }
+  /////////////////////
+  
+  .favorite_icon{
+    border: solid 2px #E1AF4F;
+    border-radius: 50%;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    color: #E1AF4F;
+    margin-right: 10px;
+  }
+  .isFavorite_icon{
+    border-radius: 50%;
+    padding: 6px;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border: solid 2px #E1AF4F;
+    color: #fff;
+    background-color: #E1AF4F;
+  }
+  .favorite_icon:hover{
+    border: solid 2px #E1AF4F;
+    color: #fff;
+    background-color: #E1AF4F;
+  
+  }
+  
+  .share_icon img{
+    margin: 0;
+    width: 36px;
+    height: 35px;
+    margin-right: 9px;
+    cursor: pointer;
+  }
+  
+  
+  .logo {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+  }
+  
+  .favorite_icon_ img{
+    margin: auto;
+      margin-right: 9px;
+      margin-top: 2px;
+      cursor: pointer;
+      width: 35px !important;
+      height: 28px !important;
+  }
+  
+  ::ng-deep.carousel{
+    z-index: 0 !important;
+  }
+  ::ng-deep.carousel-arrow{
+  // top: 25% !important;
+  }
+  ::ng-deep.carousel-arrow-prev{
+    width: 30px !important;
+    height: 30px !important;
+    background: #E1AF4F !important;
+    border-radius: 50% !important;
+    text-align: center !important;
+    padding: 3px !important;
+    background-image: url(../../../assets/hi_perfume_images/arrow_lift.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    left: -10px !important;
+  }
+  
+  ::ng-deep.carousel-arrow-next{
+    width: 30px !important;
+    height: 30px !important;
+    background: #E1AF4F !important;
+    border-radius: 50% !important;
+    text-align: center !important;
+    padding: 3px !important;
+    background-image: url(../../../assets/hi_perfume_images/arrow_right.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    right: -10px !important;
+  }
+  
+  .selection_carousel_container{
+    margin-top: 40px;
+  }
+  
+  ///////////// Social Midea Share ////////////////
+  
+  
+  .container_social ul {
+    position: relative;
+    list-style: none;
+    width: 35px;
+    height: 35px;
+  }
+  .container_social ul:before {
+    content: "";
+    position: absolute;
+    top: -2%;
+    left: -2%;
+    width: 104%;
+    height: 104%;
+    border-radius: 50%;
+    // background-color: #426fc5;
+    z-index: 6;
+    // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+    background: url(../../../assets/hi_perfume_images/share_icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  
+  }
+  .container_social ul:after {
+    // content: "Share me!";
+    font-size: 4vh;
+    color: white;
+    text-align: center;
+    z-index: 7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .container_social ul li {
+    font-size: 10px;
+    position: absolute;
+    top: 0;
+    width: 33px;
+    height: 33px;
+    left: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  .container_social ul li:nth-child(1) {
+    // background-color: #47c157;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.58s;
+    z-index: 1;
+    font-size: 20px;
+  
+  }
+  .container_social ul li:nth-child(2) {
+    // background-color: #db1cb8;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.66s;
+    z-index: 2;
+    font-size: 20px;
+  
+  }
+  .container_social ul li:nth-child(3) {
+    // background-color: #3b5998;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.74s;
+    z-index: 3;
+  }
+  .container_social ul li:nth-child(4) {
+    // background-color: #55acee;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+    z-index: 4;
+  }
+  .container_social ul li:nth-child(5) {
+    // background-color: #55acee;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+    z-index: 0;
+    // display: none;
+  }
+  
+  .bg_socila_icons{
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .container_social a {
+    display: block;
+    color: #fff;
+  }
+  .container_social a img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .container_social:hover li:nth-child(1) {
+    transform: translate(40px, 0);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.08s;
+  }
+  .container_social:hover li:nth-child(2) {
+    transform: translate(80px, 0);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.16s;
+  }
+  .container_social:hover li:nth-child(3) {
+    transform: translate(120px, 0);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.24s;
+  }
+  .container_social:hover li:nth-child(4) {
+    transform: translate(160px, 0);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.32s;
+  }
+  .container_social:hover li:nth-child(5) {
+    transform: translate(90px, 0);
+    transition: transform 0.4s cubic-bezier(0.75, 0, 0.175, 1) 0.32s;
+    .bg_socila_icons{
+      width: 100px !important;
+      height: 35px !important;
+  
+    }
+  
+  }
+  .add_to_cart_btn{
+    background: transparent;
+    border: 1px solid #E1AF4F;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    height: 35px !important;
+    font-size: 14px !important;
+    transition: all 0.5s;
+    width: 70%;  letter-spacing: 0.02em;
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: #E1AF4F;
+    width: 60%;    padding: 5px;
+  }
+  .add_to_cart_btn:hover{
+  color: #E1AF4F;
+  background: #000
+  }
+  
+  .add_to_cart_btn_added{
+    color: #E1AF4F;
+    background: #000
+  }  
+  
+  ////////////////////Mobile Responsive///////////////////
+  @media only screen and (max-width: 900px){
+
+    .caard{
+      padding: 0px 30px !important;
+
+    }
+    .perfume_img{
+      height: 30%;
+
+    }
+    .selection_name{
+  font-size: 11px;
+    }
+    .selection_desc{
+      font-size: 8px;
+    }
+    .retail_price{
+      font-size: 11px;
+    }
+    .include_tax{
+      font-size: 5px;
+    }
+    .add_to_cart_btn{
+      height: 30px !important;
+    font-size: 11px !important;
+    width: 55% !important;
+
+    }
+    .selection_name{
+      height: 80px;
+
+    }
+    
+}
+
+  
+  @media only screen and (max-width: 790px) {
+  
+    .woman_sec > ::ng-deep.nav{
+        font-size: 12px !important;
+    
+    
+    }
+    .men_sec > ::ng-deep.nav{
+         font-size: 12px !important;
+    
+    
+    }
+    .unisex_sec > ::ng-deep.nav{
+        font-size: 12px !important;
+    
+    
+    }
+    
+    .woman_sec >  ::ng-deep .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+        font-size: 12px !important;
+    
+    
+    }
+    .men_sec >  ::ng-deep .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+        font-size: 12px !important;
+    
+    
+    }
+    .unisex_sec >  ::ng-deep .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+        font-size: 12px !important;
+    
+    
+    }
+    
+    .men_sec > ::ng-deep.nav-pills a{
+        font-size: 12px !important;
+        padding: 4px 30px !important;
+    
+    
+    }
+    .woman_sec > ::ng-deep.nav-pills a{
+        font-size: 12px !important;
+        padding: 4px 30px !important;
+    
+    
+    }
+    .unisex_sec > ::ng-deep.nav-pills a{
+        font-size: 12px !important;
+        padding: 4px 30px !important;
+    
+    }
+    .selection_name{
+      font-size: 9px;
+      padding-top: 0;
+      height: 50px;
+  }
+    .selection_desc{
+      font-size: 5px;
+      max-height: 25px;
+      min-width: 90%;
+      margin-bottom: 5px;
+    }
+    .retail_price{
+    font-size: 7px;
+    }
+    .include_tax{
+      color: #E1AF4F;
+      font-size: 4px;
+    }
+    .main_price{
+     font-size: 7px;
+    }
+    .descount_price{
+     font-size: 7px;
+    }
+    .favorite_icon_ img{
+    height: 20px !important;
+    width: 20px !important;
+    }
+    .container_social ul:before{
+      top: 8%;
+      height: 20px !important;
+      width: 20px !important;
+    }
+    .container_social ul li{
+      width: 18px;
+        height: 18px;
+    }
+    .container_social:hover li:nth-child(5) .bg_socila_icons{
+      width: 100px !important;
+    
+    }
+    .container_social a img{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate3d(-88%, -40%, 0);
+    }
+    .add_to_cart_btn{
+      height: 25px !important;
+      font-size: 8px !important;
+      display: block;
+      margin: auto;
+      margin-top: -5px;
+    }
+    .rating-list li.selected{
+      font-size: 10px;
+    }
+    .rating-list li{
+      font-size: 10px;
+    }
+    
+    
+    ///////////// Social Midea Share ////////////////
+    
+    
+    .container_social ul {
+      position: relative;
+      list-style: none;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+    
+    }
+    .container_social ul:before {
+      content: "";
+      position: absolute;
+      top: -2%;
+      left: 2px;
+      width: 104%;
+      height: 104%;
+      border-radius: 50%;
+      // background-color: #426fc5;
+      z-index: 6;
+      // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+      background: url(../../../assets/hi_perfume_images/share_icon.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    
+    }
+    .container_social ul:after {
+      // content: "Share me!";
+      font-size: 4vh;
+      color: white;
+      text-align: center;
+      z-index: 7;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .container_social ul li {
+      font-size: 10px;
+      position: absolute;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      left: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .container_social ul li:nth-child(1) {
+      // background-color: #47c157;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.58s;
+      z-index: 1;
+      font-size: 20px;
+    
+    }
+    .container_social ul li:nth-child(2) {
+      // background-color: #db1cb8;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.66s;
+      z-index: 2;
+      font-size: 20px;
+    
+    }
+    .container_social ul li:nth-child(3) {
+      // background-color: #3b5998;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.74s;
+      z-index: 3;
+    }
+    .container_social ul li:nth-child(4) {
+      // background-color: #55acee;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+      z-index: 4;
+    }
+    .container_social ul li:nth-child(5) {
+      // background-color: #55acee;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.82s;
+      z-index: 0;
+      // display: none;
+    }
+    
+    .bg_socila_icons{
+      width: 10px !important;
+      height: 10px !important;
+    }
+    .container_social a {
+      display: block;
+      color: #fff;
+    }
+    .container_social a img {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      transform: translate3d(-52%, -50%, 0);
+      height: 14px !important;
+      width: 14px !important;
+    
+    }
+    .container_social:hover li:nth-child(1) {
+      transform: translate(13px, 0);
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.08s;
+    }
+    .container_social:hover li:nth-child(2) {
+      transform: translate(30px, 0);
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.16s;
+    }
+    .container_social:hover li:nth-child(3) {
+      transform: translate(50px, 0);
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.24s;
+    }
+    .container_social:hover li:nth-child(4) {
+      transform: translate(70px, 0);
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1) 0.32s;
+    }
+    .container_social:hover li:nth-child(5) {
+      transform: translate(40px, 0);
+      transition: transform 0.4s cubic-bezier(0.75, 0, 0.175, 1) 0.32s;
+      .bg_socila_icons{
+        width: 100px !important;
+        height: 20px !important;
+    
+      }
+    }
+      ::ng-deep.carousel-arrow{
+        top: 32% !important;
+    
+      }
+      ::ng-deep.carousel-arrow-prev{
+        width: 22px !important;
+        height: 22px !important;
+      }
+      ::ng-deep.carousel-arrow-next{
+        width: 22px !important;
+        height: 22px !important;
+        // display: none;
+      }
+    .perfume_img{
+        height: 30%;
+
+    }
+    }
+
+
+
+// ::ng-deep.modal.show .modal-dialog{
+//     position: absolute !important;
+//     top: 10px !important;
+//     margin-top: 0 !important;
+//     right: 50px !important;
+// }
+//  ::ng-deep.modal-content{
+//   height: auto !important;
+//   width: auto !important;
+//   margin: auto !important;
+//   background: transparent !important;
+//   box-shadow: none !important;
+//   border: none !important;
+//   padding: 0 !important;
+//   flex-direction: row-reverse !important;
+// }
+
+

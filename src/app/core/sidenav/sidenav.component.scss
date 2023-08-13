@@ -1,0 +1,81 @@
+.side_nav_container{
+    position: fixed;
+    top: 180px;
+    right: -5px;
+}
+.side_nav_icons{
+    position: absolute;
+    top: 0;
+    padding: 28px 8px;
+}
+.side_nav_icons img{
+    display: block;
+    margin-bottom: 22px;
+}
+.side_nav_icons_div{
+    height: 40px;
+    position: relative;
+}
+.close_icon{
+    text-align: right;
+    color: #787676e0;
+    font-size: 30px;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 18px;
+    cursor: pointer;
+    z-index: 99999999999999999;
+  }
+  .close_icon img{
+    cursor: pointer;
+    width: 30px;
+    }
+// .slide_bg{
+//     height: 125px;
+//     width: 34px;
+// }
+.side_nav_icons_div .notify{
+    position: absolute;
+    height: 18px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: #F6274F;
+    z-index: 9;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px;
+    text-align: center;
+    top: 12px;
+    left: 7px;
+}
+////////////////////
+
+.nav_favorite_icon i{
+    // border: solid 2px #E1AF4F;
+    // border-radius: 50%;
+    // padding: 6px;
+    // width: 35px;
+    // height: 35px;
+    color: #fff;
+    font-size: 17px;
+    // margin-right: 10px;
+  }
+ 
+  @media only screen and (max-width: 790px) {
+
+  // .side_nav_container{
+  //   position: fixed;
+  //   bottom: 0;
+  //   right: 45%;
+  //   transform: rotate(90deg);
+  //   top: auto;
+  // }
+  // .side_nav_icons img{
+  //   transform: rotate(270deg);
+  // }
+  // .nav_favorite_icon i{
+  //   transform: rotate(270deg);
+  // }
+}

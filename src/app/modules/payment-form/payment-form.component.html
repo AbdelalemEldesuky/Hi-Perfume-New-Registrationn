@@ -1,0 +1,114 @@
+<div class="payment_form_component">
+  
+  <div class="form">
+    <div class="form-wrapper">
+<div class="text_header">
+  Payment Method
+</div>
+<div class="payment_images">
+  <!-- <img 
+  src="../../../assets/hi_perfume_images/visa2.png" alt="" srcset=""> -->
+<!-- <img   src="../../../assets/hi_perfume_images/payment_method2.png" alt="" srcset=""> -->
+<img  src="../../../assets/hi_perfume_images/payment_method1.png" alt="" srcset="">     
+</div>
+  
+      <div class="form-header" style="display: flex;justify-content: space-evenly;">
+
+                          
+                       </div>
+  
+      <div class="form-main">
+        <form [formGroup]="creditCardForm"
+              >
+  
+          <div class="input-group">
+            <input type="text"
+                   id="cardNumber"
+                   formControlName="cardNumber"
+                   mask="0000 0000 0000 0000">
+            <label for="cardNumber"
+                   class="input-label"
+                   [class.active]="this._isStoreCard || creditCardForm.value.cardNumber">Credit card number</label>
+            <div class="input-error"
+                 [class.active]="!creditCardForm.controls.cardNumber.untouched && !creditCardForm.controls.cardNumber.valid && !creditCardForm.controls.cardNumber.disabled">Invalid input</div>
+          </div>
+  
+          <div class="input-group input-group__third">
+            <select id="expMonths"
+                    formControlName="expMonth">
+              <option disabled></option>
+              <option *ngFor="let item of this.expMonths" value="{{item}}">{{item}}</option>
+            </select>
+            <label for="expMonths" c
+                   lass="input-label"
+                   [class.active]="this._isStoreCard || creditCardForm.value.expMonth">Exp. Month</label>
+            <div class="input-error"
+                 [class.active]="!creditCardForm.controls.expMonth.untouched && !creditCardForm.controls.expMonth.valid && !creditCardForm.controls.expMonth.disabled">Invalid input</div>
+          </div>
+  
+          <div class="input-group input-group__third">
+            <select id="expYear"
+                    formControlName="expYear">
+              <option disabled></option>
+              <option *ngFor="let item of this.expYears" value="{{item}}">{{item}}</option>
+            </select>
+            <label for="expYear"
+                   class="input-label"
+                   [class.active]="this._isStoreCard || creditCardForm.value.expYear">Exp. Year</label>
+            <div class="input-error"
+                 [class.active]="!creditCardForm.controls.expYear.untouched && !creditCardForm.controls.expYear.valid && !creditCardForm.controls.expYear.disabled">Invalid input</div>
+          </div>
+  
+          <div class="input-group input-group__third input-group__cvv">
+            <input type="password"
+                   id="cvvCode"
+                   formControlName="cvvCode"
+                   mask="000">
+            <label for="cvvCode"
+                   class="input-label"
+                   [class.active]="creditCardForm.value.cvvCode">CVV</label>
+            <div class="input-error"
+                 [class.active]="!creditCardForm.controls.cvvCode.untouched && !creditCardForm.controls.cvvCode.valid && !creditCardForm.controls.cvvCode.disabled">Invalid input</div>
+          </div>
+          <div class="input-group input-group__third input-group__cvv">
+            <input type="number"
+                   id="zip_code"
+                   formControlName="zip_code"
+                   mask="000">
+            <label for="zip_code"
+                   class="input-label"
+                   [class.active]="creditCardForm.value.zip_code">Zip Code</label>
+            <div class="input-error"
+                 [class.active]="!creditCardForm.controls.zip_code.untouched && !creditCardForm.controls.zip_code.valid && !creditCardForm.controls.zip_code.disabled">Invalid input</div>
+          </div>
+  
+      
+  
+          <div class="input-group input-group__submit">
+            <button mat-stroked-button
+                    class="button"
+                    color="primary"
+                    type="submit"
+                    (click)="submit()"
+                    [disabled]="!creditCardForm.valid || isPayed==true">
+              Pay ${{cartDetails.total_cart}}</button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- <div class="form-footer">
+        <mat-progress-bar mode="determinate" value="{{this.progressCount}}"></mat-progress-bar>
+      </div> -->
+  
+      <!-- <div class="form-spiner" [hidden]="!this.spinnerShow">
+        <mat-spinner></mat-spinner>
+      </div> -->
+  
+      <!-- <div class="form-success" [hidden]="!this.successShow">
+        <h3 class="message">
+          Payment successful
+        </h3>
+      </div> -->
+    </div>
+  </div>
+</div>

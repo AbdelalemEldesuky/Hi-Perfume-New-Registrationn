@@ -1,0 +1,240 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// @import "~@finastra/angular-theme/lib/core/style/spacing";
+
+@import './assets/scss/variables';
+
+
+// @font-face {
+//   font-family: 'Alexandria';
+//   src: url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype"),
+//     url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype");
+// }
+
+// @font-face {
+//   font-family: 'Alexandria';
+//   src: url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype"),
+//     url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype");
+// }
+
+// @font-face {
+//   font-family: 'Alexandria';
+//   src: url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype"),
+//     url(/assets/fonts/Alexandria-VariableFont_wght.ttf) format("truetype");
+// }
+
+:host {
+  svg-icon {
+    width: 55px !important;
+  }
+}
+
+
+:host {
+
+}
+
+body {
+  // font-family: 'DroidArabicKufiRegular'; 
+  // font-family: 'Cairo', sans-serif;
+    // font-family: Cairo,sans-serif !important;
+
+  height: 100%;
+  width: 100%;
+  // background: #f6f6f6;
+  background: #f6f6f6;
+
+  [dir=rtl] & {
+    text-align: right;
+    // font-family: 'DroidArabicKufiRegular';
+  }
+  font-family: 'Alexandria', sans-serif;
+
+
+  [dir=rtl] & {    font-family: 'Alexandria', sans-serif;
+  }
+
+
+}
+
+
+form {
+  width: 80%;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0px !important;
+}
+
+@media screen and (max-width: 696px) {
+  .navbar {
+    display: block;
+
+    .navbar-brand {
+      margin-left: 10px;
+      color: #000;
+    }
+
+    .profile,
+    .logout {
+      .nav-item {
+        .nav-link {
+          padding: .5rem 0rem;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  border-radius: 10px;
+  width: 100%;
+  margin: 20px auto;
+  border: none;
+  padding: 0px 5px !important;
+  background-color: transparent;
+}
+
+.bs-datepicker-head,
+.bs-datepicker-head, .bs-datepicker button:active,
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover 
+{
+  background-color: #5c47d0 !important; 
+}
+
+.bs-datepicker-body table td.week span 
+{
+  color: #5c47d0 !important; 
+}
+
+::ng-deep {
+  .theme-green .bs-datepicker-head {
+    background-color: #5c47d0 !important //$secondary-color;
+  }
+
+  .theme-green .bs-datepicker-body table td span.selected {
+    background-color: #5c47d0 !important //$secondary-color;
+  }
+
+  .ngx-pagination {
+    .current {
+      background: $secondary-color !important;
+    }
+  }
+
+  .loading-bar-spinner {
+    color: $secondary-color !important;
+  }
+
+  [_nghost-blj-c1]>div[_ngcontent-blj-c1] {
+    color: $secondary-color !important;
+  }
+
+  .loading-bar {
+    color: $secondary-color !important;
+  }
+
+}
+
+
+@import './assets/scss/global.scss';
+
+.form-control {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  // border: 1px solid #ccc;
+  border: 1px solid #9C92CF;
+  min-height: 25px;
+  align-items: center;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -ms-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+
+  &:focus {
+    outline: none;
+    border-color: none;
+    box-shadow: none;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+
+@media(max-width: 670px) {
+
+  h6,
+  h5,
+  p {
+    font-size: 13px;
+  }
+}
+
+/* Add application styles & imports to this file! */
+.ng-sidebar {
+  background: red;
+  width: 13rem;
+  position: fixed;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 50px;
+}
+
+.ng-sidebar--right {
+  color: red !important;
+  background: antiquewhite;
+  width: 12rem;
+
+}
+
+
+@media screen and (max-width: 991px) {
+  .form-control {
+    height: 40px;
+  }
+}
+.btn-disabled {
+  opacity: .65;
+}
+
+.formContainer{
+  margin-top: 40px;
+}
+// .md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea{
+//   border-bottom: 1px solid #000;
+// }
+
+@font-face {
+  font-family: 'Oh Beautiful';
+  src: url('./assets/fonts/oh beauty.ttf') format('truetype'),
+       url('./assets/fonts/oh beauty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oh Beautiful';
+  src: url('./assets/fonts/oh beauty.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+

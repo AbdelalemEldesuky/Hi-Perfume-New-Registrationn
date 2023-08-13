@@ -1,0 +1,24 @@
+<article class="category">
+  <a
+    [routerLink]="['/search-results']"
+    [queryParams]="{ page: 1, category: category._id }"
+  >
+    <!-- <div class="category__img" [ngStyle]="{'background-image': 'url(' + imgSrc + ')'}"> -->
+      <!-- <div class="layer"></div> -->
+      <!-- <div></div>
+    </div> -->
+    <!-- <img [src]="imgSrc"  /> -->
+    <!-- <h4 class="category__title">{{ categoryTitle }}</h4> -->
+    <div class="row" style="padding: 0px;">
+      <div class="container">
+        <img [src]="category.image" alt="Snow" style="width:100%;border-radius: 22px;height: 11rem;">
+        <h4 class="category__title">{{ category.name ? category.name : "" }}</h4>
+        <!-- <div class="bottom-left">{{category.description ? category.description : ""}}</div>
+        <div class="top-left">{{category.name ? category.name : ""}}</div> -->
+        <!-- <div class="top-right">Top Right</div>
+        <div class="bottom-right">Bottom Right</div>
+        <div class="centered">Centered</div> -->
+      </div>
+    </div>
+  </a>
+</article>

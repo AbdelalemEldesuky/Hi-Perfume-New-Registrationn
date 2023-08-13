@@ -1,0 +1,66 @@
+<div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row-1">
+                <div class="footer-col">
+                    <img src="../../../assets/hi_perfume_images/footer_img.png" alt="">
+                    <p>Our main aim is to provide great range of perfumes at <br> the lowest prices with great online
+                        shopping experience,<br>free
+                        shipping* and Prompt customer service .</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="help">Help & Information</h4>
+                    <ul>
+                        <li><a  [routerLink]="['/user/about' ]">About Us</a></li>
+                        <li><a  [routerLink]="['/user/contactus' ]">Customer Support</a></li>
+                        <li><a  (click)="openModal(becomePartnersTemplate);">Become Partners</a></li>
+                        <li><a  [routerLink]="['/user/terms' ]">Terms of Service</a></li>
+                        <li><a [routerLink]="'/user/privacyPolicy' " (click)="openPrivicyPolicy()">Privacy Policy </a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="quick">Quick Links</h4>
+                    <ul>
+                        <li><a [routerLink]="['/perfumes' ]">Perfume</a></li>
+                        <!-- <li><a  [routerLink]="['/gifts' ]">Gifts</a></li> -->
+                        <li><a [routerLink]="['/stories' ]">Stories</a></li>
+                        <li><a  [routerLink]="['/bestSeller' ]">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="brands">Brands</h4>
+                    <ul *ngIf="tags">
+                        <li *ngFor="let tag of tags.sub_tags"><a (click)="openBrand()">{{tag.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-1 social_icon_cont">
+                <div class="iconic">
+                    <a><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://instagram.com/hiperfumeusa?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@hiperfume6?_t=8eZ7AVcGfpW&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="col">
+                    <p>&#169; Copyright 2023 | HI PERFUME</p>
+                </div>
+                <div class="apps_icon">
+                    <a  href="https://play.google.com/store/apps/details?id=com.hiperfume.hiperfume" target="_blank">
+                        <img src="../../../assets/hi_perfume_images/googleplay.png" alt="">
+                    </a>
+                </div>
+                <!-- <div class="apps_icon">
+                    <img src="../../../assets/hi_perfume_images/appstore.png" alt="">
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <ng-template #becomePartnersTemplate>
+        <div  class="close_icon">
+            <img  (click)="closeModal()" src="../../../assets/hi_perfume_images/close_icon.png" alt="">
+          </div>
+        <section class="arrangement">
+          <app-become-ppartners></app-become-ppartners>
+        </section>
+      </ng-template>
+</div>

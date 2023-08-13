@@ -1,0 +1,392 @@
+.container {
+    padding: 0;
+    margin: 0;
+    width: 90%;
+}
+
+
+.stories_container {
+    padding: 125px 0;
+    padding-bottom: 10px;
+    text-align: center;
+
+    .stories_header_img {
+        background-image: url('../../../assets/hi_perfume_images/stories_header_img.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: 485px;
+        width: 100%;
+        margin: 10px auto;
+        margin-top: 90px;
+    }
+
+    .text-container {
+        align-items: center;
+        width: 80%;
+        padding: 0 0 20px 0;
+        margin: auto;
+    }
+
+    .text-container h3 {
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        color: #888888;
+    }
+
+    .card {
+        background-color: #000000;
+        overflow: hidden;
+        width: 100%;
+        text-align: left;
+        margin-top: 50px;
+  background-color: transparent;
+
+    }
+
+    .card-content {
+        padding: 20px 90px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card-content img {
+        width: 270px;
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .text {
+        color: aliceblue;
+        flex: 1;
+        padding-top: 90px;
+        padding-left: 30px;
+    }
+
+    .card-content h3 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        color: #E1AF4F;
+        padding-bottom: 35px;
+    }
+
+    .card-content h5,
+    p {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #FFFFFF;
+        line-height: 2.3;
+    }
+
+}
+
+
+/////////////////////
+
+.stories_sec2 {
+    margin: auto;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stories_sec2 .img {
+    width: 25%;
+}
+
+.stories_container .text-1 {
+    color: aliceblue;
+    flex: 1;
+}
+
+
+.stories_sec2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.stories_sec2 .text-1 {
+    width: 70%;
+    margin-top: 22px;
+}
+
+.stories_sec2_text {
+    background: #E6E6E6;
+    border-radius: 57px;
+    margin: auto;
+    text-align: left;
+    padding: 40px 0 60px 60px;
+
+}
+
+.stories_sec2_text_title {
+    font-weight: 600;
+    font-size: 30px;
+    color: #E1AF4F;
+    margin-bottom: 20px;
+}
+
+.stories_sec2_text_text {
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 218.4%;
+    color: #555555;
+}
+
+////////////////////////////
+
+.stories_sec3 {
+    margin: auto;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stories_container .text-2 {
+    color: aliceblue;
+    flex: 1;
+}
+
+.stories_sec3 .img {
+    width: 25%;
+}
+
+.stories_sec3 img {
+    width: 100%;
+    height: 100%;
+}
+
+.stories_sec3 .text-2 {
+    width: 70%;
+    margin-top: 22px;
+}
+
+.stories_sec3_text {
+    background: #E6E6E6;
+    border-radius: 57px;
+    margin: auto;
+    text-align: left;
+    padding: 40px 0 60px 60px;
+}
+
+.stories_sec3_text_title {
+    font-weight: 600;
+    font-size: 30px;
+    color: #E1AF4F;
+    margin-bottom: 20px;
+}
+
+.stories_sec3_text_text {
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 218.4%;
+    color: #555555;
+}
+
+@media (max-width: 1184px) {
+    .stories_container p {
+        font-weight: 500;
+        line-height: 1.7;
+    }
+
+    .stories_container .stories_header_img {
+        height: 410px;
+    }
+}
+
+@media (max-width: 990px) {
+    .stories_container .stories_header_img {
+        height: 340px;
+    }
+}
+
+@media (max-width: 940px) {
+    .stories_container img {
+        width: 50%;
+    }
+
+    .stories_container .text {
+        padding-top: 30px;
+        padding-left: 98px;
+    }
+
+
+
+    .stories_sec3 img,
+    .stories_sec2 img {
+        width: 270px;
+    }
+
+    .stories_sec3 .img,
+    .stories_sec2 .img {
+        width: 40%;
+        height: 100%;
+    }
+
+    .stories_sec3 .text-2 {
+        width: 50%;
+        height: 100%;
+        margin-top: 0;
+        margin-right: -60px;
+    }
+
+    .stories_sec2 .text-1 {
+        width: 50%;
+        height: 100%;
+        margin-top: 0;
+    }
+
+
+    .stories_sec3_text,
+    .stories_sec2_text {
+        background: #E6E6E6;
+        border-radius: 57px;
+        margin: auto;
+        text-align: left;
+        padding: 20px 0 30px 30px;
+    }
+
+    .stories_sec3_text_title,
+    .stories_sec2_text_title {
+        font-weight: 600;
+        font-size: 26px;
+        color: #E1AF4F;
+    }
+
+    .stories_sec3_text_text,
+    .stories_sec2_text_text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 218.4%;
+        color: #555555;
+    }
+}
+
+@media (max-width: 800px) {
+    .stories_container .stories_header_img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 770px) {
+    .stories_container .stories_header_img {
+        height: 240px;
+    }
+
+    .stories_container .card-content {
+        padding: 20px 0px;
+    }
+
+    .stories_container .text-container h3 {
+        font-weight: 500;
+        font-size: 10px;
+    }
+
+
+    .stories_sec2,
+    .stories_sec3 {
+        margin: 50px 0;
+    }
+
+    .stories_sec2 .text-1 {
+        width: 100%;
+    }
+
+    .stories_sec3 .text-2 {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 765px) {
+    .stories_container .text-container h3 {
+        font-weight: 600;
+        font-size: 10px;
+    }
+
+    .stories_sec2 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        margin: auto;
+        margin-bottom: 80px;
+    }
+
+    .stories_sec3 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .stories_sec2 img {
+        margin: 0 80px 20px;
+    }
+
+    .stories_sec2 .text-1 {
+        width: 100%;
+    }
+
+    .stories_sec3 img {
+        margin: 0 80px 20px;
+    }
+
+    .stories_sec3 .text-2 {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .stories_container .stories_header_img {
+        height: 213px;
+        margin-top: 50px;
+    }
+
+    .card {
+        margin-top: 30px;
+  background-color: transparent;
+
+    }
+
+    .stories_sec2 img {
+        margin: 0 23px 20px;
+    }
+
+    .stories_sec3 img {
+        margin: 0 23px 20px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+    .stories_container .stories_header_img {
+        height: 175px;
+    }
+
+}
+
+.stories_container .text-container h3{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #888888;
+    width: 70%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.no_items{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #666;
+    padding: 40px;
+    margin-top: 130px;
+  
+  }

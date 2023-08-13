@@ -1,0 +1,352 @@
+@import '../../../../assets/scss/variables';
+@import '../sort/sort.component.scss';
+
+:ng-deep {
+  .tile {
+    box-shadow: 0px !important;
+  }
+
+}
+
+:host {
+  .sortContainer {
+    margin-top: 30px;
+  }
+
+
+  .filterArragement {
+    margin-top: 30px;
+
+    .card {
+      display: flex;
+  background-color: transparent;
+
+
+      &__carouel {
+        width: auto;
+        height: 225px;
+        background-size: cover;
+        position: relative;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+        background-position: center;
+
+        [dir=rtl] & {
+          border-top-right-radius: 18px;
+          border-bottom-right-radius: 18px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+
+        .notAvaliableInThatDay {
+          background: red;
+          position: absolute;
+          bottom: 0;
+          color: #fff;
+          padding: 10px;
+          border-bottom-left-radius: 0;
+        }
+
+        .tile {
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 0;
+          padding-top: 66.64%;
+        }
+
+        img {
+          border-top-left-radius: 18px;
+          border-bottom-left-radius: 18px;
+          position: relative;
+        }
+
+        .layer {
+          background-color: rgba(27, 26, 27, 0.6);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 18px;
+
+          [dir=rtl] & {
+            right: 0;
+            left: initial;
+          }
+        }
+      }
+
+      .chaletItemBox {
+        height: 100%;
+        padding: 20px 0;
+
+        &__content {
+          padding-left: 0;
+          display: flex;
+
+          [dir=rtl] & {
+            padding-right: 0;
+            padding-left: initial;
+          }
+
+          &__title {
+            a {
+              font-size: 20px;
+              color: $main-color;
+
+            }
+
+            .location {
+              color: #bdbaba;
+              text-transform: capitalize;
+              font-size: 14px;
+            }
+          }
+
+          &__description {
+            margin-top: 15px;
+            p {
+              padding-right: 20px;
+              [dir=rtl] & {
+                padding-right: initial;
+                padding-left: 20px;
+              }
+            }
+          }
+
+          h5 {
+            margin: 0;
+            padding: 10px 0 0px 0;
+            text-transform: capitalize;
+          }
+
+          .activityRateContainer {
+            right: 25px;
+            position: absolute;
+            margin-left: auto;
+
+            [dir=rtl] & {
+              left: 25px;
+              right: initial;
+            }
+          }
+        }
+
+        &__list {
+          display: flex;
+          width: 100%;
+
+          &__items {
+            ul {
+              padding-left: 0px;
+              margin: 0;
+
+              [dir=rtl] & {
+                padding-left: initial;
+                padding-right: 0;
+              }
+
+              li {
+                list-style-type: none;
+              }
+            }
+          }
+
+
+          .ads {
+            margin-left: auto;
+            margin-right: 10px;
+            margin-top: 10px;
+
+            [dir=rtl] & {
+              padding-left: 10px;
+              padding-right: auto;
+            }
+
+            p {
+              background: #f7d923;
+              padding: 2px 20px;
+              border-radius: 18px;
+            }
+          }
+        }
+      }
+
+      .itemFooter {
+        display: flex;
+
+        [dir=rtl] & {
+          justify-content: flex-end;
+        }
+
+        .reservationBox {
+          small {
+            color: red;
+          }
+        }
+
+        .reservationPrice {
+          margin-right: 10px;
+          margin-left: auto;
+          color: $main-color;
+
+          [dir=rtl] & {
+            margin-left: 10px !important;
+            margin-right: auto !important;
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+
+
+  @media screen and(max-width: 767px) {
+    .reservationBox {
+      small {
+        padding-left: 10px;
+
+        [dir=rtl] & {
+          padding-left: 0;
+          padding-right: 10px;
+        }
+      }
+    }
+
+    .card__carouel{
+      border-radius: 18px !important;
+    }
+
+    .chaletItemBox {
+      &__content {
+
+        &__title,
+        &__description {
+
+          a {
+            text-transform: capitalize;
+            font-size: 20px;
+          }
+
+          padding-left: 10px;
+
+          [dir=rtl] & {
+            padding-left: 0;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+
+    .chaletItemBox {
+
+      &__list {
+        display: flex;
+        width: 100%;
+
+        &__items {
+          padding-left: 10px;
+
+          [dir=rtl] & {
+            padding-left: 0;
+            padding-right: 10px;
+          }
+
+          ul {
+            margin: 0;
+
+            li {
+              list-style-type: none;
+            }
+          }
+        }
+
+
+        .ads {
+          margin-left: auto;
+          margin-right: 10px;
+          margin-top: 10px;
+
+          [dir=rtl] & {
+            padding-left: 10px;
+            padding-right: auto;
+          }
+
+          p {
+            background: #f7d923;
+            padding: 2px 20px;
+            border-radius: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+.filler {
+  flex: 1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating span {
+  width: 10rem;
+}
+
+.dense {
+  margin: 0 0.5rem;
+}
+
+/////////rating/////////
+.rating-list li {
+  float: right;
+  color: #c7deea;
+  padding: 10px 5px;
+  font-size: 1.5rem;
+  font-size: 18px;
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li,
+.rating-list li.selected {
+  color: #5d47d0;
+  font-size: 18px;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+  direction: ltr;
+  float: left;
+}
+.rating-list li.selected {
+  color: #5d47d0;
+  font-size: 18px;
+}
+////////////////////////////
+::ng-deep.stars-line{
+  justify-content: end;
+  margin-top: 10px;
+
+}
+::ng-deep.star-full{
+  background-color: #b5acc4 !important;
+}
+::ng-deep.star-empty{
+  background-color: #c7deea !important;
+}
+::ng-deep.star-half{
+  background-color: #b5acc4 !important;
+}
+

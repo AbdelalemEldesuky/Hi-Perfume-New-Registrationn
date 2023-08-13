@@ -1,0 +1,142 @@
+<div class="container">
+  <section id="formHolder">
+
+     <div class="row">
+
+        <!-- Brand Box -->
+        <div class="col-sm-6 brand">
+           <!-- <a href="#" class="logo">MR <span>.</span></a> -->
+
+           <div class="heading">
+              <h2>
+                Hi Perfume
+                 <!-- <img style="width: 100%;height: 100%;opacity: .8;" src="../../../assets/hi_perfume_images/shop_now_hi2.png" alt=""> -->
+              </h2>
+              <p>Your Right Choice</p>
+           </div>
+
+           <!-- <div class="success-msg">
+              <p>Great! You are one of our members now</p>
+              <a href="#" class="profile">Your Profile</a>
+           </div> -->
+        </div>
+
+
+        <!-- Form Box -->
+        <div class="col-sm-6 form">
+
+           <!-- Login Form -->
+           <div class="login form-peice switched">
+              <form class="login-form" [formGroup]="resetPasswordForm">
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" class="pass" formControlName="newPassword">
+                  <span class="error"></span>
+               </div>
+
+               <div class="form-group">
+                  <label for="passwordCon">Confirm Password</label>
+                  <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" formControlName="newPasswordConfirmation">
+                  <span class="error"></span>
+               </div>
+                 <div class="CTA">
+                    <input type="submit" value="Save"  (click)="submit()">
+                 </div>
+              </form>
+           </div>
+           <!-- End Login Form -->
+
+
+           <!-- Signup Form -->
+           <div class="signup form-peice">
+             <form class="signup-form"  [formGroup]="verifyCodeForm">
+                <div style="text-align: center;font-size: 14px;">
+                 <p>
+                   Please wait till we confirm your phone number <br> by sending a text message on
+                  </p>
+                  <p>{{phone}}</p>
+                </div>
+
+                 <div class="form-group">
+                    <label for="name">Code</label>
+                    <input type="number" name="username" id="name" class="name" formControlName="code">
+                    <span class="error"></span>
+                 </div>
+
+                 <div class="CTA">
+                    <input type="submit" value="Send" id="submit" (click)="isValidCodeForgetPassword2()">
+                    <!-- <a  class="switch">I have an account</a> -->
+                 </div>
+                 <div class="row" style="margin-top: 20px;">
+                  <div class="col-8">
+                    <div class="progress">
+                      <div aria-valuemax="59" aria-valuemin="0" class="progress-bar" role="progressbar" [style.width]="width" ></div>
+                    </div>
+                  </div>
+                  <div class="col-4 timer" style="direction: ltr;">
+                    <div *ngIf="!resend">
+                     00:00
+                    </div>
+              
+                  <div></div>
+                  <div *ngIf="resend">
+                    <cd-timer (onTick)="startSpinner()" id="counter" format="ms" [startTime]="0" [endTime]="30"></cd-timer>
+                  </div>
+                  </div>
+                 </div>
+                 <div  class="row">
+                  <div class="col-10">
+                   <a *ngIf="widthNum==108.80000000000005  || widthNum==105.40000000000005"   (click)="resendCode()" class="resend__button" >{{"resend" | translate}}</a>
+                 </div>
+                 </div>
+              </form>
+              
+           </div><!-- End Signup Form -->
+        </div>
+     </div>
+
+  </section>
+</div>
+
+
+<!-- <div  class="container">
+    <section id="formHolder">
+      <p>
+        {{"please_waite_code" | translate}}
+       </p>
+       <p>{{phone}}</p>
+    <form class="login-form" [formGroup]="verifyCodeForm">
+      <div class="form-group">
+         <label for="loginemail">Code</label>
+         <input type="number" name="loginemail" id="loginemail" required formControlName="code">
+      </div>
+   </form>
+   <div class="form-group" >
+   <div class="col-auto" style="padding: 0">
+    <button   (click)="isValidCodeForgetPassword()"  type="submit" mdbBtn color="primary" class="mb-0 btn-login"> {{"send" | translate}} </button>
+   </div>
+   </div>
+   <div class="row" style="margin-top: 20px;">
+    <div class="col-8">
+      <div class="progress">
+        <div aria-valuemax="59" aria-valuemin="0" class="progress-bar" role="progressbar" [style.width]="width" ></div>
+      </div>
+    </div>
+    <div class="col-4 timer" style="direction: ltr;">
+      <div *ngIf="!resend">
+       00:00
+      </div>
+
+    <div></div>
+    <div *ngIf="resend">
+      <cd-timer (onTick)="startSpinner()" id="counter" format="ms" [startTime]="0" [endTime]="30"></cd-timer>
+    </div>
+    </div>
+   </div>
+   <div  class="row">
+    <div class="col-10">
+     <a *ngIf="widthNum==108.80000000000005  || widthNum==105.40000000000005"  (click)="resendCode()" class="resend__button" >{{"resend" | translate}}</a>
+   </div>
+   </div>
+    </section>
+ </div> -->

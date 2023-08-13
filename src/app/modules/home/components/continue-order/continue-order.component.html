@@ -1,0 +1,40 @@
+<section>
+  <div class="row bg-blue incomplete-orders-bar d-none d-lg-flex">
+        <div class="col-1"></div>
+        <div class="col-8 vertical-text-centered">
+           <div class="d-flex bd-highlight">
+            <div class="p-2 bd-highlight">
+              <p class="text-white incomplete-orders-bar-title">
+                {{"complete_your_order" | translate}}:
+              </p>
+            </div>
+            <div *ngFor="let service of (services ? services.slice(0,3): []); let i=index"  class="p-2 flex-grow-1 bd-highlight">
+              <div class="card incomplete-order-card" style="width: 200px; ">
+                <button (click)="deleteServiceFromCart(service)" class="header-item-close-button clickable">
+                  <i  class="fa fa-times"></i>
+                </button>
+                <div class="card-body incomplete-order-card-body clickable">
+                 <div>
+                  <p style="overflow: hidden" class="incomplete-order-card-subtitle">
+                    {{service.service.name}}
+                  </p>
+                 </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="p-2 flex-grow-1 bd-highlight" *ngIf="services.length>3" style="font-size: 30px;color: #fff;padding-top: 28px !important;">.........</div>
+
+           </div>
+        </div>
+        <div class="col-2 vertical-text-centered" style="justify-content: flex-end;">
+           <div class="group">
+          <button id="completeOrder" class="btn bg-green btn-form" (click)="completeOrder()">
+            {{"complete_order" | translate}}
+          </button>
+           </div>
+        </div>
+        <div class="col-1"></div>
+  </div>
+  <!-- <div class="row bg-gray ml-0 mr-0" style="height: 80px;"></div> -->
+</section>

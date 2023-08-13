@@ -1,0 +1,136 @@
+   <section>
+      <!-- <app-header></app-header> -->
+      <div  class="perfumes_container">
+        <div class="best_seller_container">
+          <div style="position: relative;">
+             <img src="../../../assets/hi_perfume_images/fav_img_text.png" alt="">
+          </div>
+     
+          <div class="best">
+            <section *ngIf="products" class="container">
+              <div class="row justify-content-center align-items-center">
+              <div *ngFor="let selection of products"  class="card col-6 col-lg-3 col-md-4 col-sm-6 ">
+                 <img (click)="openProductDetails(selection.id)" class="perfume_img" [src]="selection.image">
+                 <div class="center">
+                   <div class="selection_name" >
+                   <span class="selection_name_span">  <div>
+                     {{selection.name}}
+                   </div>
+                     <div>
+                      <div class="selection_desc" > 
+                        {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' : selection.sub_name }}
+          
+                      </div>     
+                     </div>
+                     <div>
+                       <!-- <div class="star_rate_container">
+                         <ul
+                         *ngFor="let star of stars"
+                         class="list-inline rating-list"
+                         style="display: inline-block;"
+                       >
+                             <li [ngClass]="{'selected': star <= (selection.rate)}">
+                           <i class="fa fa-star" aria-hidden="true"></i>
+                         </li>
+                       </ul>
+                      </div> -->
+                     </div>
+                   </span>
+                    <span class="price_div">
+                     <div class="retail_price"> ${{selection.price}}</div>
+                     <div class="include_tax">include tax</div>
+                     <!-- <div class="main_price"> ${{selection.price}}</div>
+                     <div class="descount_price"> ${{selection.price}}</div> -->
+                    </span>
+                   </div>
+                   <div class="selection_btn" >
+     
+                     <!-- <div class="selection_icon">
+                       ${{selection.price}}
+                     </div> -->
+                     <a>
+                       <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                          <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                          <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                         </div>
+                         <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                          <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                          <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                         </div>
+                      </a>
+                     <!-- <div (click)="addToCart(selection.id)" class="selection_icon">
+                        <img src="../../../../assets/hi_perfume_images/icon_shop.png" alt="">
+                     </div> -->
+                     <div class="share_icon">
+                       <div class="container_social">
+                        <ul>
+                          <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                            <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                          </a></li>
+                          <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                            <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                          </a></li>
+                          <li><a (click)="facbookShare(selection.id)" class="facebook-btn"  target="_blank" >
+                            <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                          </a></li>
+                          <li><a  class="link"  >
+                            <!-- <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt=""> -->
+                          </a></li>
+                          <li><a  class="link"  target="_blank">
+                            <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                          </a></li>
+  
+                        </ul>
+                       </div>
+                     </div>
+               
+                     <div *ngIf="selection.inCart==false" type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id,addToCartNotifyTemplate,selection.name,selection.image,selection.sub_name)" >Add To Cart</div>
+                     <div *ngIf="selection.inCart==true"  type="submit" class="add_to_cart_btn add_to_cart_btn_added"  >Added To Cart</div>
+                 </div>
+                  </div>
+              </div>
+         
+          </div>
+          <!-- <div>
+             <mat-paginator [length]="100"
+             [pageSize]="15"
+             (page)="pageChange($event)"
+             aria-label="Select page">
+</mat-paginator>
+          </div> -->
+          </section>
+       </div>
+     </div>
+      </div>
+      <app-footer></app-footer>
+
+      <!-- <ng-template #addToCartNotifyTemplate >
+        <div  class="close_icon">
+            <img  (click)="closeModal()"  src="../../../assets/hi_perfume_images/close_icon.png" alt="">
+          </div>
+          <div class="cart_added_container">
+            <div class="content row-1">
+                <h4><i class="fas fa-check"></i> item added to your cart</h4>
+            </div>
+            <div class="content row-2">
+                <div>
+                    <img class="item-img" [src]="item_image" alt="">
+                </div>
+                <div>
+                    <h3>{{item_name}}</h3>
+                    <p>{{item_sub_name}}</p>
+                </div>
+            </div>
+            <div class="content">
+                <div>
+                    <button class="add_to_cart_btn">VIEW MY CART </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="col-12">
+                    <a href="#">continue shopping</a>
+                </div>
+            </div>
+        </div>
+    </ng-template> -->
+    </section>

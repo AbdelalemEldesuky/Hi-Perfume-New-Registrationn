@@ -1,0 +1,843 @@
+<section class="selection_container">
+  <div class="selection_container_img">
+    <img src="../../../../assets/hi_perfume_images/selection_img.png" alt="">
+  </div>
+  <div>
+
+    <tabset #myTabset type="pills"
+      [ngClass]="{'men_sec': men_sec_tab==true ,'woman_sec': woman_sec_tab==true,'unisex_sec': unisex_sec_tab==true}">
+      <tab (selectTab)="getProductsByCategory(35)" heading="Men">
+        <section *ngIf="selections" class="container selection_div_container">
+          <div class="row justify-content-center align-items-center">
+            <div *ngFor="let selection of selections" class="card col-6 col-lg-3 col-md-4 col-sm-6 ">
+              <img (click)="openProductDetails(selection.id)" class="perfume_img" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name">
+                  <span class="selection_name_span">
+                    <div>
+                      {{selection.name}}
+                    </div>
+                    <div>
+                      <div class="selection_desc">
+                        {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' :
+                        selection.sub_name }}
+
+                      </div>
+
+                    </div>
+                    <!-- <div>
+                   <div class="star_rate_container">
+                     <ul
+                     *ngFor="let star of stars"
+                     class="list-inline rating-list"
+                     style="display: inline-block;"
+                   >
+                         <li [ngClass]="{'selected': star <= (selection.rate)}">
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                     </li>
+                   </ul>
+                  </div>
+                 </div> -->
+                  </span>
+                  <span class="price_div">
+                    <div class="retail_price"> ${{selection.price}}</div>
+                    <div class="include_tax">include tax</div>
+                    <!-- <div class="main_price"> ${{selection.price}}</div>
+                 <div class="descount_price"> ${{selection.price}}</div> -->
+                  </span>
+                </div>
+                <div class="selection_btn">
+
+                  <!-- <div class="selection_icon">
+                   ${{selection.price}}
+                 </div> -->
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,35)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="selection.isFavorit==true" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,35)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                  </a>
+                  <!-- <div (click)="addToCart(selection.id)" class="selection_icon">
+                    <img src="../../../../assets/hi_perfume_images/icon_shop.png" alt="">
+                 </div> -->
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                          </a></li>
+                        <li><a
+                            (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                          </a></li>
+                        <li><a (click)="facbookShare(selection.id)" class="facebook-btn" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                          </a></li>
+                        <li><a class="link">
+                            <!-- <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt=""> -->
+                          </a></li>
+                        <li><a class="link" target="_blank">
+                            <img class="bg_socila_icons" src="../../../assets/hi_perfume_images/bg_socila_icons.png"
+                              alt="">
+                          </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div *ngIf="selection.inCart==false" type="submit" class="open-popup add_to_cart_btn"
+                    data-id="popup_2" data-animation="scale"
+                    (click)="addToCart(selection,selection.id,addToCartNotifyTemplate,selection.name,selection.image,selection.sub_name,35)">
+                    Add To Cart</div>
+                  <div *ngIf="selection.inCart==true" type="submit" class="add_to_cart_btn add_to_cart_btn_added">Added
+                    To Cart</div>
+                    <app-popup-notification *ngIf="selection.showPopup" [image]="selection.image" [name]="selection.name" [sub_name]="selection.sub_name"></app-popup-notification>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- <div class="selection_carousel_container"  *ngIf="selections">
+          <carousel [cellsToShow]="4" 
+          	objectFit="contain"[minSwipeDistance]="20" 	
+            [cellWidth]="400"
+            [height]="450"
+            [loop]="true"
+            [autoplay]="true"
+            [autoplayInterval]="5000"
+            style="text-align: center;"
+          >
+            <div class="carousel-cell"  *ngFor="let selection of selections">
+              <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name" >
+                <span class="selection_name_span">  <div>
+                  {{selection.name}}
+                </div>
+                  <div>
+                <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                  </div>
+                  <div>
+                    <div class="star_rate_container">
+                      <ul
+                      *ngFor="let star of stars"
+                      class="list-inline rating-list"
+                      style="display: inline-block;"
+                    >
+                          <li [ngClass]="{'selected': star <= (selection.rate)}">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </li>
+                    </ul>
+                   </div>
+                  </div>
+                </span>
+                 <span class="price_div">
+                  <div class="retail_price"> ${{selection.price}}</div>
+                  <div class="main_price"> ${{selection.price}}</div>
+                  <div class="descount_price"> ${{selection.price}}</div>
+                 </span>
+                </div>
+                <div class="selection_btn" >
+
+              
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                      </div>
+                      <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                      </div>
+               
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                          <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                        </a></li>
+                        <li><a  class="link"  target="_blank">
+                          <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                        </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+            
+               <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+                 
+               </div>
+               </div>
+             </div>
+        
+           
+          </carousel>
+        </div>
+          <div class="selection_carousel_container_moobile"  *ngIf="selections">
+            <carousel [cellsToShow]="2" 
+              objectFit="contain"[minSwipeDistance]="20" 	
+              [cellWidth]="300"
+              [height]="400"
+              [loop]="true"
+              [autoplay]="true"
+              [autoplayInterval]="5000"
+              style="text-align: center;"
+            >
+            <div class="carousel-cell"  *ngFor="let selection of selections">
+              <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name" >
+                <span class="selection_name_span">  <div>
+                  {{selection.name}}
+                </div>
+                  <div>
+                <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                  </div>
+                  <div>
+                    <div class="star_rate_container">
+                      <ul
+                      *ngFor="let star of stars"
+                      class="list-inline rating-list"
+                      style="display: inline-block;"
+                    >
+                          <li [ngClass]="{'selected': star <= (selection.rate)}">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </li>
+                    </ul>
+                   </div>
+                  </div>
+                </span>
+                 <span class="price_div">
+                  <div class="retail_price"> ${{selection.price}}</div>
+                  <div class="main_price"> ${{selection.price}}</div>
+                  <div class="descount_price"> ${{selection.price}}</div>
+                 </span>
+                </div>
+                <div class="selection_btn" >
+
+                 
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                      </div>
+                      <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                      </div>
+                   </a>
+                 
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                          <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                        </a></li>
+                        <li><a  class="link"  target="_blank">
+                          <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                        </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+            
+               <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+                 
+               </div>
+               </div>
+             </div>
+        
+           
+          </carousel>
+        </div>
+    
+     -->
+      </tab>
+      <tab (selectTab)="getProductsByCategory(34)" heading="Women">
+        <section *ngIf="selections" class="container selection_div_container">
+          <div class="row justify-content-center align-items-center">
+            <div *ngFor="let selection of selections" class="card col-6 col-lg-3 col-md-4 col-sm-6 ">
+              <img (click)="openProductDetails(selection.id)" class="perfume_img" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name">
+                  <span class="selection_name_span">
+                    <div>
+                      {{selection.name}}
+                    </div>
+                    <div>
+                      <div class="selection_desc">
+                        {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' :
+                        selection.sub_name }}
+
+                      </div>
+                    </div>
+                    <div>
+                      <!-- <div class="star_rate_container">
+                     <ul
+                     *ngFor="let star of stars"
+                     class="list-inline rating-list"
+                     style="display: inline-block;"
+                   >
+                         <li [ngClass]="{'selected': star <= (selection.rate)}">
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                     </li>
+                   </ul>
+                  </div> -->
+                    </div>
+                  </span>
+                  <span class="price_div">
+                    <div class="retail_price"> ${{selection.price}}</div>
+                    <div class="include_tax">include tax</div>
+                    <!-- <div class="main_price"> ${{selection.price}}</div>
+                 <div class="descount_price"> ${{selection.price}}</div> -->
+                  </span>
+                </div>
+                <div class="selection_btn">
+
+                  <!-- <div class="selection_icon">
+                   ${{selection.price}}
+                 </div> -->
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,34)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="selection.isFavorit==true" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,34)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                  </a>
+                  <!-- <div (click)="addToCart(selection.id)" class="selection_icon">
+                    <img src="../../../../assets/hi_perfume_images/icon_shop.png" alt="">
+                 </div> -->
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                          </a></li>
+                        <li><a
+                            (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                          </a></li>
+                        <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="facebook-btn" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                          </a></li>
+                        <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                          </a></li>
+                        <li><a class="link" target="_blank">
+                            <img class="bg_socila_icons" src="../../../assets/hi_perfume_images/bg_socila_icons.png"
+                              alt="">
+                          </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div *ngIf="selection.inCart==false" type="submit" class="open-popup add_to_cart_btn"
+                    data-id="popup_2" data-animation="scale"
+                    (click)="addToCart(selection,selection.id,addToCartNotifyTemplate,selection.name,selection.image,selection.sub_name,34)">
+                    Add To Cart</div>
+                  <div *ngIf="selection.inCart==true" type="submit" class="add_to_cart_btn add_to_cart_btn_added">Added
+                    To Cart</div>
+                    <app-popup-notification *ngIf="selection.showPopup" [image]="selection.image" [name]="selection.name" [sub_name]="selection.sub_name"></app-popup-notification>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- <div class="selection_carousel_container"  *ngIf="selections">
+          <carousel [cellsToShow]="4" 
+          	objectFit="contain"[minSwipeDistance]="20" 	
+            [cellWidth]="400"
+            [height]="450"
+                        [loop]="true"
+            [autoplay]="true"
+            [autoplayInterval]="5000"
+            style="text-align: center;"
+          >
+          <div class="carousel-cell"  *ngFor="let selection of selections">
+            <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+            <div class="center">
+              <div class="selection_name" >
+              <span class="selection_name_span">  <div>
+                {{selection.name}}
+              </div>
+                <div>
+              <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                </div>
+                <div>
+                  <div class="star_rate_container">
+                    <ul
+                    *ngFor="let star of stars"
+                    class="list-inline rating-list"
+                    style="display: inline-block;"
+                  >
+                        <li [ngClass]="{'selected': star <= (selection.rate)}">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </li>
+                  </ul>
+                 </div>
+                </div>
+              </span>
+               <span class="price_div">
+                <div class="retail_price"> ${{selection.price}}</div>
+                <div class="main_price"> ${{selection.price}}</div>
+                <div class="descount_price"> ${{selection.price}}</div>
+               </span>
+              </div>
+              <div class="selection_btn" >
+
+               
+                <a>
+                  <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                     
+                     <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                     
+                     <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                 </a>
+                
+                <div class="share_icon">
+                  <div class="container_social">
+                    <ul>
+                      <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                        <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                      </a></li>
+                      <li><a  class="link"  target="_blank">
+                        <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                      </a></li>
+
+                    </ul>
+                  </div>
+                </div>
+          
+             <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+               
+             </div>
+             </div>
+           </div>
+        
+           
+          </carousel>
+        </div>
+          <div class="selection_carousel_container_moobile"  *ngIf="selections">
+            <carousel [cellsToShow]="2" 
+              objectFit="contain"[minSwipeDistance]="20" 	
+              [cellWidth]="300"
+              [height]="400"
+              [loop]="true"
+              [autoplay]="true"
+              [autoplayInterval]="5000"
+              style="text-align: center;"
+            >
+            <div class="carousel-cell"  *ngFor="let selection of selections">
+              <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name" >
+                <span class="selection_name_span">  <div>
+                  {{selection.name}}
+                </div>
+                  <div>
+                <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                  </div>
+                  <div>
+                    <div class="star_rate_container">
+                      <ul
+                      *ngFor="let star of stars"
+                      class="list-inline rating-list"
+                      style="display: inline-block;"
+                    >
+                          <li [ngClass]="{'selected': star <= (selection.rate)}">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </li>
+                    </ul>
+                   </div>
+                  </div>
+                </span>
+                 <span class="price_div">
+                  <div class="retail_price"> ${{selection.price}}</div>
+                  <div class="main_price"> ${{selection.price}}</div>
+                  <div class="descount_price"> ${{selection.price}}</div>
+                 </span>
+                </div>
+                <div class="selection_btn" >
+
+                 
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                      </div>
+                      <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                      </div>
+                   </a>
+                 
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                          <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                        </a></li>
+                        <li><a  class="link"  target="_blank">
+                          <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                        </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+            
+               <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+                 
+               </div>
+               </div>
+             </div>
+        
+           
+          </carousel>
+        </div> -->
+
+      </tab>
+      <tab (selectTab)="getProductsByCategory(33)" heading="Unisex">
+        <section *ngIf="selections" class="container selection_div_container">
+          <div class="row justify-content-center align-items-center">
+            <div *ngFor="let selection of selections" class="card col-6 col-lg-3 col-md-4 col-sm-6 ">
+              <img (click)="openProductDetails(selection.id)" class="perfume_img" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name">
+                  <span class="selection_name_span">
+                    <div>
+                      {{selection.name}}
+                    </div>
+                    <div>
+                      <div class="selection_desc">
+                        {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' :
+                        selection.sub_name }}
+
+                      </div>
+                    </div>
+                    <div>
+                      <!-- <div class="star_rate_container">
+                     <ul
+                     *ngFor="let star of stars"
+                     class="list-inline rating-list"
+                     style="display: inline-block;"
+                   >
+                         <li [ngClass]="{'selected': star <= (selection.rate)}">
+                       <i class="fa fa-star" aria-hidden="true"></i>
+                     </li>
+                   </ul>
+                  </div> -->
+                    </div>
+                  </span>
+                  <span class="price_div">
+                    <div class="retail_price"> ${{selection.price}}</div>
+                    <div class="include_tax">include tax</div>
+                    <!-- <div class="main_price"> ${{selection.price}}</div>
+                 <div class="descount_price"> ${{selection.price}}</div> -->
+                  </span>
+                </div>
+                <div class="selection_btn">
+
+                  <!-- <div class="selection_icon">
+                   ${{selection.price}}
+                 </div> -->
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,33)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="selection.isFavorit==true" class="favorite_icon_"
+                      (click)="addFavorite(selection.id,33)">
+                      <!-- <i class="fa-solid fa-heart-circle-check"></i> -->
+                      <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                  </a>
+                  <!-- <div (click)="addToCart(selection.id)" class="selection_icon">
+                    <img src="../../../../assets/hi_perfume_images/icon_shop.png" alt="">
+                 </div> -->
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                          </a></li>
+                        <li><a
+                            (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)"
+                            class="link" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                          </a></li>
+                        <li><a (click)="facbookShare(selection.id)" class="facebook-btn" target="_blank">
+                            <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                          </a></li>
+                        <li><a class="link">
+                            <!-- <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt=""> -->
+                          </a></li>
+                        <li><a class="link" target="_blank">
+                            <img class="bg_socila_icons" src="../../../assets/hi_perfume_images/bg_socila_icons.png"
+                              alt="">
+                          </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div *ngIf="selection.inCart==false" type="submit" class="open-popup add_to_cart_btn"
+                    data-id="popup_2" data-animation="scale"
+                    (click)="addToCart(selection,selection.id,addToCartNotifyTemplate,selection.name,selection.image,selection.sub_name,33)">
+                    Add To Cart</div>
+                  <div *ngIf="selection.inCart==true" type="submit" class="add_to_cart_btn add_to_cart_btn_added">Added
+                    To Cart</div>
+                    <app-popup-notification *ngIf="selection.showPopup" [image]="selection.image" [name]="selection.name" [sub_name]="selection.sub_name"></app-popup-notification>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- <div class="selection_carousel_container"  *ngIf="selections">
+          <carousel [cellsToShow]="4" 
+          	objectFit="contain"[minSwipeDistance]="20" 	
+            [cellWidth]="400"
+            [height]="450"
+            [loop]="true"
+            [autoplay]="true"
+            [autoplayInterval]="5000"
+            [arrows]="true"
+            style="text-align: center;"
+          >
+          <div class="carousel-cell"  *ngFor="let selection of selections">
+            <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+            <div class="center">
+              <div class="selection_name" >
+              <span class="selection_name_span">  <div>
+                {{selection.name}}
+              </div>
+                <div>
+              <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                </div>
+                <div>
+                  <div class="star_rate_container">
+                    <ul
+                    *ngFor="let star of stars"
+                    class="list-inline rating-list"
+                    style="display: inline-block;"
+                  >
+                        <li [ngClass]="{'selected': star <= (selection.rate)}">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </li>
+                  </ul>
+                 </div>
+                </div>
+              </span>
+               <span class="price_div">
+                <div class="retail_price"> ${{selection.price}}</div>
+                <div class="main_price"> ${{selection.price}}</div>
+                <div class="descount_price"> ${{selection.price}}</div>
+               </span>
+              </div>
+              <div class="selection_btn" >
+
+               
+                <a>
+                  <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                     
+                     <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                    </div>
+                    <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                     
+                     <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                    </div>
+                 </a>
+                
+                <div class="share_icon">
+                  <div class="container_social">
+                    <ul>
+                      <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                        <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                      </a></li>
+                      <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                        <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                      </a></li>
+                      <li><a  class="link"  target="_blank">
+                        <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                      </a></li>
+
+                    </ul>
+                  </div>
+                </div>
+          
+             <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+               
+             </div>
+             </div>
+           </div>
+        
+           
+          </carousel>
+        </div>
+          <div class="selection_carousel_container_moobile"  *ngIf="selections">
+            <carousel [cellsToShow]="2" 
+              objectFit="contain"[minSwipeDistance]="20" 	
+              [cellWidth]="300"
+              [height]="400"
+              [loop]="true"
+              [autoplay]="true"
+              [autoplayInterval]="5000"
+              style="text-align: center;"
+            >
+            <div class="carousel-cell"  *ngFor="let selection of selections">
+              <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
+              <div class="center">
+                <div class="selection_name" >
+                <span class="selection_name_span">  <div>
+                  {{selection.name}}
+                </div>
+                  <div>
+                <div class="selection_desc" > {{selection.sub_name }} </div>
+
+                  </div>
+                  <div>
+                    <div class="star_rate_container">
+                      <ul
+                      *ngFor="let star of stars"
+                      class="list-inline rating-list"
+                      style="display: inline-block;"
+                    >
+                          <li [ngClass]="{'selected': star <= (selection.rate)}">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </li>
+                    </ul>
+                   </div>
+                  </div>
+                </span>
+                 <span class="price_div">
+                  <div class="retail_price"> ${{selection.price}}</div>
+                  <div class="main_price"> ${{selection.price}}</div>
+                  <div class="descount_price"> ${{selection.price}}</div>
+                 </span>
+                </div>
+                <div class="selection_btn" >
+
+                 
+                  <a>
+                    <div *ngIf="selection.isFavorit==false" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/not_favorit_icon.png" alt="">
+                      </div>
+                      <div *ngIf="selection.isFavorit==true" class="favorite_icon_"  (click)="addFavorite(selection.id)">
+                       
+                       <img src="../../../assets/hi_perfume_images/is_favorit_icon.png" alt="">
+                      </div>
+                   </a>
+                 
+                  <div class="share_icon">
+                    <div class="container_social">
+                      <ul>
+                        <li><a (click)="shareOnWhatsapp(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/whatsapp-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnInstagram(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/instagram-icon.png" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnFacebook(selection.name,selection.image,selection.sub_name,selection.id)" class="facebook-btn"  target="_blank" >
+                          <img src="../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+                        </a></li>
+                        <li><a (click)="shareOnTwitter(selection.name,selection.image,selection.sub_name,selection.id)" class="link"  target="_blank">
+                          <img src="../../../assets/hi_perfume_images/twitter-icon.png" alt="">
+                        </a></li>
+                        <li><a  class="link"  target="_blank">
+                          <img class="bg_socila_icons"  src="../../../assets/hi_perfume_images/bg_socila_icons.png" alt="">
+                        </a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+            
+               <div type="submit" class="add_to_cart_btn"   (click)="addToCart(selection.id)" >Add To Cart</div>
+                 
+               </div>
+               </div>
+             </div>
+        
+           
+          </carousel>
+        </div> -->
+      </tab>
+    </tabset>
+  </div>
+
+
+</section>

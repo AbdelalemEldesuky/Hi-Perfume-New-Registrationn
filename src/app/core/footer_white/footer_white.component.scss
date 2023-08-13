@@ -1,0 +1,209 @@
+@import '../../../assets/scss/variables';
+
+
+/* ---------css footer------- */
+.footer {
+    width: 100%;
+    background: #fff;
+    padding: 60px 10px 15px 15px;
+    border-radius: 0 0 20px 20px;
+}
+
+.container {
+    max-width: 1170px;
+}
+
+.row-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col img {
+    Width: 150px;
+}
+
+.footer-col p {
+    width: 100%;
+    // height: 63px;
+    padding-top: 45px;
+    align-items: center;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #000;
+}
+
+.footer-col ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .5s;
+    font-family: 'Alexandria';
+    font-style: normal;
+}
+
+.footer-col ul {
+    padding: 10px 0;
+}
+
+.footer-col ul li {
+    padding: 10px 0;
+}
+
+.social_icon_cont {
+    border-top: 1px solid #4D4D4D;
+    padding-top: 30px;
+}
+
+.footer-col h4 {
+    color: #E1AF4F;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-size: 18px;
+    position: relative;
+}
+
+.footer-col .help::before {
+    content: ' ';
+    width: 60%;
+    height: 2px;
+    position: absolute;
+    background-color: #000;
+    bottom: -8px;
+}
+
+.footer-col .quick::before {
+    content: ' ';
+    width: 65%;
+    height: 2px;
+    position: absolute;
+    background-color: #000;
+    bottom: -8px;
+}
+
+.footer-col .brands::before {
+    content: ' ';
+    width: 30%;
+    height: 2px;
+    position: absolute;
+    background-color: #000;
+    bottom: -8px;
+}
+
+.col p {
+    color: #000;
+    text-align: center;
+}
+
+
+hr {
+    color: #000;
+}
+
+.row-1 .iconic i {
+    display: inline-block;
+    color: #373737;
+    text-align: center;
+    width: 31px;
+    height: 31px;
+    font-size: 25px;
+    margin: 0 10px;
+}
+
+.apps_icon {
+    width: 130px;
+    margin: 0 5px;
+}
+
+.apps_icon img {
+    width: 100%;
+}
+
+@media (max-width:960px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    .footer-col p {
+        width: 100%;
+        align-items: center;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+
+    .footer-col ul {
+        padding: 4px;
+        margin-bottom: -1rem;
+    }
+
+    .footer-col .help::before {
+        width: 30%;
+    }
+
+    .footer-col .quick::before {
+        width: 20%;
+    }
+
+    .footer-col .brands::before {
+        width: 12%;
+    }
+}
+
+@media (max-width:700px) {
+    .footer-col {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer-col ul {
+        padding: 4px;
+        margin-bottom: -2rem;
+    }
+
+    .row-1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-col .help::before {
+        width: 20%;
+    }
+
+    .footer-col .quick::before {
+        width: 10%;
+    }
+
+    .footer-col .brands::before {
+        width: 8%;
+    }
+}
+
+.close_icon{
+    text-align: right;
+    color: #787676e0;
+    font-size: 30px;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 18px;
+    cursor: pointer;
+    z-index: 99999999999999999;
+  }
+  .close_icon img{
+    cursor: pointer;
+    width: 30px;
+  
+    }

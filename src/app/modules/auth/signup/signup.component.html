@@ -1,0 +1,145 @@
+<div class="container">
+  <section id="formHolder">
+
+     <div class="row">
+
+        <!-- Brand Box -->
+        <div class="col-sm-6 brand">
+           <!-- <a href="#" class="logo">MR <span>.</span></a> -->
+
+           <div class="heading">
+              <h2>
+                Hi Perfume
+                 <!-- <img style="width: 100%;height: 100%;opacity: .8;" src="../../../assets/hi_perfume_images/shop_now_hi2.png" alt=""> -->
+              </h2>
+              <p>Your Right Choice</p>
+           </div>
+
+           <!-- <div class="success-msg">
+              <p>Great! You are one of our members now</p>
+              <a href="#" class="profile">Your Profile</a>
+           </div> -->
+        </div>
+
+
+        <!-- Form Box -->
+        <div class="col-sm-6 form">
+
+           <!-- Login Form -->
+           <div class="login form-peice switched">
+              <form class="login-form" [formGroup]="loginForm">
+                 <div class="form-group">
+                    <label for="loginemail">Email Adderss</label>
+                    <input type="email" name="loginemail" id="loginemail" required formControlName="email">
+                 </div>
+
+                 <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" name="loginPassword" id="loginPassword" required formControlName="password">
+                    <a   [routerLink]="['/auth/forgetpassword' ]" style="font-size: 12px;margin-top: 10px;color: #777;">forget password ?</a>
+                 </div>
+
+                 <div class="CTA">
+                    <input type="submit" value="Login" (click)="submitLogin()">
+                    <a  class="switch">I'm New</a>
+                 </div>
+                 <!-- <p>or</p> -->
+                <div  style="font-size: 12px;margin-top: 10px;color: #777;text-align: center;">
+                  <p style="padding-bottom: 10px;">continue with</p>
+             
+                  <a  id="buttonDiv"  style="display: inline-block;margin: auto;"></a>
+                </div>
+              </form>
+           </div><!-- End Login Form -->
+
+
+           <!-- Signup Form -->
+           <div class="signup form-peice">
+              <form class="signup-form"  [formGroup]="signupForm">
+
+                 <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" name="username" id="name" class="name" formControlName="first_name">
+                    <span class="error"></span>
+                 </div>
+
+                 <div class="form-group">
+                   <label for="name">Last Name</label>
+                   <input type="text" name="username" id="name" class="name" formControlName="last_name">
+                   <span class="error"></span>
+                </div>
+
+                 <div class="form-group">
+                    <label for="email">Email Adderss</label>                 
+                    <input type="email" name="emailAdress" id="email" class="email" formControlName="email">
+                    <span class="error"></span>
+                 </div>
+                 <div class="form-group" style="margin-top: 10px;">
+                 <ngx-intl-tel-input [cssClass]="'custom'"
+                 [preferredCountries]="preferredCountries"
+                 [enableAutoCountrySelect]="true"
+                 [enablePlaceholder]="true"
+                 [searchCountryFlag]="true"
+                 [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                 [selectFirstCountry]="false"
+                 [selectedCountryISO]="country_iso"
+                 [maxLength]="15"
+                 [tooltipField]="TooltipLabel.Name"
+                 [phoneValidation]="true"
+                 [separateDialCode]="separateDialCode"
+                 name="phone"
+                 formControlName="phone">
+               </ngx-intl-tel-input>
+               <span class="error"></span>
+                 </div>
+                 <!-- <div class="form-group">
+                    <label for="phone">Phone Number - <small>Optional</small></label>
+                    <input type="text" name="phone" id="phone">
+                 </div> -->
+
+                 <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="pass" formControlName="password">
+                    <span class="error"></span>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="passwordCon">Confirm Password</label>
+                    <input type="password" name="passwordCon" id="passwordCon" class="passConfirm" formControlName="confirmPassword">
+                    <span class="error"></span>
+                 </div>
+                 <div class="">
+                  <label class="terms_check_lable">
+                  <input type="checkbox" id="myCheckbox1" formControlName="myCheckbox1">
+                 <span>
+                  By checking this box i confirm that i have read and agree to be bound by the Agreement to <a href="https://hiperfumeusa.com/user/terms" target="_blank" >
+                    terms of service 
+                  </a>and <a href="https://hiperfumeusa.com/user/terms" target="_blank" > policy</a>
+          
+                 </span>
+                </label>
+              </div>
+              <div class="">
+               <label class="terms_check_lable">
+                <input type="checkbox" id="myCheckbox2" formControlName="myCheckbox2">
+               <span>
+                I‘d like to receive communications announcing the latest events, news and updates for Apple developers.
+               </span>
+              </label>
+            </div>
+                 <div class="CTA">
+                    <input type="submit" value="Signup Now" id="submit" (click)="submitSignUp()">
+                    <a  class="switch">I have an account</a>
+                 </div>
+                 <div  style="font-size: 12px;margin-top: 10px;color: #777;text-align: center;">
+                  <p style="padding-bottom: 10px;">continue with</p>
+             
+                  <a  id="buttonDiv2"  style="display: inline-block;margin: auto;"></a>
+                </div>
+              </form>
+           </div><!-- End Signup Form -->
+        </div>
+     </div>
+
+  </section>
+</div>

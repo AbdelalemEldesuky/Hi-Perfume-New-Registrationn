@@ -1,0 +1,135 @@
+<div>
+  <div  class="container">
+    <div class="imgcontainer">
+      <img src="../../../../assets/hi_perfume_images/hi_perfum_logo_login.png" alt="Avatar" class="avatar">
+  </div>
+  <form [formGroup]="loginForm">
+    <div class=" form-group  login-text">
+      <input mdbInput formControlName="email" type="email" required class="form-control" id="formGroupExampleInputMD" placeholder="{{'email' | translate}}">
+      <!-- <div class="form-control-feedback material-field-error">
+        <p>{{"please_fill_this_field" | translate}}</p>
+      </div> -->
+    </div>
+    <div class=" form-group  login-pass">
+      <input mdbInput type="password" [type]="hide ? 'password' : 'text'" required class="form-control" formControlName="password" id="formGroupExampleInput2MD" placeholder="{{'password' | translate}}">
+      <mat-icon class="placeholder show_pass_icon" (click)="myFunction()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <!-- <div class="form-control-feedback material-field-error">
+        <p>{{"please_fill_this_field" | translate}}</p>
+      </div> -->
+    </div>
+    <h3><a>forget password ?</a></h3>
+    <div class=" form-group " >
+    <div class="col-auto" >
+      <button type="submit" (click)="submit()" mdbBtn color="primary" class="mb-0 btn-login">{{"login" | translate}} </button>
+    </div>
+    </div>
+    <div class="login-last">
+      <p>or</p>
+      <h5 style="padding-bottom: 10px;">continue with</h5>
+  
+      <a  id="buttonDiv"  style="display: inline-block;margin: auto;">
+      </a>
+      <!-- <div class="icon">
+         <a>
+          <img src="../../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+         </a>
+         <a>
+          <img src="../../../../assets/hi_perfume_images/apple_icon.svg" alt="">
+         </a>
+         <a>
+          <img src="../../../../assets/hi_perfume_images/google_icon.svg" alt="">
+         </a>
+      </div> -->
+      <!-- <div class="icon" >
+          
+        <a  id="buttonDiv">
+      
+         </a>
+         <span>Sign In With Google</span>
+       </div> -->
+      <div class="login-sign">
+          <h2>don’t have an account? <a>Sign up</a></h2>
+      </div>
+  
+  </div>
+    <!-- <div class="forget-password">
+      <span><a   href="" [routerLink]="'/auth/forgetpassword' | localize"  routerLinkActive="active">{{"forget_password" | translate}}</a></span>
+      <span><a href="" [routerLink]="'/auth/signup' | localize" routerLinkActive="active">{{"new_user" | translate}}</a></span>
+    </div> -->
+  
+  </form>
+  
+  
+  
+  
+  </div>
+  </div>
+  
+  
+  <!-- <div class="container">
+    <form action="" method="post">
+        <div class="imgcontainer">
+            <img src="../../../../assets/hi_perfume_images/hi_perfum_logo_login.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="login-text">
+            <input type="text" placeholder="user name" name="username" required>
+  
+        </div>
+        <div class="login-pass">
+            <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <h3><a href="#">forget password ?</a></h3>
+        <button type="submit">Login</button>
+        <div class="login-last">
+            <p>or</p>
+            <h5>continue with</h5>
+            <div class="icon">
+               <a>
+                <img src="../../../../assets/hi_perfume_images/facebooc_icon.svg" alt="">
+               </a>
+               <a>
+                <img src="../../../../assets/hi_perfume_images/apple_icon.svg" alt="">
+               </a>
+               <a>
+                <img src="../../../../assets/hi_perfume_images/google_icon.svg" alt="">
+               </a>
+            </div>
+            <div class="login-sign">
+                <h2>don’t have an account? <a href="#">Sign up</a></h2>
+            </div>
+        </div>
+    </form>
+  </div> -->
+  
+  <!-- 
+  <div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username"
+          [ngClass]="{'is-invalid': submitted && loginForm.controls.username.errors}"
+          formControlName="username">
+        <div *ngIf="submitted && loginForm.controls.username.errors" class="invalid-feedback">
+          <div *ngIf="loginForm.controls.username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input type="{{ passwordVisible ? 'text' : 'password' }}" class="form-control"
+            id="password" name="password"
+            [ngClass]="{'is-invalid': submitted && loginForm.controls.password.errors}"
+            formControlName="password">
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="togglePasswordVisibility()">
+              <i class="fa" [ngClass]="{'fa-eye': passwordVisible, 'fa-eye-slash': !passwordVisible}"></i>
+            </ </span>
+          </div>
+          <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div> -->

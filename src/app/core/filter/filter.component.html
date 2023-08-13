@@ -1,0 +1,29 @@
+<section *ngIf="categories">
+  <div id="filter" (mouseleave)="out()" class="filter_container">
+    <div id="style-3" class="row header">
+      <div *ngFor="let category of categories" class="col-lg-4 col-md-4 col-sm-12">
+        <div class="category" [ngClass]="{ 'active': category.showSubcategories }" (click)="category.showSubcategories = !category.showSubcategories">
+          <!-- <i style="font-size: 11px;" class="fa-solid fa-plus"></i> -->
+          <i tyle="font-size: 11px;" class="fa-solid fa-caret-down"></i>
+           {{category.name}}
+        </div>
+        <div *ngIf="category.showSubcategories" class="body" style="display: grid;">
+          <a *ngFor="let sub_tags of category.sub_tags" (click)="onSearch(sub_tags.id)">
+            {{sub_tags.name}}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row footer">
+      <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+        <a [routerLink]="['/perfumes']">view all</a>
+      </div> -->
+      <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+        <a [routerLink]="['/perfumes']">view all</a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <a [routerLink]="['/perfumes']">view all</a>
+      </div> -->
+    </div>
+  </div>
+</section>

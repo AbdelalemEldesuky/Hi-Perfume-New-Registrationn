@@ -1,0 +1,42 @@
+<section>
+    <div class="side_nav_container">
+        <img class="slide_bg" src="../../../assets/hi_perfume_images/easy_access_nav.png" alt="">
+         <div class="side_nav_icons">
+           <!-- <div class="side_nav_icons_div">
+            <a [routerLink]="['/user/profile']">
+                <img  class="profile_icon" src="../../../assets/hi_perfume_images/profile_vector.png" alt="">
+            </a>
+           </div> -->
+         <div    (click)="openCart()"  class="side_nav_icons_div">
+            <a >
+                <img class="cart_icon" src="../../../assets/hi_perfume_images/cart_vector.png" alt="">
+                <div *ngIf="carts>0" class="notify">
+                   {{carts}}
+                </div>
+            </a>
+         </div>
+        <div  (click)="openFvorit()"  class="side_nav_icons_div">
+            <a>
+                <div  class="nav_favorite_icon" >
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                   </div>
+                   <div  *ngIf="favorites" class="notify">
+                    {{favorites}}
+                </div>
+            </a>
+        </div>
+      <!-- <div  class="side_nav_icons_div">
+        <a href="https://wa.me/+19493127504" target="_blank">
+            <img [routerLink]="['/' ]" class="location_icon" src="../../../assets/hi_perfume_images/whats_icon.png" alt="">
+        </a>
+      </div> -->
+        <div  class="side_nav_icons_div">
+            <a href="https://wa.me/+19493127504" target="_blank" target="_blank">
+                <img  class="call_icon" src="../../../assets/hi_perfume_images/whats_icon.png" alt="">
+            </a>
+        </div>
+         </div>
+    </div>
+
+
+</section>

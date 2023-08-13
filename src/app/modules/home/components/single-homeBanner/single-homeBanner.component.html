@@ -1,0 +1,18 @@
+<article class="homeBanner">
+  <a (click)="openBanner()">
+    <!-- <div class="homeBanner__img" [ngStyle]="{'background-image': 'url(' + homeBanner.image + ')'}">
+      <div></div>
+    </div> -->
+    <!-- <h4 class="homeBanner__title">{{ homeBanner.title ? homeBanner.title : "" }}</h4> -->
+    <div class="row" style="padding: 0px;">
+      <div class="container">
+        <img [src]="homeBanner.image" alt="Snow" style="width:100%;border-radius: 22px;height: 11rem;">
+        <div class="bottom-left">{{homeBanner.description ? homeBanner.description : ""}}</div>
+        <div class="top-left">{{homeBanner.title ? homeBanner.title : ""}}</div>
+        <!-- <div class="top-right">Top Right</div>
+        <div class="bottom-right">Bottom Right</div>
+        <div class="centered">Centered</div> -->
+      </div>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,5 @@
+<button class="btn btn-block submit_btn" (click)="handleIsClicked()" [ngClass]="{ 'loading-btn': loading}" [disabled]="loading"
+  type="submit">
+  {{ name }}
+  <span class=" loading" *ngIf="loading"> </span>
+</button>
