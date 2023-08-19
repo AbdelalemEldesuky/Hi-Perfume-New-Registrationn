@@ -50,12 +50,21 @@
            <!-- Signup Form -->
            <div class="signup form-peice">
              <form class="signup-form"  [formGroup]="verifyCodeForm">
-                <div style="text-align: center;font-size: 14px;">
+                <div style="text-align: center;font-size: 14px;" *ngIf="verifyByEmailAddress=='false'">
                  <p>
                    Please wait till we confirm your phone number <br> by sending a text message on
                   </p>
-                  <p>{{phone}}</p>
+                  <p>
+                     {{phone}}
+                  </p>
                 </div>
+
+                <div style="text-align: center;font-size: 14px;" *ngIf="verifyByEmailAddress=='false'">
+                  <p>
+                    Please wait till we confirm your email address <br> by sending a text message on
+                   </p>
+                   <p *ngIf="verifyByEmailAddress=='true'">{{email}}</p>
+                 </div>
 
                  <div class="form-group">
                     <label for="name">Code</label>
@@ -65,7 +74,7 @@
 
                  <div class="CTA">
                     <input type="submit" value="Send" id="submit" (click)="isValidCodeForgetPassword2()">
-                    <!-- <a  class="switch">I have an account</a> -->
+                    <!-- <a>Use Email ?</a> -->
                  </div>
                  <div class="row" style="margin-top: 20px;">
                   <div class="col-8">

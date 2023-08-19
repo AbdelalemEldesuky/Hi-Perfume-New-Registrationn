@@ -22,7 +22,8 @@ import * as $ from 'jquery';
 interface itemSelectedData {
   id: number;
   image : string;
-  price:number
+  price:number;
+  name:string
 }
 
 @Component({
@@ -55,6 +56,7 @@ export class PickupComponent implements OnInit {
   loading = true;
   cartDetails:any;
   stars: number[] = [1, 2, 3, 4, 5];
+  products: any[] = [];
 
   unsubscribeSignal: Subject<void> = new Subject();
   constructor(  private httpCategoryService: HttpCategoryService,
@@ -66,13 +68,32 @@ export class PickupComponent implements OnInit {
 
   ngOnInit() {
     // this.showImage = !this.showImage;
-    this.getTagIDFromApi("pickup")
+    this.getProducts()
     const pickupData = localStorage.getItem('pickuupData') ? JSON.parse( localStorage.getItem('pickuupData')) : null
     if(pickupData){
       this.itemSelected =  pickupData
       this.finalPrice =  this.itemSelected.reduce((sum, item) => sum + item.price, 0);   
     }
 
+  }
+
+  getProducts() {
+    this.httpCategoryService
+      .getProductsFromApi()
+      .pipe(
+        takeUntil(this.unsubscribeSignal.asObservable()),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (data: any) => {
+          this.products = data.data.items;
+          // this.pagination=data.data.pagination;
+      console.log('##products',this.products.length)
+        },
+        (err) => {
+          this.toaster.error(err.error.message);
+        }
+      );
   }
 
   getTagIDFromApi(tagName) { 
@@ -131,10 +152,11 @@ addToCart() {
     let completedRequests = 0;
     let isLastItem = false;
     this.itemSelected.forEach(item => {
-      if(this.itemSelected.length == 6){
+      if(this.itemSelected.length == 3){
       const cartData = {
         item_id: item.id,
         quantity: 1,
+        type:'sample'
       };
 
       this.httpCartService
@@ -151,7 +173,7 @@ addToCart() {
               completedRequests++;
               
               localStorage.removeItem('pickuupData')
-              this.router.navigateByUrl("/cart");
+              this.router.navigateByUrl("/checkout/complete-payment");
               if (completedRequests === this.itemSelected.length) {
                 this.toaster.success('Items added to cart');
               }
@@ -179,20 +201,20 @@ refreshFavorit() {
 
 
 
-  addImage(imageSrc: string, id: number,price:number) {
+  addImage(imageSrc: string, id: number,price:number,name:string) {
     this.showImage = !this.showImage;
-    if (this.itemSelected.length < 6 && !this.itemSelected.find(item => item.image === imageSrc)) {
-      const itemSelectedData: itemSelectedData = { id: id, image: imageSrc,price:price };
+    if (this.itemSelected.length < 3 && !this.itemSelected.find(item => item.image === imageSrc)) {
+      const itemSelectedData: itemSelectedData = { id: id, image: imageSrc,price:price,name:name };
       this.itemSelected.push(itemSelectedData);
       this.finalPrice +=price ;
       console.log('gggggggg', this.itemSelected);
       localStorage.setItem('pickuupData',JSON.stringify(this.itemSelected))
     }
-    if(this.itemSelected.length == 6){
+    if(this.itemSelected.length == 3){
       $('.pickup_box__selectors_div').css('border-color', '#E1AF4F'); 
       $(".add_to_cart").removeClass("disabled");
     }
-    if(this.itemSelected.length < 6){
+    if(this.itemSelected.length < 3){
       $('.pickup_box__selectors_div').css('border-color', '#919191');
     }
   }
@@ -203,7 +225,7 @@ refreshFavorit() {
       this.itemSelected.splice(index, 1);      
       this.finalPrice -= price ;
       localStorage.setItem('pickuupData',JSON.stringify(this.itemSelected))
-      if(this.itemSelected.length < 6){
+      if(this.itemSelected.length < 3){
         $('.pickup_box__selectors_div').css('border-color', '#919191');
         $(".add_to_cart").addClass("disabled");
       }

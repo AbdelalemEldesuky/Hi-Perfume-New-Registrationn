@@ -29,6 +29,7 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
   loadingResend: boolean = false;
   userData = {};
   phone: any = "";
+  email: any = "";
   value;
   unsubscribeSignal: Subject<void> = new Subject();
   widthNum = 0;
@@ -40,6 +41,7 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
   lastPage = "";
   date = new Date("2019-01-26T00:00:00");
   date2 = new Date("2022-01-26T00:00:00");
+  verifyByEmailAddress:any
 
   constructor(
     private fg: FormBuilder,
@@ -64,6 +66,7 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
   ngDoCheck() {}
 
   ngOnInit() {
+    this.verifyByEmailAddress =  localStorage.getItem('verifyByEmailAddress')
     $(document).ready(function () {
 
       'use strict';
@@ -154,6 +157,7 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
     this.lastPage = localStorage.getItem("lastPage");
     this.resend = true;
     this.phone =localStorage.getItem("userPhoneNumber")
+    this.email =localStorage.getItem("userEmailAddress")
   }
   startSpinner() {
     this.resend = true;
@@ -309,11 +313,12 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
     const code = this.verifyCodeForm.controls.code.value;
     this.loading = true;
     
-    const userData = {
-      code: code,
-      mobile: localStorage.getItem("userPhoneNumber"),
-    };
-    this.authService
+    if(this.verifyByEmailAddress=='false'){
+      var userData = {
+        code: code,
+        mobile: localStorage.getItem("userPhoneNumber"),
+      };
+      this.authService
       .varifyCode(userData)
       .pipe(
         takeUntil(this.unsubscribeSignal.asObservable()),
@@ -343,6 +348,44 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
           this.toastr.error(err.error.message);
         }
       );
+    }
+    else{
+      var userData2 = {
+        code: code,
+        email: localStorage.getItem("verifyByEmailAddress"),
+      };
+      this.authService
+      .varifyCode(userData2)
+      .pipe(
+        takeUntil(this.unsubscribeSignal.asObservable()),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (resp) => {
+          if (resp.status === 200) {
+             const message =
+              "Welcome, you are signed in successfullyd";
+              this.toaster.success(message);
+              this.authService.saveUserId(resp.body.data.id);
+              localStorage.setItem("muToken",'Bearer '+ resp.body.data.access_token);
+              localStorage.setItem("guestToken", resp.body.data.access_token);
+              localStorage.removeItem('userCredentials')
+              localStorage.setItem('userIsVerfied','true')
+              $('.signup').addClass('switched')
+              $('.login').removeClass('switched')
+              // location.href = '/';
+              // this.closeModal()
+            //  this.refreshComponent()
+          }
+        },
+        (err) => {
+          console.log('090000000',err);
+          
+          this.toastr.error(err.error.message);
+        }
+      );
+    }
+
   }
 
   isValidCodeForNewPhone() {
@@ -453,6 +496,8 @@ export class VerifyLoginComponent implements OnInit, OnDestroy, AfterViewInit, O
           (resp: HttpResponse<any>) => {
             if (resp.status === 200) {
               this.authService.saveUserPhoneNumber(userMobileNumber);
+              this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+
               this.authService.saveUserId(resp.body.data.id);
               localStorage.setItem("muToken",'Bearer '+ resp.body.data.access_token);
               localStorage.setItem("guestToken", resp.body.data.access_token);

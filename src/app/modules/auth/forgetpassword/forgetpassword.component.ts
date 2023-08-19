@@ -38,7 +38,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
   unsubscribeSignal: Subject<void> = new Subject();
   repsData = {};
   separateDialCode = false;
-
+   verifyBYMobile=true;
   modalRef: BsModalRef;
   modalRefs: BsModalRef[] = [];
   TooltipLabel = TooltipLabel;
@@ -59,7 +59,8 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
   ) {}
 
   public forgetPasswordForm = this.fg.group({
-    mobile: ["", Validators.required],
+    mobile: [""],
+    email: [""],
   });
 
   ngOnInit() {
@@ -97,7 +98,16 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
                 usernameError = false;
             }
           }
-  
+    // Email
+    if ($(this).hasClass('email')) {
+      if ($(this).val().length == '') {
+          $(this).siblings('span.error').text('Please type your email address').fadeIn().parent('.form-group').addClass('hasError');
+          emailError = true;
+      } else {
+          $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+          emailError = false;
+      }
+  }
           // label effect
           if ($(this).val().length > 0) {
               $(this).siblings('label').addClass('active');
@@ -193,16 +203,20 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
        localStorage.setItem('modalStatus','close')
   }
   submit() {
+    const data = this.forgetPasswordForm.value
+    if(this.verifyBYMobile==true){
     if (!this.forgetPasswordForm.controls.mobile.value) {
       const message = "Please Enter Your Mobile "
       this.toaster.error(message);
       return;
     }
-    const data = this.forgetPasswordForm.value
-    const mobile = data.mobile.internationalNumber.replace(/[^+\d]+/g, "")
-    let userCredentials = {
-      mobile: data.mobile.internationalNumber.replace(/[^+\d]+/g, ""),
-    };
+      var mobile = data.mobile.internationalNumber.replace(/[^+\d]+/g, "")
+      let userCredentials = {
+        mobile: data.mobile.internationalNumber.replace(/[^+\d]+/g, ""),
+      };
+
+
+
     this.loading = true;
     if (!this.forgetPasswordForm.invalid) {
       this.authService
@@ -216,6 +230,10 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
             if (resp.status === 200) {
               this.repsData = resp.body.data;
               this.authService.saveUserPhoneNumber(mobile);
+              localStorage.setItem('verifyByEmailAddress','false')
+
+              this.authService.saveUserEmailAddress(resp.body.data.email);
+            
               this.toaster.success(resp.body.message);
               setTimeout(() => {
                 this.router.navigate(['/auth/verify-code']);
@@ -232,7 +250,56 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     }
   }
 
+   else{
+      if (!this.forgetPasswordForm.controls.email.value) {
+        const message = "Please Enter Your Email "
+        this.toaster.error(message);
+        return;
+      }
+      var email = data.email
+
+        const userCredentials = {
+          email: data.email
+        };
+  
+  
+  
+      this.loading = true;
+      if (!this.forgetPasswordForm.invalid) {
+        this.authService
+          .forgetPasswordEmail(userCredentials)
+          .pipe(
+            takeUntil(this.unsubscribeSignal.asObservable()),
+            finalize(() => (this.loading = false))
+          )
+          .subscribe(
+            (resp: HttpResponse<any>) => {
+              if (resp.status === 200) {
+                this.repsData = resp.body.data;
+                this.authService.saveUserEmailAddress(email);
+                localStorage.setItem('verifyByEmailAddress','true')
+                this.toaster.success(resp.body.message);
+                setTimeout(() => {
+                  this.router.navigate(['/auth/verify-code']);
+                }, 2000)
+              }
+            },
+            (err) => {
+              this.loading = false;
+              console.log(err);
+              this.toaster.error(err.error.message);
+              // this.notifcationService.errorNotification(err.error.message);
+            }
+          );
+      }
+  }
+}
+
   setUserDataToLocalStorage(userData) {
     localStorage.setItem("user", JSON.stringify(userData["id"]));
+  }
+
+  toggleDisplay() {
+    this.verifyBYMobile = !this.verifyBYMobile;
   }
 }

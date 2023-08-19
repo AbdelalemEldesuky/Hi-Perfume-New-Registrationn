@@ -43,7 +43,7 @@ import {
 } from 'angularx-social-login';
 import { SocialAuthService } from 'angularx-social-login';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
+import { NgxSeoModule } from '@avivharuzi/ngx-seo';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "./assets/locales/", ".json");
@@ -56,6 +56,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NoopAnimationsModule,
     CoreModule,
     SocialLoginModule,
+    NgxSeoModule.forRoot(),
     FormsModule,
     CarouselModule.forRoot(),
     NgxUiLoaderModule,

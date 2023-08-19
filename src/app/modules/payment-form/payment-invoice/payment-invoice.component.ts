@@ -35,7 +35,8 @@ export class PaymentInvoiceComponent implements OnInit ,OnDestroy{
   ) { }
 
   ngOnInit() {
-    this.invoice_data=JSON.parse(localStorage.getItem("invoice_data"));
+    this.invoice_data=JSON.parse(localStorage.getItem("invoice_data")).data;
+console.log('555555555',this.invoice_data);
 
   }
 

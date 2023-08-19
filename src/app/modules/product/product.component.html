@@ -127,58 +127,134 @@
       <div>
       </div>
     </div>
-    <!-- <div class="container">
-      <div class="comments_component">
-        <div class="container">
-          <div class="d-flex justify-content-left row">
-            <div class="col-md-12">
-              <div class=" comment-section row">
-               <div class="comments_div col-6 col-md-6 col-sm-12">
-                <div *ngFor="let comment of product.comments" class="bg-white p-2 ">
-                  <div class="d-flex flex-row user-info">
-                    <img  class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
-                    <div class="d-flex flex-column justify-content-start ml-2"><span
-                        class="d-block font-weight-bold name">{{comment.user.first_name}}  {{comment.user.last_name}} </span>
-                      </div>
-                  </div>
-                
-                  <div class="mt-2">
-                    <ngx-stars  style="direction: ltr;float: left;margin-left: 50px;" [readonly]="true" [maxStars]="5" [initialStars]="4.5"></ngx-stars>
-                    <p class="comment-text">
-                      {{comment.comment}}
-                    </p>
-                  </div>
-                </div>
-               </div>
-                <div class="bg-light p-2 col-6 col-md-6 col-sm-12">
-                  <div class="d-flex flex-row align-items-start">
-                    <img class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
-                    <div class="d-flex flex-column justify-content-start ml-2"><span
-                      class="d-block font-weight-bold name">User Name </span>
-                    </div>
-                  </div>
-                    <form [formGroup]="addCommentForm">
-                      <div>
-                        <ngx-stars  style="direction: ltr;float: left;margin-left: 5px;margin-bottom: 5px;" [readonly]="false" [maxStars]="5" ></ngx-stars>
+    <!-- start comment -->
 
-                      </div>
-                        <textarea
-                        class="form-control ml-1 shadow-none textarea" formControlName="comment"></textarea>
-                        
-                        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addComment()">Post
-                            comment</button>
-                          </div>
-                      </form>
-                    
-                </div>
-              </div>
-            </div>
+    <div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 review_container">
+          <div class="review_numbers" *ngIf="product.comments.length">
+            {{product.comments.length}}  Reviews
           </div>
+          <div>
+            <form *ngIf="isLoggedIn=='true' && product.is_paid == true">
+              <ngx-stars (ratingOutput)="onRatingSet($event)" style="direction: ltr; display: inline-table;" [readonly]="false" [size]="2" [maxStars]="5" [initialStars]="4.5"></ngx-stars>
+            </form>
+          </div>
+     <div *ngIf="product.comments.length"> 
+      <div class="review_progress">
+        <span>
+         5 star
+        </span>
+        <span>
+         <ul id="progress">
+           <li>
+             <p class="progress-bar css"  [style.width.%]="ratePercentages[4]"></p>
+           </li>
+         </ul>
+        </span>
+        <span>
+         {{ratePercentages[4]}} %
+        </span>
+     </div>
+     <div class="review_progress">
+       <span>
+        4 star
+       </span>
+       <span>
+        <ul id="progress">
+          <li>
+            <p class="progress-bar css" [style.width.%]="ratePercentages[3]"></p>
+          </li>
+        </ul>
+       </span>
+       <span>
+        {{ratePercentages[3]}} %
+       </span>
+    </div>
+    <div class="review_progress">
+     <span>
+      3 star
+     </span>
+     <span>
+      <ul id="progress">
+        <li>
+          <p class="progress-bar css" [style.width.%]="ratePercentages[2]"></p>
+        </li>
+      </ul>
+     </span>
+     <span>
+      {{ratePercentages[2]}} %
+     </span>
+  </div>
+  <div class="review_progress">
+   <span>
+    2 star
+   </span>
+   <span>
+    <ul id="progress">
+      <li>
+        <p class="progress-bar css" [style.width.%]="ratePercentages[1]"></p>
+      </li>
+    </ul>
+   </span>
+   <span>
+    {{ratePercentages[1]}} %
+   </span>
+</div>
+<div class="review_progress">
+ <span>
+  1 star
+ </span>
+ <span>
+  <ul id="progress">
+    <li>
+      <p class="progress-bar " [style.width.%]="ratePercentages[0]"></p>
+    </li>
+  </ul>
+ </span>
+ <span>
+  {{ratePercentages[0]}} %
+ </span>
+</div>
+     </div>
+        </div>
+        <div *ngIf="isLoggedIn=='true' && product.is_paid == true" class="col-lg-8 col-md-8 col-sm-12">
+          <form [formGroup]="addCommentForm" style="display: flex;justify-content: space-between;margin-top: 60px;">
+              <textarea
+              class="form-control ml-1 shadow-none textarea_review" formControlName="comment" placeholder="write review"></textarea>
+              
+              <div class="mt-2 text-right ">
+                  <button class="view" (click)="addComment()"><a>Post
+                    review</a></button>
+  
+                </div>
+            </form>
         </div>
       </div>
-    </div> -->
+      <div class="row comments_container">
+        <div *ngFor="let comment of product.comments"  class="reply_review_container">
+            <div class="review_img">
+              <img *ngIf="!comment.user.avatar"  class="rounded-circle" src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"  width="40">
+              <img *ngIf="comment.user.avatar"  class="rounded-circle" [src]="comment.user.avatar"  width="40">
+            </div>
+            <div class="review_name">
+              {{comment.user.first_name}}  {{comment.user.last_name}}
+            </div>
+            <div class="review_comment">
+              <ngx-stars  style="direction: ltr;direction: ltr;display: inline-table;" [readonly]="true"  [maxStars]="5" [initialStars]="4.5"></ngx-stars>
+              <div>
+                {{comment.comment}}
+              </div>
+              <div class="review_date">
+                <!-- 08/8/2023 -->
+              </div>
+            </div>
+         </div>
+      </div>
+    </div>
 
 
+<!-- end comment -->
   </section>
 
   <div style="margin: 30px 0;">

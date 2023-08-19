@@ -167,6 +167,7 @@ export class LoginComponent implements OnInit, OnDestroy ,DoCheck,AfterViewInit{
               const message ="Welcome, you are logged in successfullyd";
               this.toaster.success(message);
               this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+              this.authService.saveUserEmailAddress(resp.body.data.email);
               const is_activated =resp.body.data.detail.is_activated
               console.log('00000--',is_activated);
               
@@ -287,6 +288,8 @@ export class LoginComponent implements OnInit, OnDestroy ,DoCheck,AfterViewInit{
               this.toaster.success(message);
               if(resp.body.data.mobile){
                 this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+              this.authService.saveUserEmailAddress(resp.body.data.email);
+
               }
               const is_activated =resp.body.data.detail.is_activated
               console.log('00000--',is_activated);

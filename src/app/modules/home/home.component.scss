@@ -2556,10 +2556,10 @@ height: 35px;
 .pickup_images .pickup_image1{
   width: 100%;
   margin-left: 40px;
-  height: 480px;
+  // height: 480px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('../../../assets/hi_perfume_images/pick_up_1.png');
+  // background-image: url('../../../assets/hi_perfume_images/free_samples_img.png');
 }
 
 .pickup_images .pickup_image2{
@@ -2581,7 +2581,7 @@ height: 35px;
 }
 .pickup_container .pickup_title{
   color: #272727;
-    font-size: 130px;
+    font-size: 100px;
     font-weight: 600;
     // text-align: left;
     line-height: initial;

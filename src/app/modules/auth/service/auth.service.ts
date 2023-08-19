@@ -86,10 +86,13 @@ export class AuthService {
     localStorage.setItem('userId', userId);
   }
 
+  public saveUserEmailAddress(email) {
+    localStorage.setItem('userEmailAddress', email);
+  }
   public saveUserPhoneNumber(phoneNumber) {
     localStorage.setItem('userPhoneNumber', phoneNumber);
   }
-
+  
   public saveUserData(data) {
     localStorage.setItem('userData', JSON.stringify(data));
   }
@@ -122,7 +125,14 @@ export class AuthService {
       observe: "response",
     });
   }
-  
+
+  public forgetPasswordEmail($userCredentials): Observable<any> {
+    return this.http.post(`${this.baseUrl}resendForgetCode`, $userCredentials, {
+      observe: "response",
+    });
+  }
+
+
 
   changePassword(body) {
     const headers = new HttpHeaders({

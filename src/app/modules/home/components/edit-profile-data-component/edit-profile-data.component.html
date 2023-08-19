@@ -184,7 +184,7 @@
 
             <div class="item" *ngFor="let order of orders" (click)="openOrderDetails(order.id)">
               <div class="item-image">
-                <img [src]="order.image" alt="Product Image">
+                <img [src]="order.items[0].image" alt="Product Image">
               </div>
               <div class="item-info">
                 <h4>{{order.date}}</h4>

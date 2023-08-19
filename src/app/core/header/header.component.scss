@@ -424,7 +424,7 @@ background-color: transparent !important;
 }
 .nav__container{
   margin: 0 !important;
-  padding: 0 30px !important;
+  padding: 0 20px !important;
 }
 @media screen and(max-width: 768px) {
   .hotdeal_container{
@@ -513,7 +513,7 @@ background-color: transparent !important;
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
-  padding: 10px 0 10px 22px;
+  padding: 10px 0 10px 15px;
 }
 
 .nav-menu a {
@@ -1035,7 +1035,9 @@ display: none !important;
 ::ng-deep .ngx-slider .ngx-slider-bubble{
   display: none !important;
 }
-
+.align-items-center{
+  justify-content: center;
+}
 @media only screen and (max-width: 790px) {
 
   ::ng-deep .modal-content{

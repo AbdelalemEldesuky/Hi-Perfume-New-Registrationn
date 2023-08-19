@@ -39,6 +39,22 @@ export class UsersService {
   //     observe: 'response'
   //   })
   // }
+  getCountries() {
+    return this.httpClient.get(`${this.baseUrl}countries`, {
+      observe: 'response'
+    })
+  }
+
+  getStates(country_id) {
+    return this.httpClient.get(`${this.baseUrl}states?country_id=${country_id}`, {
+      observe: 'response'
+    })
+  }
+  getCities(country_id,state_id) {
+    return this.httpClient.get(`${this.baseUrl}cities?country_id=${country_id}&state_id=${state_id}`, {
+      observe: 'response'
+    })
+  }
   getUserData(): Observable<any> {
     return this.httpClient
       .get(`${this.baseUrl}users/${this.userData.id}`, this.gtn.headers())

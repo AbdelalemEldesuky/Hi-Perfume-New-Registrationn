@@ -93,7 +93,7 @@ export const routes: Routes = [
             (m) => m.ProductModule
           )      },
       {
-        path: "pickup",
+        path: "samples",
         loadChildren: () =>
           import("./modules/pickup/pickup.module").then(
             (m) => m.PickupModule

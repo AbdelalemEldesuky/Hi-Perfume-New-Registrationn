@@ -231,7 +231,7 @@ reloadPage=false
      }
      if(localStorage.getItem('privicyPolicy')=='true'){
       setTimeout(() => {
-        this.goto(3)
+        this.goto(2)
       }, 1000);
        localStorage.removeItem('privicyPolicy')
      }
@@ -401,6 +401,8 @@ reloadPage=false
               const message = "Profile has been updated successfully!";
               this.toaster.success(message);
               this.authService.saveUserPhoneNumber(res.body.data.mobile);
+              this.authService.saveUserPhoneNumber(res.body.data.mobile);
+
               const is_activated =res.body.data.detail.is_activated
               
               if(is_activated=='no'){

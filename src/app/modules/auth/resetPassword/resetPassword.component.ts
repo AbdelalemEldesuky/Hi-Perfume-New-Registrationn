@@ -33,7 +33,6 @@ export class ResetPasswordComponent implements OnInit {
   unsubscribeSignal: Subject<void> = new Subject();
   repsData = {};
   modalRefs: BsModalRef[] = [];
-
   constructor(
     private fg: FormBuilder,
     private authService: AuthService,
@@ -41,8 +40,8 @@ export class ResetPasswordComponent implements OnInit {
     public breakpointObserver: BreakpointObserver,
     private toaster: ToastrService,
     private modalService: BsModalService
-
-  ) {}
+    
+    ) {}
 
   public resetPasswordForm = this.fg.group({
     // oldPassword: ["", Validators.required],
@@ -51,6 +50,8 @@ export class ResetPasswordComponent implements OnInit {
   });
 
   ngOnInit() {
+    
+  
     this.breakpointObserver
       .observe(["(min-width: 600px)"])
       .pipe(takeUntil(this.unsubscribeSignal.asObservable()))
@@ -147,6 +148,8 @@ export class ResetPasswordComponent implements OnInit {
           (resp: HttpResponse<any>) => {
             if (resp.status === 200) {
               this.authService.saveUserPhoneNumber(userMobileNumber);
+              // this.authService.saveUserEmailAddress(resp.body.data.email);
+
               this.authService.saveUserId(resp.body.data.id);
               localStorage.setItem("muToken",'Bearer '+ resp.body.data.access_token);
               localStorage.setItem("guestToken", resp.body.data.access_token);

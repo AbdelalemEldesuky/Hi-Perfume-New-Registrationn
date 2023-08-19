@@ -600,6 +600,8 @@ export class SignupComponent implements OnInit, OnDestroy,AfterViewInit {
             this.authService.saveUserId(resp.body.data.id);
             this.authService.saveUserData( resp.body.data);
             this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+            this.authService.saveUserEmailAddress(resp.body.data.email);
+
 
             const message =
             "Welcome, you are signed in successfullyd";
@@ -661,6 +663,8 @@ export class SignupComponent implements OnInit, OnDestroy,AfterViewInit {
             this.authService.saveUserData( resp.body.data);
             if(resp.body.data.mobile){
               this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+              this.authService.saveUserEmailAddress(resp.body.data.email);
+
             }
             const message =
             "Welcome, you are signed in successfullyd";
@@ -721,6 +725,8 @@ submitLogin() {
             const message ="Welcome, you are logged in successfullyd";
             this.toaster.success(message);
             this.authService.saveUserPhoneNumber(resp.body.data.mobile);
+            this.authService.saveUserEmailAddress(resp.body.data.email);
+
             const is_activated =resp.body.data.detail.is_activated
             console.log('00000--',is_activated);
             

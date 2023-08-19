@@ -2,17 +2,21 @@
 .pickup_container{
     padding: 140px 0;
     text-align: center;
+
   .pickup_info{
     background-color: #000;
     height: 275px;
     color: #fff;
     margin-top: 25px;
   }
+
   .pickup_info_img img{
-    width: 400px;
-  }
+    width: 550px;
+    margin-top: -70px;
+    }
+
   .pickup_info_text p{
-    width: 666px;
+    // width: 666px;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -23,7 +27,15 @@
   .pickup_box_container{
     direction: rtl;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 130px;
+  }
+  .note_div{
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 30px;
+    direction: ltr;
+
   }
   .pickup_box__selectors_div{
 // width: 774px;
@@ -41,9 +53,9 @@ direction: ltr;
     padding-left: 25px;
   }
  .pickup_box__selectors_div_img .div {
-    width: 59px;
-    margin-top: 30px;
-    height: 370px;
+    width: 90%;
+    margin-top: 60px;
+    height: 300px;
     border: 2px dashed #E1AF4F;
     border-radius: 14px;
     overflow: hidden;
@@ -59,6 +71,8 @@ direction: ltr;
     // grid-gap: 0;
     margin: auto;
     text-align: center;
+    display: flex;
+    justify-content: center;
     // padding-left: 48px;
   }
  .pickup_box__footer_div_img .div {
@@ -173,10 +187,18 @@ height: 100%;
   height: 470px;
   overflow: auto;
   direction: ltr;
+  margin-top: 30px;
+  direction: ltr;
 }
 .pickup_box_items img{
-  height: 300px;
-
+width: 100%;
+}
+.pickup_box_items .item_name{
+  font-size: 14px;
+}
+.item_div{
+  // height: 170px;
+  overflow: hidden;
 }
 .pickup_box_items::-webkit-scrollbar-track
 {
@@ -199,4 +221,45 @@ height: 100%;
 }
 .disabled{
   opacity: .7;
+}
+
+@media screen and  (max-width: 768px) {
+.pickup_img{
+  width: 100% !important;
+}
+.pickup_info_img img{
+  width: 60% !important;
+  margin-top: 0 !important;
+}
+.pickup_info_text p{
+  padding-top: 10px !important;
+  font-size: 16px !important;
+}
+.pickup_info_img{
+  height: 170px !important;
+}
+
+.pickup_container .pickup_box__selectors_div{
+  height: auto !important;
+  padding: 15px 0 !important;
+
+}
+
+.pickup_container .pickup_box__selectors_div_img .div{
+  width: 90% !important;
+  margin-top: 15px !important;
+  // height: 160px !important;
+  border: 2px dashed #E1AF4F !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  height: 220px !important;
+
+}
+
+.pickup_container .pickup_box__selectors_div_img img{
+width: 65% !important;
+}
+.pickup_box_items{
+  height: 650px;
+}
 }

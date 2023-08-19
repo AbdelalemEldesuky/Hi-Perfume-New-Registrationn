@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
     "@angular/service-worker": "^8.2.5",
+    "@avivharuzi/ngx-seo": "^1.0.1",
     "@finastra/angular-theme": "^4.0.0-alpha.4",
     "@finastra/fds-tokens": "^1.8.1",
     "@fortawesome/angular-fontawesome": "^0.13.0",

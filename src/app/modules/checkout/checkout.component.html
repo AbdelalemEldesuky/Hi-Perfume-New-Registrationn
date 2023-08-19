@@ -149,13 +149,13 @@
                     <!-- <span>$94.99</span> -->
                   </div>
                   <div class="card_-wheel">
-                    <button [disabled]="cart.quantity == 1" (click)="updateCart(cart.cart_id,cart.quantity)">-</button>
+                    <button [disabled]="cart.quantity == 1 || cart.price==0"  (click)="updateCart(cart.cart_id,cart.quantity)">-</button>
                     <span>{{cart.quantity}}</span>
-                    <button (click)="addToCart(cart.item_id)">+</button>
+                    <button [disabled]="cart.price==0" (click)="addToCart(cart.item_id)">+</button>
                   </div>
                 </div>
                 <div>
-                  <div (click)="deleteCart(cart.item_id)" class="delete_cart">
+                  <div *ngIf="cart.price>0" (click)="deleteCart(cart.item_id)" class="delete_cart">
                     <img src="../../../assets/hi_perfume_images/delete_icon.png" alt="">
                   </div>
                 </div>
@@ -172,7 +172,7 @@
           </div>
           <div class="checkout-shipping" *ngIf="shippingData">
             <div class="total_txt">Shipping</div>
-            <p>${{cartDetails.shipping.price}}</p>
+            <p *ngIf="cartDetails.shipping.price">${{cartDetails.shipping.price}}</p>
           </div>
           <div class="checkout-total">
             <div class="total_txt">Total Price</div>
