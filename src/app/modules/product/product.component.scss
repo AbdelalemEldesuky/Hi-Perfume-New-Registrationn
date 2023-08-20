@@ -537,6 +537,8 @@ h5 {
   .review_comment{
 
 margin-top: 10px;
+width: 85%;
+margin: auto;
   }
 .review_container{
  
@@ -653,7 +655,7 @@ background: #E1AF4F !important;
   background-color: #E1AF4F !important;
 }
 ::ng-deep.star-empty{
-  background-color: #7B7B7B !important;
+  background-color: #fff !important;
 }
 ::ng-deep.star-half{
   background-color: #E1AF4F !important;
@@ -778,10 +780,10 @@ img{
 }
 }
 .review_name{
-  margin-top: 5px;
+  margin-top: 3px;
 font-style: normal;
 font-size: 13px;
-text-transform: uppercase;
+text-transform: capitalize;
 color: #E1AF4F;
 margin-right: 15px;
 
@@ -792,6 +794,8 @@ margin-right: 15px;
   text-transform: capitalize;
   color: #fff;
   margin-right: 15px;
+  width: 85%;
+  margin: auto;
   
 
 }
