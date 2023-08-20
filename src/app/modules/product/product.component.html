@@ -137,7 +137,7 @@
           </div>
           <div>
             <form *ngIf="isLoggedIn=='true' && product.is_paid == true">
-              <ngx-stars (ratingOutput)="onRatingSet($event)" style="direction: ltr; display: inline-table;" [readonly]="false" [size]="2" [maxStars]="5" [initialStars]="4.5"></ngx-stars>
+              <ngx-stars (ratingOutput)="onRatingSet($event)" style="direction: ltr; display: inline-table;" [readonly]="false" [size]="2" [maxStars]="5" ></ngx-stars>
             </form>
           </div>
      <div *ngIf="product.comments.length"> 
@@ -241,12 +241,12 @@
               {{comment.user.first_name}}  {{comment.user.last_name}}
             </div>
             <div class="review_comment">
-              <ngx-stars  style="direction: ltr;direction: ltr;display: inline-table;" [readonly]="true"  [maxStars]="5" [initialStars]="4.5"></ngx-stars>
+              <ngx-stars  style="direction: ltr;direction: ltr;display: inline-table;" [readonly]="true"  [maxStars]="5" [initialStars]="comment.rate"></ngx-stars>
               <div>
                 {{comment.comment}}
               </div>
               <div class="review_date">
-                <!-- 08/8/2023 -->
+                {{comment.created_at | date: 'dd/MM/yyyy'}}
               </div>
             </div>
          </div>

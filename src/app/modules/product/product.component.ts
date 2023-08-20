@@ -106,9 +106,13 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
       this.product = data.myProduct.data;
       for (let i = 1; i <= 5; i++) {
         const rateCount = this.product.comments.filter(comment => comment.rate === i).length;
-        const totalComments = this.product.comments.length;
+        const totalComments = this.product.comments.length-1;
         const percentage = (rateCount / totalComments) * 100;
-        this.ratePercentages.push(percentage);
+        this.ratePercentages.push(Math.round(percentage));
+        console.log('rateCountrateCount--',rateCount);
+        console.log('totalCommentstotalComments--',totalComments);
+        
+        
       }
       console.log('@@@@@33333=---',this.ratePercentages);
       console.log('this.product---', this.product);
@@ -161,7 +165,7 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
             const rateCount = this.product.comments.filter(comment => comment.rate === i).length;
             const totalComments = this.product.comments.length;
             const percentage = (rateCount / totalComments) * 100;
-            this.ratePercentages.push(percentage);
+            this.ratePercentages.push(Math.round(percentage));
           }
           console.log('@@@@@33333=---',this.ratePercentages);
           

@@ -243,6 +243,7 @@ h5 {
   .content {
     margin-left: 0;
   }
+
 }
 
 
@@ -533,7 +534,15 @@ h5 {
 
 /* Styles for mobile devices */
 @media (max-width: 790px) {
+  .review_comment{
 
+margin-top: 10px;
+  }
+.review_container{
+ 
+    width: 80%;
+    margin: auto;
+}
   .product-container .product {
     display: flex;
     justify-content: space-between;
@@ -762,15 +771,14 @@ body {
 .review_img{
 margin-top: 5px;
 margin-right: 5px;
-width: 45px;
-height: 45px;
+
 img{
-  width: 100%;
-  height: 100%;
+  width: 45px;
+  height: 45px;
 }
 }
 .review_name{
-  margin-top: 15px;
+  margin-top: 5px;
 font-style: normal;
 font-size: 13px;
 text-transform: uppercase;
@@ -779,11 +787,12 @@ margin-right: 15px;
 
 }
 .review_comment{
-  margin-left: 30px;
-  padding-top: 10px;
+  font-style: normal;
+  font-size: 13px;
+  text-transform: capitalize;
   color: #fff;
-  font-weight: 100;
-  font-size: 12px;
+  margin-right: 15px;
+  
 
 }
 .review_date{

@@ -98,6 +98,8 @@ export const routes: Routes = [
           import("./modules/pickup/pickup.module").then(
             (m) => m.PickupModule
           ),
+        canActivate: [CanActivateViaAuthGuard],
+
       },
      
       {
