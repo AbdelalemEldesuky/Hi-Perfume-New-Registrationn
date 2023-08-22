@@ -176,26 +176,28 @@ export class HomeComponent implements OnInit,AfterViewInit,OnDestroy ,DoCheck{
      private renderer: Renderer2,
      
   ) {
-    this.router.events
-    .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
-    .subscribe(event => {
-      if (
-        event.id === 1 &&
-        event.url === event.urlAfterRedirects
-      ) {
-        if(localStorage.getItem("firstVisit")){
-          setTimeout(() => {
-            this.offer_popup = true;
-          }, 5000)
-        }
-      }
-    })
+    // this.router.events
+    // .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
+    // .subscribe(event => {
+    //   if (
+    //     event.id === 1 &&
+    //     event.url === event.urlAfterRedirects
+    //   ) {
+    //     if(localStorage.getItem("firstVisit")){
+    //       setTimeout(() => {
+    //         this.offer_popup = true;
+    //       }, 5000)
+    //     }
+    //   }
+    // })
+
     this.getSliders();
     // this.getTagIDFromApi("best seller")
     this.getProductsByCategory(32)
   }
 
   ngOnInit() {
+    this.userData=JSON.parse(localStorage.getItem("userData"))
 
     const partnerId = this.route.snapshot.params.id;
     if(partnerId){
@@ -327,7 +329,6 @@ export class HomeComponent implements OnInit,AfterViewInit,OnDestroy ,DoCheck{
     AOS.init();
 
     this.title.setTitle("Hi Perfume");
-    this.userData=JSON.parse(localStorage.getItem("userData"))
     this.checkUserState();
     this.isShow = true;
         this.menuState = 'out';
@@ -614,14 +615,12 @@ export class HomeComponent implements OnInit,AfterViewInit,OnDestroy ,DoCheck{
   closeModalGetApp() {
     this.modalRefs.forEach((modalRef) => modalRef.hide());
     this.modalRefs = [];
-    // const offer_popup = localStorage.getItem('offer_popup');
-    // this.offer_popup = !offer_popup;
-    // if (!offer_popup) {
-    //   localStorage.setItem('offer_popup', 'true');
-    // }   
-    setTimeout(() => {
-      this.offer_popup = true;
-    }, 5000)
+
+    if(this.userData.is_subscribed==false){
+      setTimeout(() => {
+        this.offer_popup = true;
+      }, 5000)
+    }  
 
   }
   // openModal(template: TemplateRef<any>, id) {

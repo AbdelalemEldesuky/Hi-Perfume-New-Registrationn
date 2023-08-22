@@ -106,7 +106,7 @@ export class ProductComponent implements OnInit, AfterViewInit, OnDestroy {
       this.product = data.myProduct.data;
       for (let i = 1; i <= 5; i++) {
         const rateCount = this.product.comments.filter(comment => comment.rate === i).length;
-        const totalComments = this.product.comments.length-1;
+        const totalComments = this.product.comments.length;
         const percentage = (rateCount / totalComments) * 100;
         this.ratePercentages.push(Math.round(percentage));
         console.log('rateCountrateCount--',rateCount);

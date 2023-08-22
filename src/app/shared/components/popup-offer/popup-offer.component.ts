@@ -115,29 +115,29 @@ submit() {
     return;
   }
   if (!this.subscribeForm.invalid) {
-  // let userCredentials = {
-  //   email: data.email,
-  // };
-  //     this.httpCategoryService
-  //     .sendContactUS(userCredentials)
-  //     .pipe(
-  //       takeUntil(this.unsubscribeSignal.asObservable()),
-  //       finalize(() => (this.loading = false))
-  //     )
-  //     .subscribe(
-  //       (resp: HttpResponse<any>) => {
-  //         if (resp.status === 200) {
-            const message ="You have successfully subscribed.";
+  let userCredentials = {
+    email: data.email,
+  };
+      this.httpCategoryService
+      .sendContactUS(userCredentials)
+      .pipe(
+        takeUntil(this.unsubscribeSignal.asObservable()),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (resp: HttpResponse<any>) => {
+          if (resp.status === 200) {
+            const message ="You have successfully subscribed to the newsletter";
             this.toaster.success(message);
          this.subscribe=true;
   $('.offer_popup_container').css("visibility", "hidden")
   
-      //     }
-      //   },
-      //   (err) => {
-      //     this.toaster.error(err.error.message);
-      //   }
-      // );
+          }
+        },
+        (err) => {
+          this.toaster.error(err.error.message);
+        }
+      );
   }
 }
 

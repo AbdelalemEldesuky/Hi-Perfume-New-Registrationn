@@ -250,6 +250,9 @@ imageFile:any
                 
                 setTimeout(()=>{
                   this.toaster.success('Payment Success!!');
+                  if(localStorage.getItem("samplesInCart")){
+                    localStorage.removeItem('samplesInCart')
+                  }
                   localStorage.removeItem('TPFAMO');
                   localStorage.setItem('invoice_data',JSON.stringify(resp))
                   this.closeModal()

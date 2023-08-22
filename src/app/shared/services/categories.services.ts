@@ -177,7 +177,7 @@ export class HttpCategoryService {
           'Content-Type': 'application/json',
           'Authorization':  localStorage.getItem('muToken')
         });
-        return this._httpClient.post(`${this.baseUrl}contact_us`, body, {
+        return this._httpClient.post(`${this.baseUrl}newsletter`, body, {
          headers ,
           observe: 'response'
         })

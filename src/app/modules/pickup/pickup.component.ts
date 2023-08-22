@@ -57,7 +57,7 @@ export class PickupComponent implements OnInit {
   cartDetails:any;
   stars: number[] = [1, 2, 3, 4, 5];
   products: any[] = [];
-
+   userData:any;
   unsubscribeSignal: Subject<void> = new Subject();
   constructor(  private httpCategoryService: HttpCategoryService,
     private toaster: ToastrService,
@@ -67,6 +67,8 @@ export class PickupComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.userData=JSON.parse(localStorage.getItem("userData"))
+
     // this.showImage = !this.showImage;
     this.getProducts()
     const pickupData = localStorage.getItem('pickuupData') ? JSON.parse( localStorage.getItem('pickuupData')) : null
@@ -148,7 +150,14 @@ addToCart() {
     );
     localStorage.setItem('need_login','true')
         localStorage.setItem('notAuthUser', 'true');
-  } else {
+  }
+  if(this.userData.take_sample==true){
+    this.toaster.error('Free samples cannot be requested more than once');
+  }
+  if(localStorage.getItem("samplesInCart")==="true"){
+    this.toaster.error('You have 3 Items inside the cart, you cannot take more.');
+  }
+  else {
     let completedRequests = 0;
     let isLastItem = false;
     this.itemSelected.forEach(item => {
@@ -176,6 +185,7 @@ addToCart() {
               this.router.navigateByUrl("/checkout/complete-payment");
               if (completedRequests === this.itemSelected.length) {
                 this.toaster.success('Items added to cart');
+                localStorage.setItem('samplesInCart','true')
               }
             }
           },
