@@ -179,8 +179,14 @@
             <p>${{cartDetails.total_cart}}</p>
           </div>
 
-          <button [routerLink]="['/pay' ]" type="submit" mdbBtn color="primary" class="btn-login"
-            *ngIf="shippingData">Pay Now</button>
+          <div class="btn_div">
+
+            <button [routerLink]="['/pay' ]" type="submit" mdbBtn color="primary" class="btn-login"
+              *ngIf="shippingData">Pay Now</button>
+              <button (click)="deleteAllCart()" type="submit" mdbBtn color="danger" class="btn-delete btn-danger"
+              *ngIf="shippingData">Clear</button>
+
+          </div>
 
         </div>
       </section>

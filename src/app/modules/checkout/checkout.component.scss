@@ -435,3 +435,24 @@ label{
     ::ng-deep input[type=radio], input[type=checkbox]{
         width: 35px !important;
     }
+
+    button{
+        width: 45%;
+    }
+    .btn_div{
+        display: flex;
+        justify-content: space-around;
+    }
+    .btn-delete{
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+    .btn-login:hover{
+        background-color: #000;
+        color: #E1AF4F;
+    }
+    .btn-delete:hover{
+        background-color: #000;
+        border-color: #000;
+        color: #c82333;
+    }

@@ -390,6 +390,33 @@ deleteCart(id) {
       );
 }
 
+
+deleteAllCart() {
+  this.loading = true;
+    this.httpCartService
+      .deleteAllCart()
+      .pipe(
+        takeUntil(this.unsubscribeSignal.asObservable()),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (resp: HttpResponse<any>) => {
+          if (resp.status === 200) {
+            this.cartDetails = resp.body;
+             this.toaster.success( resp.body.message);
+             this.getCart()
+             this.router.navigateByUrl(
+              `/`
+            );
+            localStorage.removeItem('samplesInCart')
+          }
+        },
+        (err) => {
+          this.loading = false;
+          this.toaster.error(err.error.message);
+        }
+      );
+}
 promoCode(code) {
   let body = {
     promocode: code,

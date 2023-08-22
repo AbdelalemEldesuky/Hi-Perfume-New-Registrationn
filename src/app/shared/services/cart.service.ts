@@ -73,11 +73,7 @@ export class HttpCartService {
           );
       }
 
-    deleteAllCart(){
-        return this._httpClient.delete(`${this.baseUrl}carts/delete_all`,{
-            observe: 'response'
-        })
-    }
+ 
     deleteCart(cartId){
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -98,6 +94,18 @@ export class HttpCartService {
             observe: 'response'
         })
     }
+
+    
+    deleteAllCart(){
+      const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization':localStorage.getItem('muToken')
+        });
+      return this._httpClient.delete(`${this.baseUrl}carts/delete_all`,{
+          headers,
+          observe: 'response'
+      })
+  }
     promoCode(body){
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
