@@ -145,10 +145,10 @@ refreshAPICart() {
 
 addToCart() {
   if (localStorage.getItem("isLogin") === "false") {
+    localStorage.setItem('need_login','true')
     this.router.navigateByUrl(
       `/auth/register`
     );
-    localStorage.setItem('need_login','true')
         localStorage.setItem('notAuthUser', 'true');
   }
   if(this.userData.take_sample==true){

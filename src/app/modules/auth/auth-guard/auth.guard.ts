@@ -22,6 +22,7 @@ export class CanActivateViaAuthGuard implements CanActivate {
       return true;
     }
     localStorage.setItem('notAuthUser','true')
+    localStorage.setItem('need_login','true')
     this.router.navigate([
       `/auth/register`,
     ]);
