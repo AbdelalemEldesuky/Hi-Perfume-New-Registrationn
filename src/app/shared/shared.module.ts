@@ -191,6 +191,7 @@ import { ReferComponent } from "../modules/home/refer/refer.component";
     FooterComponent,
     // NgbCollapseModule,
     IvyCarouselModule,
+    NgxStarsModule,
     PaymentModalComponent,
     NgxIntlTelInputModule,
     FooterWhiteComponent,

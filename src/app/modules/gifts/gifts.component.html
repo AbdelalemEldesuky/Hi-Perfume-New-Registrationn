@@ -16,36 +16,24 @@
             <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
             <div class="center">
               <div class="selection_name" >
-              <span class="selection_name_span">  <div>
-                {{selection.name}}
-              </div>
-                <div>
-                  <div class="selection_desc" > 
-                    {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' : selection.sub_name }}
-      
+                <span class="selection_name_span">  <div>
+                  {{ selection.name.length > 20 ? (selection.name | slice:0:20) + '...' : selection.name }}
+                </div>
+                  <div>
+                    <div class="selection_desc" > 
+                      {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' : selection.sub_name }}
+        
+                    </div>      
                   </div>
+                  <div style="margin-top: 7px;">
+                   <ngx-stars  style="direction: ltr;direction: ltr;display: inline-table;" [readonly]="true"  [maxStars]="5" [initialStars]="selection.rate"></ngx-stars>
+                  </div>
+                </span>
+                 <span class="price_div">
+                  <div class="retail_price"> ${{selection.price}}</div>
+                  <div class="include_tax">include tax</div>
+                 </span>
                 </div>
-                <div>
-                  <!-- <div class="star_rate_container">
-                    <ul
-                    *ngFor="let star of stars"
-                    class="list-inline rating-list"
-                    style="display: inline-block;"
-                  >
-                        <li [ngClass]="{'selected': star <= (selection.rate)}">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                    </li>
-                  </ul>
-                 </div> -->
-                </div>
-              </span>
-               <span class="price_div">
-                <div class="retail_price"> ${{selection.price}}</div>
-                <div class="include_tax">include tax</div>
-                <!-- <div class="main_price"> ${{selection.price}}</div>
-                <div class="descount_price"> ${{selection.price}}</div> -->
-               </span>
-              </div>
               <div class="selection_btn" >
 
                 <!-- <div class="selection_icon">
@@ -107,36 +95,24 @@
               <img (click)="openProductDetails(selection.id)" style="height: 250px;" [src]="selection.image">
               <div class="center">
                 <div class="selection_name" >
-                <span class="selection_name_span">  <div>
-                  {{selection.name}}
-                </div>
-                  <div>
-                    <div class="selection_desc" > 
-                      {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' : selection.sub_name }}
-        
+                  <span class="selection_name_span">  <div>
+                    {{ selection.name.length > 20 ? (selection.name | slice:0:20) + '...' : selection.name }}
+                  </div>
+                    <div>
+                      <div class="selection_desc" > 
+                        {{ selection.sub_name.length > 55 ? (selection.sub_name | slice:0:55) + '...' : selection.sub_name }}
+          
+                      </div>      
                     </div>
+                    <div style="margin-top: 7px;">
+                     <ngx-stars  style="direction: ltr;direction: ltr;display: inline-table;" [readonly]="true"  [maxStars]="5" [initialStars]="selection.rate"></ngx-stars>
+                    </div>
+                  </span>
+                   <span class="price_div">
+                    <div class="retail_price"> ${{selection.price}}</div>
+                    <div class="include_tax">include tax</div>
+                   </span>
                   </div>
-                  <div>
-                    <!-- <div class="star_rate_container">
-                      <ul
-                      *ngFor="let star of stars"
-                      class="list-inline rating-list"
-                      style="display: inline-block;"
-                    >
-                          <li [ngClass]="{'selected': star <= (selection.rate)}">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </li>
-                    </ul>
-                   </div> -->
-                  </div>
-                </span>
-                 <span class="price_div">
-                  <div class="retail_price"> ${{selection.price}}</div>
-                  <div class="include_tax">include tax</div>
-                  <!-- <div class="main_price"> ${{selection.price}}</div>
-                  <div class="descount_price"> ${{selection.price}}</div> -->
-                 </span>
-                </div>
                 <div class="selection_btn" >
 
                   <!-- <div class="selection_icon">

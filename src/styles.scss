@@ -238,3 +238,19 @@ p {
   font-style: normal;
 }
 
+  ///////////loader/////////////
+  ::ng-deep.stars-line{
+    justify-content: end;
+    z-index: 0 !important;
+  
+  }
+  ::ng-deep.star-full{
+    background-color: #E1AF4F !important;
+  }
+  ::ng-deep.star-empty{
+    background-color: #E1AF4F !important;
+  }
+  ::ng-deep.star-half{
+    background-color: #E1AF4F !important;
+  }
+  
