@@ -45,3 +45,26 @@
     }
   }
 }
+
+
+.accessability_icon{
+  border-radius: 50%;
+  position: fixed;
+  right: 0px;
+  top: 65%;
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: #E1AF4F;
+  background: #fff;
+  width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.accessability_icon i{
+  font-size: 40px;
+}
+.accessability_icon:hover{
+  color: #000;
+  background: #E1AF4F;
+}

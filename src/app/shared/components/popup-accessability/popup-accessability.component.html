@@ -1,0 +1,70 @@
+<div class="popup3_item_idded_to_cart">
+    <div id="popup3_3" class="popup3">
+        <div class="popup3-overlay"></div>
+        <div class="popup3-content ">
+            <a class="close-popup3" data-id="popup3_3" data-animation="scale">&times;</a>
+
+            <div class="cart_added_container">
+                <div class="content">
+                    <div class="popup3_div"  *ngIf="!show_accessability">
+                        <div class="offer_text">
+                            Accessability
+                        </div>
+                        <div class="offer_text2">
+                            Accessibility modes
+                        </div>
+                        <div class="content">
+                            <mat-slide-toggle>
+                                <div class="side_togel_text">
+                                    Epilepsy Safe Mode
+                                </div>
+                                <div class="side_togel_text2">
+                                    Dampens color and removes blinks
+                                </div>
+                            </mat-slide-toggle>
+
+                            <mat-slide-toggle>
+                                <div class="side_togel_text">
+                                    Visually Impaired Mode
+                                </div>
+                                <div class="side_togel_text2">
+                                    Improves website's visuals
+                                </div>
+                            </mat-slide-toggle>
+
+                            <mat-slide-toggle>
+                                <div class="side_togel_text">
+                                    Cognitive Disability Mode
+                                                                </div>
+                                <div class="side_togel_text2">
+                                    Helps to focus on specific content
+                                </div>
+                            </mat-slide-toggle>
+                            <mat-slide-toggle>
+                                <div class="side_togel_text">
+                                    ADHD Friendly Mode
+                                </div>
+                                <div class="side_togel_text2">
+                                    Reduces distractions and improve focus
+                                </div>
+                            </mat-slide-toggle>
+
+
+                        </div>
+                        <div class="content">
+                            <div class="col-12">
+                                <a class="continue_to_shopping" data-id="popup3_3"
+                                    data-animation="scale" (click)="showAccessability()">Accessibility Statement</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="statements" *ngIf="show_accessability">
+                        <div [innerHTML]="accessability.value">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

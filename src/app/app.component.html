@@ -32,6 +32,13 @@ minTime= 300></ngx-ui-loader> -->
 <app-header></app-header>
   <router-outlet></router-outlet>
   <app-sidenav></app-sidenav>
+
+  <div (click)="openAccessability()" class="accessability_icon">
+    <i class="fa-solid fa-universal-access"></i>
+  </div>
+  <div class="accessability_popup_container" *ngIf="accessability_popup">
+    <app-popup-accessability></app-popup-accessability>
+  </div>
 </main>
 
 

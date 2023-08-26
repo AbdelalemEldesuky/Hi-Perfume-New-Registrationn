@@ -68,7 +68,6 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatSliderModule,
-  MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
   MatTableModule,
@@ -77,6 +76,8 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -99,6 +100,7 @@ import { BestSellerHomeComponent } from "../modules/home/best-seller-home/best-s
 import { PopupOfferComponent } from "./components/popup-offer/popup-offer.component";
 import { PaymentInvoiceComponent } from "../modules/payment-form/payment-invoice/payment-invoice.component";
 import { ReferComponent } from "../modules/home/refer/refer.component";
+import { PopupAccessabilityComponent } from "./components/popup-accessability/popup-accessability.component";
 
 // import { ShareButtonsModule } from 'ngx-sharebuttons';
 
@@ -188,6 +190,7 @@ import { ReferComponent } from "../modules/home/refer/refer.component";
     PaymentInvoiceComponent,
     ReferComponent,
     PopupOfferComponent,
+    PopupAccessabilityComponent,
     FooterComponent,
     // NgbCollapseModule,
     IvyCarouselModule,
@@ -286,6 +289,7 @@ import { ReferComponent } from "../modules/home/refer/refer.component";
     BestSellerHomeComponent,
     AddressComponentComponent,
     PopupOfferComponent,
+    PopupAccessabilityComponent,
     FilterComponent,
     BecomePartnersComponent,
     ExtractTextPipe,

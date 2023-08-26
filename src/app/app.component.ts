@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
   radioItems: Array<number>;
   model = { rate: 1 };
   loading = false;
-
+  accessability_popup=false;
   constructor(
     private modalService: BsModalService,
     private router: Router,
@@ -96,7 +96,9 @@ export class AppComponent implements OnInit {
     
   }
 
-  
+  openAccessability() {
+  this.accessability_popup =! this.accessability_popup
+ } 
 
 
 
