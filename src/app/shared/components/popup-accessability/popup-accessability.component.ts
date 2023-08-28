@@ -16,6 +16,7 @@ import {
   share,
 } from "rxjs/operators";
 import { HttpClient, HttpResponse } from "@angular/common/http";
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-popup-accessability',
@@ -163,5 +164,22 @@ getTermConditionsFromApi(pageName) {
 }
 showAccessability(){
   this.show_accessability=true
+}
+
+toggleEpilepsySafeMode(event: MatSlideToggleChange) {
+  const isChecked = event.checked;
+  // Perform actions based on the toggle state
+  if (isChecked) {
+    $('main').addClass('epilepsy-safe-mode');
+
+
+  //   const bodyTag = document.body;
+  // bodyTag.classList.add('epilepsy-safe-mode');
+  // this.renderer.addClass(document.body, 'epilepsy-safe-mode');
+    console.log('Toggle is on');
+  } else {
+    $('main').removeClass('epilepsy-safe-mode');
+
+  }
 }
 }

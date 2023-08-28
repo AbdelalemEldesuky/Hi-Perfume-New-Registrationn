@@ -73,9 +73,20 @@ export class UsersService {
         })
       );
   }
+
+
+  deleteMyAccount() {
+    const headers = new HttpHeaders({
+      'Authorization':  this.userData.access_token
+    });
+    return this.httpClient.post(`${this.baseUrl}deleteMyAccount`, {
+     headers ,
+      observe: 'response'
+    })
+  }
+
   updateUser(body) {
        const headers = new HttpHeaders({
-    
       'Authorization':  localStorage.getItem('muToken')
     });
     return this.httpClient.post(`${this.baseUrl}update_profile`,body, {

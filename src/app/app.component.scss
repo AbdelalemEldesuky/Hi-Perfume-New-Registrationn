@@ -68,3 +68,9 @@
   color: #000;
   background: #E1AF4F;
 }
+
+.epilepsy-safe-mode {
+  filter: grayscale(30%) !important;
+  animation: none !important;
+  transition: none !important;
+}

@@ -593,3 +593,9 @@
 	background-color: #7B7B7B;
     border-radius: 20px;
 }
+
+.epilepsy-safe-mode {
+  filter: grayscale(30%) !important;
+  animation: none !important;
+  transition: none !important;
+}
