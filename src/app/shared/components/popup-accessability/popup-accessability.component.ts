@@ -171,8 +171,6 @@ toggleEpilepsySafeMode(event: MatSlideToggleChange) {
   // Perform actions based on the toggle state
   if (isChecked) {
     $('main').addClass('epilepsy-safe-mode');
-
-
   //   const bodyTag = document.body;
   // bodyTag.classList.add('epilepsy-safe-mode');
   // this.renderer.addClass(document.body, 'epilepsy-safe-mode');
@@ -182,4 +180,23 @@ toggleEpilepsySafeMode(event: MatSlideToggleChange) {
 
   }
 }
+
+toggleHighContrastMode(event: MatSlideToggleChange) {
+  const isChecked = event.checked;
+  // Perform actions based on the toggle state
+  if (isChecked) {
+    $('main').addClass('accessability_HighContrastMod');
+    $('a').addClass('accessability_HighContrastMod');
+  //   const bodyTag = document.body;
+  // bodyTag.classList.add('accessability_HighContrastMod');
+  // this.renderer.addClass(document.body, 'accessability_HighContrastMod');
+    console.log('Toggle is on');
+  } else {
+    $('main').removeClass('accessability_HighContrastMod');
+    $('a').removeClass('accessability_HighContrastMod');
+
+
+  }
+}
+
 }
