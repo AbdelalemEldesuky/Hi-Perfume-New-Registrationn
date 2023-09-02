@@ -232,7 +232,6 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
               this.authService.saveUserPhoneNumber(mobile);
               localStorage.setItem('verifyByEmailAddress','false')
 
-              this.authService.saveUserEmailAddress(resp.body.data.email);
             
               this.toaster.success(resp.body.message);
               setTimeout(() => {
@@ -278,6 +277,7 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
                 this.repsData = resp.body.data;
                 this.authService.saveUserEmailAddress(email);
                 localStorage.setItem('verifyByEmailAddress','true')
+              // this.authService.saveUserEmailAddress(resp.body.data.email);
                 this.toaster.success(resp.body.message);
                 setTimeout(() => {
                   this.router.navigate(['/auth/verify-code']);
